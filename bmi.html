@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleep Quality Assessment - DrMudhiwalla</title>
+    <title>BMI Calculator - DrMudhiwalla</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -108,22 +108,22 @@
         .score-card .hindi-sub { font-size: 16px; color: #64748b; margin-bottom: 28px; }
 
         .global-score-circle { width: 140px; height: 140px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 24px; }
-        .global-score-circle.good { background: #dcfce7; border: 3px solid #22c55e; }
-        .global-score-circle.mild { background: #fef9c3; border: 3px solid #eab308; }
-        .global-score-circle.moderate { background: #ffedd5; border: 3px solid #f97316; }
-        .global-score-circle.severe { background: #fee2e2; border: 3px solid #ef4444; }
+        .global-score-circle.underweight { background: #dbeafe; border: 3px solid #3b82f6; }
+        .global-score-circle.normal { background: #dcfce7; border: 3px solid #22c55e; }
+        .global-score-circle.overweight { background: #fef9c3; border: 3px solid #eab308; }
+        .global-score-circle.obese { background: #fee2e2; border: 3px solid #ef4444; }
         .global-score-num { font-size: 42px; font-weight: 800; line-height: 1; }
-        .global-score-num.good { color: #16a34a; }
-        .global-score-num.mild { color: #ca8a04; }
-        .global-score-num.moderate { color: #ea580c; }
-        .global-score-num.severe { color: #dc2626; }
+        .global-score-num.underweight { color: #2563eb; }
+        .global-score-num.normal { color: #16a34a; }
+        .global-score-num.overweight { color: #ca8a04; }
+        .global-score-num.obese { color: #dc2626; }
         .global-score-max { font-size: 13px; color: #94a3b8; font-weight: 500; }
 
         .score-interpretation { font-size: 15px; font-weight: 600; margin-bottom: 28px; padding: 10px 20px; border-radius: 10px; display: inline-block; }
-        .score-interpretation.good { background: #dcfce7; color: #16a34a; }
-        .score-interpretation.mild { background: #fef9c3; color: #ca8a04; }
-        .score-interpretation.moderate { background: #ffedd5; color: #ea580c; }
-        .score-interpretation.severe { background: #fee2e2; color: #dc2626; }
+        .score-interpretation.underweight { background: #dbeafe; color: #2563eb; }
+        .score-interpretation.normal { background: #dcfce7; color: #16a34a; }
+        .score-interpretation.overweight { background: #fef9c3; color: #ca8a04; }
+        .score-interpretation.obese { background: #fee2e2; color: #dc2626; }
 
         .components-list { text-align: left; margin-bottom: 28px; }
         .component-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
@@ -232,20 +232,17 @@
             <div class="progress-bar">
                 <div class="progress-step active" data-step="0"></div>
                 <div class="progress-step" data-step="1"></div>
-                <div class="progress-step" data-step="2"></div>
-                <div class="progress-step" data-step="3"></div>
-                <div class="progress-step" data-step="4"></div>
             </div>
-            <div class="page-indicator">Page <span id="currentPage">1</span> of 5</div>
+            <div class="page-indicator">Page <span id="currentPage">1</span> of 2</div>
 
             <!-- Section 1: Intro -->
             <div class="form-section active" id="section-0">
                 <div class="intro-section">
-                    <div class="intro-icon">&#x1F311;</div>
-                    <h2>Sleep Quality Assessment</h2>
-                    <div class="hindi-title">(पिछले 1 महीने की नींद का आकलन)</div>
-                    <p>The following questions relate to your usual sleep habits during the past one month. Please answer based on your experience during most days and nights.</p>
-                    <p class="hindi-desc">निम्नलिखित प्रश्न पिछले 1 महीने के दौरान आपकी सामान्य नींद की आदतों से संबंधित हैं। कृपया अधिकांश दिनों और रातों के अनुभव के आधार पर उत्तर दें।</p>
+                    <div class="intro-icon">&#x1F4CA;</div>
+                    <h2>BMI Calculator</h2>
+                    <div class="hindi-title">(बॉडी मास इंडेक्स कैलकुलेटर)</div>
+                    <p>Body Mass Index (BMI) is a simple calculation using a person's height and weight to categorize them into weight status categories. Enter your details below to find out your BMI.</p>
+                    <p class="hindi-desc">बॉडी मास इंडेक्स (BMI) वजन और ऊंचाई का उपयोग करके की जाने वाली एक सरल गणना है जो व्यक्ति को वजन स्थिति श्रेणियों में वर्गीकृत करती है। अपना BMI जानने के लिए नीचे अपनी जानकारी दर्ज करें।</p>
                 </div>
                 <div class="btn-row" style="justify-content: flex-end;">
                     <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
@@ -263,13 +260,11 @@
                     <input type="number" class="text-input" id="q-age" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">Working status <span class="hindi">क्या करते हैं आप</span> <span class="required">*</span></div>
+                    <div class="field-label">Gender <span class="hindi">लिंग</span> <span class="required">*</span></div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="work-status" value="dont-wish"><span class="radio-circle"></span><span class="radio-label">Don't wish to mention</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="salaried"><span class="radio-circle"></span><span class="radio-label">Salaried Job</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="business"><span class="radio-circle"></span><span class="radio-label">Own Work or Business</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="studying"><span class="radio-circle"></span><span class="radio-label">Studying</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="others"><span class="radio-circle"></span><span class="radio-label">Others</span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="male"><span class="radio-circle"></span><span class="radio-label">Male <span class="hindi-option">पुरुष</span></span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="female"><span class="radio-circle"></span><span class="radio-label">Female <span class="hindi-option">महिला</span></span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="other"><span class="radio-circle"></span><span class="radio-label">Other <span class="hindi-option">अन्य</span></span></label>
                     </div>
                 </div>
                 <div class="btn-row">
@@ -278,81 +273,19 @@
                 </div>
             </div>
 
-            <!-- Section 3: Sleep Times -->
+            <!-- Section 3: Height & Weight -->
             <div class="form-section" id="section-2">
                 <div class="field-group">
-                    <div class="field-label">What time do you usually go to bed at night? <span class="required">*</span></div>
-                    <div class="field-hint">पिछले 1 महीने में आप सामान्यतः रात को किस समय सोने जाते हैं?</div>
-                    <div class="time-input-group">
-                        <input type="text" class="time-input" id="bed-hh" maxlength="2" placeholder="HH" data-max="12" data-min="1">
-                        <span class="time-separator">:</span>
-                        <input type="text" class="time-input" id="bed-mm" maxlength="2" placeholder="MM" data-max="59" data-min="0">
-                        <select class="ampm-select" id="bed-ampm">
-                            <option value="AM">AM</option>
-                            <option value="PM" selected>PM</option>
-                        </select>
-                    </div>
+                    <div class="field-label">Height (cm) <span class="hindi">ऊंचाई (सेमी)</span> <span class="required">*</span></div>
+                    <div class="field-hint">Enter your height in centimeters. Ex- 170</div>
+                    <div class="field-hint" style="margin-bottom: 12px;">अपनी ऊंचाई सेंटीमीटर में दर्ज करें। उदाहरण: 170</div>
+                    <input type="number" class="text-input" id="q-height" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">What time do you usually wake up in the morning? <span class="required">*</span></div>
-                    <div class="field-hint">पिछले 1 महीने में आप सामान्यतः सुबह किस समय उठते हैं?</div>
-                    <div class="time-input-group">
-                        <input type="text" class="time-input" id="wake-hh" maxlength="2" placeholder="HH" data-max="12" data-min="1">
-                        <span class="time-separator">:</span>
-                        <input type="text" class="time-input" id="wake-mm" maxlength="2" placeholder="MM" data-max="59" data-min="0">
-                        <select class="ampm-select" id="wake-ampm">
-                            <option value="AM" selected>AM</option>
-                            <option value="PM">PM</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="btn-row">
-                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
-                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
-                </div>
-            </div>
-
-            <!-- Section 4: Sleep Duration -->
-            <div class="form-section" id="section-3">
-                <div class="field-group">
-                    <div class="field-label">How many minutes does it usually take you to fall asleep? <span class="required">*</span></div>
-                    <div class="field-hint">Ex- 20 or 30 minutes</div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आपको सामान्यतः सोने में कितने मिनट लगते हैं? 20 या 30 मिनट</div>
-                    <input type="number" class="text-input" id="q-latency" placeholder="Your answer" required>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">On average, how many hours of actual sleep do you get each night? <span class="required">*</span></div>
-                    <div class="field-hint">Ex- 6.5 hours</div>
-                    <div class="field-hint" style="margin-bottom: 12px;">औसतन आपको प्रतिदिन रात में कितने घंटे की वास्तविक नींद मिलती है? उदाहरण: 6.5 घंटे</div>
-                    <input type="number" step="0.5" class="text-input" id="q-duration" placeholder="Your answer" required>
-                </div>
-                <div class="btn-row">
-                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
-                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
-                </div>
-            </div>
-
-            <!-- Section 5: Sleep Quality -->
-            <div class="form-section" id="section-4">
-                <div class="field-group">
-                    <div class="field-label">During the past month, how often did you wake up in the middle of the night or very early in the morning? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में आप कितनी बार रात में बीच में या बहुत सुबह जाग गए?</div>
-                    <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="waking" value="0"><span class="radio-circle"></span><span class="radio-label">Not during the past month <span class="hindi-option">पिछले 1 महीने में नहीं</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="1"><span class="radio-circle"></span><span class="radio-label">Less than once a week <span class="hindi-option">सप्ताह में 1 बार से कम</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="2"><span class="radio-circle"></span><span class="radio-label">Once or twice a week <span class="hindi-option">सप्ताह में 1–2 बार</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="3"><span class="radio-circle"></span><span class="radio-label">Three or more times a week <span class="hindi-option">सप्ताह में 3 या अधिक बार</span></span></label>
-                    </div>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">How would you rate your overall sleep quality? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आप अपनी कुल नींद की गुणवत्ता को कैसे आंकेंगे?</div>
-                    <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="quality" value="0"><span class="radio-circle"></span><span class="radio-label">Very Good <span class="hindi-option">बहुत अच्छी</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="1"><span class="radio-circle"></span><span class="radio-label">Fairly Good <span class="hindi-option">अच्छी</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="2"><span class="radio-circle"></span><span class="radio-label">Fairly Bad <span class="hindi-option">खराब</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="3"><span class="radio-circle"></span><span class="radio-label">Very Bad <span class="hindi-option">बहुत खराब</span></span></label>
-                    </div>
+                    <div class="field-label">Weight (kg) <span class="hindi">वजन (किलो)</span> <span class="required">*</span></div>
+                    <div class="field-hint">Enter your weight in kilograms. Ex- 65</div>
+                    <div class="field-hint" style="margin-bottom: 12px;">अपना वजन किलोग्राम में दर्ज करें। उदाहरण: 65</div>
+                    <input type="number" class="text-input" id="q-weight" placeholder="Your answer" required>
                 </div>
                 <div class="btn-row">
                     <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
@@ -368,12 +301,12 @@
     <div class="score-overlay" id="scoreOverlay">
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
         <div class="score-card">
-            <h2>Your Sleep Quality Score</h2>
-            <div class="hindi-sub">आपका नींद गुणवत्ता स्कोर</div>
+            <h2>Your BMI Result</h2>
+            <div class="hindi-sub">आपका BMI परिणाम</div>
 
             <div class="global-score-circle" id="scoreCircle">
                 <div class="global-score-num" id="scoreNum">0</div>
-                <div class="global-score-max">/ 15</div>
+                <div class="global-score-max">kg/m&sup2;</div>
             </div>
 
             <div class="score-interpretation" id="scoreInterp"></div>
@@ -381,9 +314,12 @@
             <div class="components-list" id="componentsList"></div>
 
             <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                Based on the Pittsburgh Sleep Quality Index (PSQI) adapted scoring method.<br>
-                पिट्सबर्ग स्लीप क्वालिटी इंडेक्स (PSQI) अनुकूलित स्कोरिंग विधि पर आधारित।<br>
-                <strong>0–3</strong> Healthy Sleep &nbsp;|&nbsp; <strong>4–6</strong> Needs Attention &nbsp;|&nbsp; <strong>7–15</strong> Poor Sleep Quality
+                Healthy BMI Range: <strong>18.5 - 24.9</strong><br>
+                स्वस्थ BMI सीमा: <strong>18.5 - 24.9</strong><br>
+                <span style="color: #3b82f6;">Underweight (&lt;18.5)</span> &nbsp;|&nbsp;
+                <span style="color: #16a34a;">Normal (18.5-24.9)</span> &nbsp;|&nbsp;
+                <span style="color: #ca8a04;">Overweight (25-29.9)</span> &nbsp;|&nbsp;
+                <span style="color: #dc2626;">Obese (30+)</span>
             </div>
 
             <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
@@ -407,7 +343,7 @@
 
     <script>
         let currentSection = 0;
-        const totalSections = 5;
+        const totalSections = 3;
 
         function updateUI() {
             document.querySelectorAll('.form-section').forEach((s, i) => {
@@ -451,15 +387,15 @@
                 const age = document.getElementById('q-age');
                 if (!age.value.trim()) { showError(age, 'Please enter your age'); valid = false; }
 
-                if (!document.querySelector('input[name="work-status"]:checked')) {
-                    const workLabel = section.querySelector('.radio-group');
-                    workLabel.classList.add('error');
-                    let errEl = workLabel.parentElement.querySelector('.error-msg');
+                if (!document.querySelector('input[name="gender"]:checked')) {
+                    const genderGroup = section.querySelector('.radio-group');
+                    genderGroup.classList.add('error');
+                    let errEl = genderGroup.parentElement.querySelector('.error-msg');
                     if (!errEl) {
                         errEl = document.createElement('div');
                         errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please select your working status';
-                        workLabel.parentElement.appendChild(errEl);
+                        errEl.textContent = 'Please select your gender';
+                        genderGroup.parentElement.appendChild(errEl);
                     } else {
                         errEl.classList.add('show');
                     }
@@ -468,63 +404,18 @@
             }
 
             if (index === 2) {
-                const bedHH = document.getElementById('bed-hh');
-                const bedMM = document.getElementById('bed-mm');
-                const wakeHH = document.getElementById('wake-hh');
-                const wakeMM = document.getElementById('wake-mm');
-
-                [bedHH, bedMM, wakeHH, wakeMM].forEach(el => {
-                    if (!el.value.trim()) { showError(el, 'Required'); valid = false; }
-                });
-
-                const hh = [bedHH, wakeHH];
-                const mm = [bedMM, wakeMM];
-
-                hh.forEach(el => {
-                    const v = parseInt(el.value);
-                    if (el.value && (isNaN(v) || v < 1 || v > 12)) { showError(el, 'Hour: 1–12'); valid = false; }
-                });
-
-                mm.forEach(el => {
-                    const v = parseInt(el.value);
-                    if (el.value && (isNaN(v) || v < 0 || v > 59)) { showError(el, 'Minute: 0–59'); valid = false; }
-                });
-            }
-
-            if (index === 3) {
-                const latency = document.getElementById('q-latency');
-                if (!latency.value.trim()) { showError(latency, 'Please enter sleep latency'); valid = false; }
-
-                const duration = document.getElementById('q-duration');
-                if (!duration.value.trim()) { showError(duration, 'Please enter sleep duration'); valid = false; }
-            }
-
-            if (index === 4) {
-                if (!document.querySelector('input[name="waking"]:checked')) {
-                    const wakeGroup = section.querySelector('.radio-group');
-                    let errEl = wakeGroup.parentElement.querySelector('.error-msg');
-                    if (!errEl) {
-                        errEl = document.createElement('div');
-                        errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please select how often you wake up';
-                        wakeGroup.parentElement.appendChild(errEl);
-                    } else {
-                        errEl.classList.add('show');
-                    }
-                    valid = false;
+                const height = document.getElementById('q-height');
+                if (!height.value.trim()) { showError(height, 'Please enter your height'); valid = false; }
+                else {
+                    const h = parseFloat(height.value);
+                    if (isNaN(h) || h <= 0 || h > 300) { showError(height, 'Please enter a valid height (1-300 cm)'); valid = false; }
                 }
-                if (!document.querySelector('input[name="quality"]:checked')) {
-                    const qualGroup = section.querySelectorAll('.radio-group')[1];
-                    let errEl = qualGroup.parentElement.querySelector('.error-msg');
-                    if (!errEl) {
-                        errEl = document.createElement('div');
-                        errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please rate your sleep quality';
-                        qualGroup.parentElement.appendChild(errEl);
-                    } else {
-                        errEl.classList.add('show');
-                    }
-                    valid = false;
+
+                const weight = document.getElementById('q-weight');
+                if (!weight.value.trim()) { showError(weight, 'Please enter your weight'); valid = false; }
+                else {
+                    const w = parseFloat(weight.value);
+                    if (isNaN(w) || w <= 0 || w > 500) { showError(weight, 'Please enter a valid weight (1-500 kg)'); valid = false; }
                 }
             }
 
@@ -546,114 +437,61 @@
             }
         }
 
-        // Sleep Quality Scoring Logic (0-15 scale, 5 components)
-        function calculateScore() {
-            // Component 1: Subjective Sleep Quality (0-3)
-            const qualityVal = document.querySelector('input[name="quality"]:checked');
-            const comp1 = qualityVal ? parseInt(qualityVal.value) : 0;
-
-            // Component 2: Sleep Latency (0-3)
-            const latency = parseInt(document.getElementById('q-latency').value) || 0;
-            let comp2;
-            if (latency <= 15) comp2 = 0;
-            else if (latency <= 30) comp2 = 1;
-            else if (latency <= 60) comp2 = 2;
-            else comp2 = 3;
-
-            // Component 3: Sleep Duration (0-3)
-            const duration = parseFloat(document.getElementById('q-duration').value) || 0;
-            let comp3;
-            if (duration > 7) comp3 = 0;
-            else if (duration >= 6) comp3 = 1;
-            else if (duration >= 5) comp3 = 2;
-            else comp3 = 3;
-
-            // Component 4: Habitual Sleep Efficiency (0-3)
-            const bedHH = parseInt(document.getElementById('bed-hh').value) || 0;
-            const bedMM = parseInt(document.getElementById('bed-mm').value) || 0;
-            const bedAMPM = document.getElementById('bed-ampm').value;
-            const wakeHH = parseInt(document.getElementById('wake-hh').value) || 0;
-            const wakeMM = parseInt(document.getElementById('wake-mm').value) || 0;
-            const wakeAMPM = document.getElementById('wake-ampm').value;
-
-            let bedHour24 = bedHH;
-            if (bedAMPM === 'PM' && bedHH !== 12) bedHour24 += 12;
-            if (bedAMPM === 'AM' && bedHH === 12) bedHour24 = 0;
-
-            let wakeHour24 = wakeHH;
-            if (wakeAMPM === 'PM' && wakeHH !== 12) wakeHour24 += 12;
-            if (wakeAMPM === 'AM' && wakeHH === 12) wakeHour24 = 0;
-
-            let timeInBed;
-            if (wakeHour24 > bedHour24) {
-                timeInBed = (wakeHour24 - bedHour24) + (wakeMM - bedMM) / 60;
-            } else {
-                timeInBed = (24 - bedHour24 + wakeHour24) + (wakeMM - bedMM) / 60;
-            }
-
-            let comp4;
-            if (timeInBed > 0) {
-                const efficiency = (duration / timeInBed) * 100;
-                if (efficiency >= 85) comp4 = 0;
-                else if (efficiency >= 75) comp4 = 1;
-                else if (efficiency >= 65) comp4 = 2;
-                else comp4 = 3;
-            } else {
-                comp4 = 0;
-            }
-
-            // Component 5: Sleep Disturbances (0-3)
-            const wakingVal = document.querySelector('input[name="waking"]:checked');
-            const comp5 = wakingVal ? parseInt(wakingVal.value) : 0;
-
-            const globalScore = comp1 + comp2 + comp3 + comp4 + comp5;
-
-            return {
-                global: globalScore,
-                components: [
-                    { name: 'Subjective Sleep Quality', score: comp1, max: 3 },
-                    { name: 'Sleep Latency', score: comp2, max: 3 },
-                    { name: 'Sleep Duration', score: comp3, max: 3 },
-                    { name: 'Habitual Sleep Efficiency', score: comp4, max: 3 },
-                    { name: 'Sleep Disturbances', score: comp5, max: 3 }
-                ]
-            };
+        function calculateBMI() {
+            const heightCm = parseFloat(document.getElementById('q-height').value);
+            const weightKg = parseFloat(document.getElementById('q-weight').value);
+            const heightM = heightCm / 100;
+            const bmi = weightKg / (heightM * heightM);
+            return Math.round(bmi * 10) / 10;
         }
 
-        function getInterpretation(score) {
-            if (score <= 3) return { text: 'Healthy Sleep', class: 'good', hindi: 'स्वस्थ नींद' };
-            if (score <= 6) return { text: 'Needs Attention', class: 'mild', hindi: 'ध्यान देने की आवश्यकता' };
-            return { text: 'Poor Sleep Quality', class: 'severe', hindi: 'खराब नींद की गुणवत्ता' };
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) return { text: 'Underweight', hindi: 'कम वजन', class: 'underweight' };
+            if (bmi < 25) return { text: 'Normal', hindi: 'सामान्य', class: 'normal' };
+            if (bmi < 30) return { text: 'Overweight', hindi: 'अधिक वजन', class: 'overweight' };
+            return { text: 'Obese', hindi: 'मोटापा', class: 'obese' };
         }
 
         function submitForm() {
             if (!validateSection(currentSection)) return;
-            const result = calculateScore();
-            const interp = getInterpretation(result.global);
+            const bmi = calculateBMI();
+            const category = getBMICategory(bmi);
 
-            // Update score circle
             const circle = document.getElementById('scoreCircle');
-            circle.className = 'global-score-circle ' + interp.class;
+            circle.className = 'global-score-circle ' + category.class;
 
             const num = document.getElementById('scoreNum');
-            num.className = 'global-score-num ' + interp.class;
-            num.textContent = result.global;
+            num.className = 'global-score-num ' + category.class;
+            num.textContent = bmi.toFixed(1);
 
-            // Update interpretation
             const interpEl = document.getElementById('scoreInterp');
-            interpEl.className = 'score-interpretation ' + interp.class;
-            interpEl.textContent = interp.text + ' — ' + interp.hindi;
+            interpEl.className = 'score-interpretation ' + category.class;
+            interpEl.textContent = category.text + ' — ' + category.hindi;
 
-            // Update components list
+            const heightCm = parseFloat(document.getElementById('q-height').value);
+            const weightKg = parseFloat(document.getElementById('q-weight').value);
+            const heightM = (heightCm / 100).toFixed(2);
+
             const list = document.getElementById('componentsList');
-            list.innerHTML = result.components.map(c =>
-                `<div class="component-row">
-                    <span class="component-name">${c.name}</span>
-                    <span class="component-score">${c.score} / ${c.max}</span>
-                </div>`
-            ).join('');
+            list.innerHTML = `
+                <div class="component-row">
+                    <span class="component-name">Height</span>
+                    <span class="component-score">${heightCm} cm (${heightM} m)</span>
+                </div>
+                <div class="component-row">
+                    <span class="component-name">Weight</span>
+                    <span class="component-score">${weightKg} kg</span>
+                </div>
+                <div class="component-row">
+                    <span class="component-name">BMI Formula</span>
+                    <span class="component-score">${weightKg} &divide; (${heightM})&sup2;</span>
+                </div>
+                <div class="component-row">
+                    <span class="component-name">BMI Value</span>
+                    <span class="component-score">${bmi.toFixed(1)} kg/m&sup2;</span>
+                </div>
+            `;
 
-            // Show overlay
             document.getElementById('scoreOverlay').classList.add('active');
         }
 
@@ -661,7 +499,7 @@
             document.getElementById('scoreOverlay').classList.remove('active');
         }
 
-        document.querySelectorAll('.text-input, .time-input').forEach(input => {
+        document.querySelectorAll('.text-input').forEach(input => {
             input.addEventListener('input', () => {
                 input.classList.remove('field-error');
                 const err = input.parentElement.querySelector('.error-msg');
@@ -677,30 +515,6 @@
                     const err = group.parentElement.querySelector('.error-msg');
                     if (err) err.classList.remove('show');
                 }
-            });
-        });
-
-        document.querySelectorAll('.time-input').forEach(input => {
-            input.addEventListener('input', (e) => {
-                let val = e.target.value.replace(/[^0-9]/g, '');
-                if (val.length > 2) val = val.slice(0, 2);
-                const max = parseInt(input.dataset.max);
-                const min = parseInt(input.dataset.min);
-                if (val && parseInt(val) > max) val = String(max);
-                if (val && parseInt(val) < min && val.length === 2) val = String(min);
-                e.target.value = val;
-                input.classList.remove('field-error');
-                const err = input.parentElement.querySelector('.error-msg');
-                if (err) err.remove();
-            });
-
-            input.addEventListener('blur', (e) => {
-                const max = parseInt(input.dataset.max);
-                const min = parseInt(input.dataset.min);
-                let val = parseInt(e.target.value);
-                if (isNaN(val) || val < min) e.target.value = String(min);
-                if (val > max) e.target.value = String(max);
-                if (e.target.value.length === 1 && e.target.id.includes('-hh')) e.target.value = e.target.value.padStart(2, '0');
             });
         });
 

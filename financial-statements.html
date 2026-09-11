@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Statements - DrMudhiwalla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .text-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        .logo-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #02d1fa;
+        }
+        .logo-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            color: #02d1fa;
+            text-align: right;
+            margin-top: -5px;
+        }
+        .badge {
+            background: #1a7f37;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .doc {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            max-width: 700px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .doc embed {
+            width: 100%;
+            height: 80vh;
+            display: block;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #888;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            .text-logo { top: 15px; left: 15px; }
+            .logo-title { font-size: 1.5rem; }
+            .logo-subtitle { font-size: 0.8rem; }
+            .badge { font-size: 12px; padding: 6px 16px; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .text-logo { top: 10px; left: 10px; }
+            .logo-title { font-size: 1.3rem; }
+            .logo-subtitle { font-size: 0.7rem; }
+            .badge { font-size: 11px; padding: 5px 12px; }
+            .footer { font-size: 10px; }
+            .doc embed { height: 60vh; }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-logo">
+        <div class="logo-title">DrMudhiwalla</div>
+        <div class="logo-subtitle">HealthTech</div>
+    </div>
+    <div class="badge">FINANCIAL STATEMENTS</div>
+    <div class="doc">
+        <embed src="FY25-26 Financial Statements .pdf" type="application/pdf">
+    </div>
+    <div class="footer">DrMudhiwalla HealthTech Pvt Ltd</div>
+</body>
+</html>
