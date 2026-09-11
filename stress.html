@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleep Quality Assessment - DrMudhiwalla</title>
+    <title>Stress Assessment - DrMudhiwalla</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -233,19 +233,17 @@
                 <div class="progress-step active" data-step="0"></div>
                 <div class="progress-step" data-step="1"></div>
                 <div class="progress-step" data-step="2"></div>
-                <div class="progress-step" data-step="3"></div>
-                <div class="progress-step" data-step="4"></div>
             </div>
-            <div class="page-indicator">Page <span id="currentPage">1</span> of 5</div>
+            <div class="page-indicator">Page <span id="currentPage">1</span> of 3</div>
 
             <!-- Section 1: Intro -->
             <div class="form-section active" id="section-0">
                 <div class="intro-section">
                     <div class="intro-icon">&#x1F311;</div>
-                    <h2>Sleep Quality Assessment</h2>
-                    <div class="hindi-title">(पिछले 1 महीने की नींद का आकलन)</div>
-                    <p>The following questions relate to your usual sleep habits during the past one month. Please answer based on your experience during most days and nights.</p>
-                    <p class="hindi-desc">निम्नलिखित प्रश्न पिछले 1 महीने के दौरान आपकी सामान्य नींद की आदतों से संबंधित हैं। कृपया अधिकांश दिनों और रातों के अनुभव के आधार पर उत्तर दें।</p>
+                    <h2>Stress Assessment</h2>
+                    <div class="hindi-title">(तनाव मूल्यांकन)</div>
+                    <p>The following questions ask about your feelings and thoughts during the last month. In each case, please indicate how often you have felt or thought in a certain way.</p>
+                    <p class="hindi-desc">निम्नलिखित प्रश्न पिछले 1 महीने के दौरान आपकी भावनाओं और विचारों के बारे में पूछते हैं। कृपया बताएं कि पिछले 1 महीने में आप कितनी बार किसी निश्चित तरीके से महसूस करते हैं या सोचते हैं।</p>
                 </div>
                 <div class="btn-row" style="justify-content: flex-end;">
                     <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
@@ -263,13 +261,11 @@
                     <input type="number" class="text-input" id="q-age" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">Working status <span class="hindi">क्या करते हैं आप</span> <span class="required">*</span></div>
+                    <div class="field-label">Gender <span class="hindi">लिंग</span> <span class="required">*</span></div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="work-status" value="dont-wish"><span class="radio-circle"></span><span class="radio-label">Don't wish to mention</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="salaried"><span class="radio-circle"></span><span class="radio-label">Salaried Job</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="business"><span class="radio-circle"></span><span class="radio-label">Own Work or Business</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="studying"><span class="radio-circle"></span><span class="radio-label">Studying</span></label>
-                        <label class="radio-option"><input type="radio" name="work-status" value="others"><span class="radio-circle"></span><span class="radio-label">Others</span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="male"><span class="radio-circle"></span><span class="radio-label">Male <span class="hindi-option">पुरुष</span></span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="female"><span class="radio-circle"></span><span class="radio-label">Female <span class="hindi-option">महिला</span></span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="other"><span class="radio-circle"></span><span class="radio-label">Other <span class="hindi-option">अन्य</span></span></label>
                     </div>
                 </div>
                 <div class="btn-row">
@@ -278,80 +274,50 @@
                 </div>
             </div>
 
-            <!-- Section 3: Sleep Times -->
+            <!-- Section 3: Stress Questions -->
             <div class="form-section" id="section-2">
                 <div class="field-group">
-                    <div class="field-label">What time do you usually go to bed at night? <span class="required">*</span></div>
-                    <div class="field-hint">पिछले 1 महीने में आप सामान्यतः रात को किस समय सोने जाते हैं?</div>
-                    <div class="time-input-group">
-                        <input type="text" class="time-input" id="bed-hh" maxlength="2" placeholder="HH" data-max="12" data-min="1">
-                        <span class="time-separator">:</span>
-                        <input type="text" class="time-input" id="bed-mm" maxlength="2" placeholder="MM" data-max="59" data-min="0">
-                        <select class="ampm-select" id="bed-ampm">
-                            <option value="AM">AM</option>
-                            <option value="PM" selected>PM</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">What time do you usually wake up in the morning? <span class="required">*</span></div>
-                    <div class="field-hint">पिछले 1 महीने में आप सामान्यतः सुबह किस समय उठते हैं?</div>
-                    <div class="time-input-group">
-                        <input type="text" class="time-input" id="wake-hh" maxlength="2" placeholder="HH" data-max="12" data-min="1">
-                        <span class="time-separator">:</span>
-                        <input type="text" class="time-input" id="wake-mm" maxlength="2" placeholder="MM" data-max="59" data-min="0">
-                        <select class="ampm-select" id="wake-ampm">
-                            <option value="AM" selected>AM</option>
-                            <option value="PM">PM</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="btn-row">
-                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
-                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
-                </div>
-            </div>
-
-            <!-- Section 4: Sleep Duration -->
-            <div class="form-section" id="section-3">
-                <div class="field-group">
-                    <div class="field-label">How many minutes does it usually take you to fall asleep? <span class="required">*</span></div>
-                    <div class="field-hint">Ex- 20 or 30 minutes</div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आपको सामान्यतः सोने में कितने मिनट लगते हैं? 20 या 30 मिनट</div>
-                    <input type="number" class="text-input" id="q-latency" placeholder="Your answer" required>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">On average, how many hours of actual sleep do you get each night? <span class="required">*</span></div>
-                    <div class="field-hint">Ex- 6.5 hours</div>
-                    <div class="field-hint" style="margin-bottom: 12px;">औसतन आपको प्रतिदिन रात में कितने घंटे की वास्तविक नींद मिलती है? उदाहरण: 6.5 घंटे</div>
-                    <input type="number" step="0.5" class="text-input" id="q-duration" placeholder="Your answer" required>
-                </div>
-                <div class="btn-row">
-                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
-                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
-                </div>
-            </div>
-
-            <!-- Section 5: Sleep Quality -->
-            <div class="form-section" id="section-4">
-                <div class="field-group">
-                    <div class="field-label">During the past month, how often did you wake up in the middle of the night or very early in the morning? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में आप कितनी बार रात में बीच में या बहुत सुबह जाग गए?</div>
+                    <div class="field-label">In the last month, how often have you been upset because of something that happened unexpectedly? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, अप्रत्याशित रूप से कुछ घटित होने के कारण आप कितनी बार परेशान हुए हैं?</div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="waking" value="0"><span class="radio-circle"></span><span class="radio-label">Not during the past month <span class="hindi-option">पिछले 1 महीने में नहीं</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="1"><span class="radio-circle"></span><span class="radio-label">Less than once a week <span class="hindi-option">सप्ताह में 1 बार से कम</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="2"><span class="radio-circle"></span><span class="radio-label">Once or twice a week <span class="hindi-option">सप्ताह में 1–2 बार</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="3"><span class="radio-circle"></span><span class="radio-label">Three or more times a week <span class="hindi-option">सप्ताह में 3 या अधिक बार</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q1" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q1" value="1"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q1" value="2"><span class="radio-circle"></span><span class="radio-label">Sometimes <span class="hindi-option">कभी-कभी</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q1" value="3"><span class="radio-circle"></span><span class="radio-label">Fairly Often <span class="hindi-option">काफी अक्सर</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q1" value="4"><span class="radio-circle"></span><span class="radio-label">Very Often <span class="hindi-option">बहुत अक्सर</span></span></label>
                     </div>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">How would you rate your overall sleep quality? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आप अपनी कुल नींद की गुणवत्ता को कैसे आंकेंगे?</div>
+                    <div class="field-label">In the last month, how often have you felt that you were unable to control the important things in your life? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आपके जीवन की महत्वपूर्ण बातों को नियंत्रित करने में असमर्थ महसूस करने की कितनी बार?</div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="quality" value="0"><span class="radio-circle"></span><span class="radio-label">Very Good <span class="hindi-option">बहुत अच्छी</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="1"><span class="radio-circle"></span><span class="radio-label">Fairly Good <span class="hindi-option">अच्छी</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="2"><span class="radio-circle"></span><span class="radio-label">Fairly Bad <span class="hindi-option">खराब</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="3"><span class="radio-circle"></span><span class="radio-label">Very Bad <span class="hindi-option">बहुत खराब</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q2" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q2" value="1"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q2" value="2"><span class="radio-circle"></span><span class="radio-label">Sometimes <span class="hindi-option">कभी-कभी</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q2" value="3"><span class="radio-circle"></span><span class="radio-label">Fairly Often <span class="hindi-option">काफी अक्सर</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q2" value="4"><span class="radio-circle"></span><span class="radio-label">Very Often <span class="hindi-option">बहुत अक्सर</span></span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">In the last month, how often have you felt nervous and stressed? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आप कितनी बार घबराया हुआ और तनावग्रस्त महसूस करते हैं?</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="stress-q3" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q3" value="1"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q3" value="2"><span class="radio-circle"></span><span class="radio-label">Sometimes <span class="hindi-option">कभी-कभी</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q3" value="3"><span class="radio-circle"></span><span class="radio-label">Fairly Often <span class="hindi-option">काफी अक्सर</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q3" value="4"><span class="radio-circle"></span><span class="radio-label">Very Often <span class="hindi-option">बहुत अक्सर</span></span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">In the last month, how often have you felt confident about your ability to handle your personal problems? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आप अपनी व्यक्तिगत समस्याओं को संभालने की क्षमता के बारे में कितनी बार आत्मविश्वास महसूस करते हैं?</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="4"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="3"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="2"><span class="radio-circle"></span><span class="radio-label">Sometimes <span class="hindi-option">कभी-कभी</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="1"><span class="radio-circle"></span><span class="radio-label">Fairly Often <span class="hindi-option">काफी अक्सर</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="0"><span class="radio-circle"></span><span class="radio-label">Very Often <span class="hindi-option">बहुत अक्सर</span></span></label>
                     </div>
                 </div>
                 <div class="btn-row">
@@ -368,12 +334,12 @@
     <div class="score-overlay" id="scoreOverlay">
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
         <div class="score-card">
-            <h2>Your Sleep Quality Score</h2>
-            <div class="hindi-sub">आपका नींद गुणवत्ता स्कोर</div>
+            <h2>Your Stress Score</h2>
+            <div class="hindi-sub">आपका तनाव स्कोर</div>
 
             <div class="global-score-circle" id="scoreCircle">
                 <div class="global-score-num" id="scoreNum">0</div>
-                <div class="global-score-max">/ 15</div>
+                <div class="global-score-max">/ 16</div>
             </div>
 
             <div class="score-interpretation" id="scoreInterp"></div>
@@ -381,9 +347,9 @@
             <div class="components-list" id="componentsList"></div>
 
             <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                Based on the Pittsburgh Sleep Quality Index (PSQI) adapted scoring method.<br>
-                पिट्सबर्ग स्लीप क्वालिटी इंडेक्स (PSQI) अनुकूलित स्कोरिंग विधि पर आधारित।<br>
-                <strong>0–3</strong> Healthy Sleep &nbsp;|&nbsp; <strong>4–6</strong> Needs Attention &nbsp;|&nbsp; <strong>7–15</strong> Poor Sleep Quality
+                Based on the Perceived Stress Scale (PSS-4) scoring method.<br>
+                परसिव्ड स्ट्रेस स्केल (PSS-4) स्कोरिंग विधि पर आधारित।<br>
+                <strong>0–4</strong> Low Stress &nbsp;|&nbsp; <strong>5–8</strong> Moderate Stress &nbsp;|&nbsp; <strong>9–12</strong> High Stress &nbsp;|&nbsp; <strong>13–16</strong> Very High Stress
             </div>
 
             <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
@@ -407,7 +373,7 @@
 
     <script>
         let currentSection = 0;
-        const totalSections = 5;
+        const totalSections = 3;
 
         function updateUI() {
             document.querySelectorAll('.form-section').forEach((s, i) => {
@@ -451,15 +417,15 @@
                 const age = document.getElementById('q-age');
                 if (!age.value.trim()) { showError(age, 'Please enter your age'); valid = false; }
 
-                if (!document.querySelector('input[name="work-status"]:checked')) {
-                    const workLabel = section.querySelector('.radio-group');
-                    workLabel.classList.add('error');
-                    let errEl = workLabel.parentElement.querySelector('.error-msg');
+                if (!document.querySelector('input[name="gender"]:checked')) {
+                    const genderLabel = section.querySelector('.radio-group');
+                    genderLabel.classList.add('error');
+                    let errEl = genderLabel.parentElement.querySelector('.error-msg');
                     if (!errEl) {
                         errEl = document.createElement('div');
                         errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please select your working status';
-                        workLabel.parentElement.appendChild(errEl);
+                        errEl.textContent = 'Please select your gender';
+                        genderLabel.parentElement.appendChild(errEl);
                     } else {
                         errEl.classList.add('show');
                     }
@@ -468,64 +434,21 @@
             }
 
             if (index === 2) {
-                const bedHH = document.getElementById('bed-hh');
-                const bedMM = document.getElementById('bed-mm');
-                const wakeHH = document.getElementById('wake-hh');
-                const wakeMM = document.getElementById('wake-mm');
-
-                [bedHH, bedMM, wakeHH, wakeMM].forEach(el => {
-                    if (!el.value.trim()) { showError(el, 'Required'); valid = false; }
-                });
-
-                const hh = [bedHH, wakeHH];
-                const mm = [bedMM, wakeMM];
-
-                hh.forEach(el => {
-                    const v = parseInt(el.value);
-                    if (el.value && (isNaN(v) || v < 1 || v > 12)) { showError(el, 'Hour: 1–12'); valid = false; }
-                });
-
-                mm.forEach(el => {
-                    const v = parseInt(el.value);
-                    if (el.value && (isNaN(v) || v < 0 || v > 59)) { showError(el, 'Minute: 0–59'); valid = false; }
-                });
-            }
-
-            if (index === 3) {
-                const latency = document.getElementById('q-latency');
-                if (!latency.value.trim()) { showError(latency, 'Please enter sleep latency'); valid = false; }
-
-                const duration = document.getElementById('q-duration');
-                if (!duration.value.trim()) { showError(duration, 'Please enter sleep duration'); valid = false; }
-            }
-
-            if (index === 4) {
-                if (!document.querySelector('input[name="waking"]:checked')) {
-                    const wakeGroup = section.querySelector('.radio-group');
-                    let errEl = wakeGroup.parentElement.querySelector('.error-msg');
-                    if (!errEl) {
-                        errEl = document.createElement('div');
-                        errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please select how often you wake up';
-                        wakeGroup.parentElement.appendChild(errEl);
-                    } else {
-                        errEl.classList.add('show');
+                ['stress-q1', 'stress-q2', 'stress-q3', 'stress-q4'].forEach(qName => {
+                    if (!document.querySelector('input[name="' + qName + '"]:checked')) {
+                        const radioGroup = document.querySelector('input[name="' + qName + '"]').closest('.radio-group');
+                        let errEl = radioGroup.parentElement.querySelector('.error-msg');
+                        if (!errEl) {
+                            errEl = document.createElement('div');
+                            errEl.className = 'error-msg show';
+                            errEl.textContent = 'Please answer this question';
+                            radioGroup.parentElement.appendChild(errEl);
+                        } else {
+                            errEl.classList.add('show');
+                        }
+                        valid = false;
                     }
-                    valid = false;
-                }
-                if (!document.querySelector('input[name="quality"]:checked')) {
-                    const qualGroup = section.querySelectorAll('.radio-group')[1];
-                    let errEl = qualGroup.parentElement.querySelector('.error-msg');
-                    if (!errEl) {
-                        errEl = document.createElement('div');
-                        errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please rate your sleep quality';
-                        qualGroup.parentElement.appendChild(errEl);
-                    } else {
-                        errEl.classList.add('show');
-                    }
-                    valid = false;
-                }
+                });
             }
 
             return valid;
@@ -546,84 +469,42 @@
             }
         }
 
-        // Sleep Quality Scoring Logic (0-15 scale, 5 components)
         function calculateScore() {
-            // Component 1: Subjective Sleep Quality (0-3)
-            const qualityVal = document.querySelector('input[name="quality"]:checked');
-            const comp1 = qualityVal ? parseInt(qualityVal.value) : 0;
+            let total = 0;
+            const components = [];
 
-            // Component 2: Sleep Latency (0-3)
-            const latency = parseInt(document.getElementById('q-latency').value) || 0;
-            let comp2;
-            if (latency <= 15) comp2 = 0;
-            else if (latency <= 30) comp2 = 1;
-            else if (latency <= 60) comp2 = 2;
-            else comp2 = 3;
+            // Q1: upset unexpectedly (0-4)
+            const q1 = document.querySelector('input[name="stress-q1"]:checked');
+            const q1Val = q1 ? parseInt(q1.value) : 0;
+            total += q1Val;
+            components.push({ name: 'Unexpected Upset', score: q1Val, max: 4 });
 
-            // Component 3: Sleep Duration (0-3)
-            const duration = parseFloat(document.getElementById('q-duration').value) || 0;
-            let comp3;
-            if (duration > 7) comp3 = 0;
-            else if (duration >= 6) comp3 = 1;
-            else if (duration >= 5) comp3 = 2;
-            else comp3 = 3;
+            // Q2: unable to control important things (0-4)
+            const q2 = document.querySelector('input[name="stress-q2"]:checked');
+            const q2Val = q2 ? parseInt(q2.value) : 0;
+            total += q2Val;
+            components.push({ name: 'Lack of Control', score: q2Val, max: 4 });
 
-            // Component 4: Habitual Sleep Efficiency (0-3)
-            const bedHH = parseInt(document.getElementById('bed-hh').value) || 0;
-            const bedMM = parseInt(document.getElementById('bed-mm').value) || 0;
-            const bedAMPM = document.getElementById('bed-ampm').value;
-            const wakeHH = parseInt(document.getElementById('wake-hh').value) || 0;
-            const wakeMM = parseInt(document.getElementById('wake-mm').value) || 0;
-            const wakeAMPM = document.getElementById('wake-ampm').value;
+            // Q3: nervous and stressed (0-4)
+            const q3 = document.querySelector('input[name="stress-q3"]:checked');
+            const q3Val = q3 ? parseInt(q3.value) : 0;
+            total += q3Val;
+            components.push({ name: 'Nervousness & Stress', score: q3Val, max: 4 });
 
-            let bedHour24 = bedHH;
-            if (bedAMPM === 'PM' && bedHH !== 12) bedHour24 += 12;
-            if (bedAMPM === 'AM' && bedHH === 12) bedHour24 = 0;
+            // Q4: confident (reverse scored, 4-0)
+            const q4 = document.querySelector('input[name="stress-q4"]:checked');
+            const q4Val = q4 ? parseInt(q4.value) : 0;
+            total += q4Val;
+            components.push({ name: 'Confidence (Reverse Scored)', score: q4Val, max: 4 });
 
-            let wakeHour24 = wakeHH;
-            if (wakeAMPM === 'PM' && wakeHH !== 12) wakeHour24 += 12;
-            if (wakeAMPM === 'AM' && wakeHH === 12) wakeHour24 = 0;
-
-            let timeInBed;
-            if (wakeHour24 > bedHour24) {
-                timeInBed = (wakeHour24 - bedHour24) + (wakeMM - bedMM) / 60;
-            } else {
-                timeInBed = (24 - bedHour24 + wakeHour24) + (wakeMM - bedMM) / 60;
-            }
-
-            let comp4;
-            if (timeInBed > 0) {
-                const efficiency = (duration / timeInBed) * 100;
-                if (efficiency >= 85) comp4 = 0;
-                else if (efficiency >= 75) comp4 = 1;
-                else if (efficiency >= 65) comp4 = 2;
-                else comp4 = 3;
-            } else {
-                comp4 = 0;
-            }
-
-            // Component 5: Sleep Disturbances (0-3)
-            const wakingVal = document.querySelector('input[name="waking"]:checked');
-            const comp5 = wakingVal ? parseInt(wakingVal.value) : 0;
-
-            const globalScore = comp1 + comp2 + comp3 + comp4 + comp5;
-
-            return {
-                global: globalScore,
-                components: [
-                    { name: 'Subjective Sleep Quality', score: comp1, max: 3 },
-                    { name: 'Sleep Latency', score: comp2, max: 3 },
-                    { name: 'Sleep Duration', score: comp3, max: 3 },
-                    { name: 'Habitual Sleep Efficiency', score: comp4, max: 3 },
-                    { name: 'Sleep Disturbances', score: comp5, max: 3 }
-                ]
-            };
+            return { global: total, components: components };
         }
 
         function getInterpretation(score) {
-            if (score <= 3) return { text: 'Healthy Sleep', class: 'good', hindi: 'स्वस्थ नींद' };
-            if (score <= 6) return { text: 'Needs Attention', class: 'mild', hindi: 'ध्यान देने की आवश्यकता' };
-            return { text: 'Poor Sleep Quality', class: 'severe', hindi: 'खराब नींद की गुणवत्ता' };
+            if (score <= 4) return { text: 'Low Stress', class: 'good', hindi: 'कम तनाव' };
+            if (score <= 8) return { text: 'Moderate Stress', class: 'mild', hindi: 'मध्यम तनाव' };
+            if (score <= 12) return { text: 'High Stress', class: 'moderate', hindi: 'उच्च तनाव' };
+            return { text: 'Very High Stress', class: 'severe', hindi: 'अत्यधिक तनाव' };
         }
 
         function submitForm() {
@@ -661,7 +542,7 @@
             document.getElementById('scoreOverlay').classList.remove('active');
         }
 
-        document.querySelectorAll('.text-input, .time-input').forEach(input => {
+        document.querySelectorAll('.text-input').forEach(input => {
             input.addEventListener('input', () => {
                 input.classList.remove('field-error');
                 const err = input.parentElement.querySelector('.error-msg');

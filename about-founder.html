@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Founder - DrMudhiwalla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+            background-image:
+                linear-gradient(rgba(53,174,244,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(53,174,244,0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .text-logo { position: fixed; top: 20px; left: 20px; z-index: 10; text-decoration: none; }
+        .logo-title { font-size: 1.5rem; font-weight: bold; color: #35AEF4; }
+        .logo-subtitle { font-size: 0.8rem; color: #35AEF4; margin-top: -5px; }
+        .pvt-ltd { font-size: 0.55rem; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #35AEF4;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            transition: gap 0.2s;
+        }
+        .back-link:hover { gap: 10px; }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .photo-placeholder {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border: 3px solid #35AEF4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+        .photo-placeholder svg {
+            width: 60px;
+            height: 60px;
+            color: #35AEF4;
+            opacity: 0.5;
+        }
+
+        .profile-intro h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .profile-intro .tagline {
+            font-size: 15px;
+            color: #35AEF4;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .profile-intro .location {
+            font-size: 13px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            padding: 16px 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(100,120,160,0.06);
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #475569;
+        }
+        .contact-item svg { width: 16px; height: 16px; color: #35AEF4; flex-shrink: 0; }
+        .contact-item a { color: #35AEF4; text-decoration: none; }
+        .contact-item a:hover { text-decoration: underline; }
+
+        .about-text {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            padding: 20px 24px;
+            background: #fff;
+            border-radius: 12px;
+            border-left: 4px solid #35AEF4;
+            box-shadow: 0 2px 12px rgba(100,120,160,0.06);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #35AEF4;
+            display: inline-block;
+        }
+
+        .timeline { margin-bottom: 40px; }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .timeline-item:last-child { border-bottom: none; }
+
+        .timeline-dot {
+            width: 10px;
+            height: 10px;
+            background: #35AEF4;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+        .timeline-content .org {
+            font-size: 14px;
+            color: #35AEF4;
+            font-weight: 500;
+        }
+        .timeline-content .duration {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+        .timeline-content p {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .highlight-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(100,120,160,0.06);
+        }
+        .highlight-card .num {
+            font-size: 28px;
+            font-weight: 700;
+            color: #35AEF4;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .highlight-card .label {
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skills-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .skill-tag {
+            padding: 6px 14px;
+            background: #eff6ff;
+            color: #35AEF4;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .footer-bar {
+            background: #35AEF4;
+            color: #fff;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 40px;
+            border-radius: 12px;
+        }
+        .footer-bar a { color: #fff; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .container { padding: 80px 16px 40px; }
+            .profile-header { flex-direction: column; text-align: center; gap: 20px; }
+            .photo-placeholder { width: 120px; height: 120px; }
+            .profile-intro h1 { font-size: 22px; }
+            .contact-row { flex-direction: column; gap: 12px; }
+            .text-logo { top: 12px; left: 12px; }
+            .logo-title { font-size: 1.2rem; }
+            .logo-subtitle { font-size: 0.65rem; }
+        }
+
+        @media (max-width: 360px) {
+            .profile-intro h1 { font-size: 20px; }
+            .highlights { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="text-logo" style="text-decoration: none;">
+        <div class="logo-title">DrMudhiwalla</div>
+        <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
+    </a>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+        <div class="profile-header">
+            <div class="photo-placeholder">
+                <img src="founder.jpeg" alt="Dr. Sanjeet Sahu">
+            </div>
+            <div class="profile-intro">
+                <h1>Dr. Sanjeet Sahu</h1>
+                <div class="tagline">Founder @ DrMudhiwalla HealthTech</div>
+                <div class="location">Delhi, India</div>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <span>9707010270</span>
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:sanjeet@drmudhiwalla.com">sanjeet@drmudhiwalla.com</a>
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                <a href="https://linkedin.com/in/drsanjeetsahu" target="_blank" rel="noopener">LinkedIn Profile</a>
+            </div>
+        </div>
+
+        <div class="about-text">
+            As the Founder of DrMudhiwalla HealthTech, I am building scalable infrastructure that integrates healthcare into everyday spaces, making preventive screening accessible to crores of India's population.
+        </div>
+
+        <div class="highlights">
+            <div class="highlight-card">
+                <div class="num">1+</div>
+                <div class="label">Year Leading</div>
+            </div>
+            <div class="highlight-card">
+                <div class="num">28+</div>
+                <div class="label">Blood Donations</div>
+            </div>
+            <div class="highlight-card">
+                <div class="num">12+</div>
+                <div class="label">Years Experience</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Founder</h3>
+                    <div class="org">DrMudhiwalla HealthTech Pvt Ltd</div>
+                    <div class="duration">Jul 2025 - Present · Delhi, India</div>
+                    <p>Building a bank-embedded preventive-health screening model. Designed a high-throughput programme capable of engaging 60-80 visitors daily. Developed a digital workflow covering registration, screening, risk assessment, reporting and follow-up. Secured DPIIT Startup India recognition.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Street Medicine Doctor</h3>
+                    <div class="org">Street Medicine Program (SMP)</div>
+                    <div class="duration">Aug 2023 - Present · Part-time</div>
+                    <p>Primary care physician providing community outreach and street-level healthcare services.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>MO I/C</h3>
+                    <div class="org">Mohalla Clinic</div>
+                    <div class="duration">Jan 2021 - Mar 2025 · Delhi, India</div>
+                    <p>Led a team of paramedics and ancillary staff at a Mohalla clinic in Azadpur, attending to the healthcare needs of people from lower socioeconomic strata, addressing physical illness, mental health, spiritual health and social well-being.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Summer Intern</h3>
+                    <div class="org">Population Foundation of India</div>
+                    <div class="duration">Feb 2015 - Apr 2015</div>
+                    <p>Studied lacunae in inter-sectoral coordination for NHM project implementation across multiple stakeholders.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Co-Founder</h3>
+                    <div class="org">DrMudhiwalla Foods</div>
+                    <div class="duration">Mar 2013 - Jul 2013</div>
+                    <p>Venture offering healthier snack alternatives to youth addicted to unhealthy junk foods.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>MBBS</h3>
+                    <div class="org">Gauhati Medical College and Hospital</div>
+                    <div class="duration">2006 - 2012</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>PGP-MBA</h3>
+                    <div class="org">Indian Institute of Management Raipur</div>
+                    <div class="duration">2014 - 2016</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-row">
+            <span class="skill-tag">Analytical Skills</span>
+            <span class="skill-tag">Critical Thinking</span>
+            <span class="skill-tag">Persuasive Speaking</span>
+            <span class="skill-tag">Good Clinical Practice</span>
+            <span class="skill-tag">Business Development</span>
+            <span class="skill-tag">Community Outreach</span>
+            <span class="skill-tag">Primary Care</span>
+            <span class="skill-tag">Creativity & Innovation</span>
+        </div>
+
+        <h2 class="section-title">Volunteering</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Alumni Association Delhi NCR Chapter</h3>
+                    <div class="org">IIM Raipur</div>
+                    <div class="duration">Aug 2022 - Feb 2026</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Volunteer</h3>
+                    <div class="org">Indian Red Cross Society (National HQ, New Delhi)</div>
+                    <div class="duration">2016 - 2025 · Regular blood donor, 28+ times</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <a href="index.html">DrMudhiwalla HealthTech Pvt Ltd</a> &nbsp;|&nbsp; CIN: U86201DL2025PTC451980 &nbsp;|&nbsp; GST: 07AALCD8789M1ZL
+        </div>
+    </div>
+</body>
+</html>
