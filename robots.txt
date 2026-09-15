@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /*.pdf$
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.png$
+Disallow: /node_modules/
+Disallow: /gym-mvp/
+Disallow: /page/
+
+Sitemap: https://drmudhiwalla.com/sitemap.xml

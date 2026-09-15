@@ -26,12 +26,12 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             font-weight: bold;
-            color: #02d1fa;
+            color: #35AEF4;
         }
         .logo-subtitle {
             font-family: 'Poppins', sans-serif;
             font-size: 0.8rem;
-            color: #02d1fa;
+            color: #35AEF4;
             text-align: right;
             margin-top: -5px;
         }
@@ -112,14 +112,24 @@
     </style>
 </head>
 <body>
-    <div class="text-logo">
+    <a href="index.html" class="text-logo" style="text-decoration: none;">
         <div class="logo-title">DrMudhiwalla</div>
-        <div class="logo-subtitle">HealthTech</div>
-    </div>
+        <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
+    </a>
     <div class="badge">AUTHORIZED DOCUMENT</div>
     <div class="doc">
         <img src="../offerletter-signed.jpg" alt="Offer Letter">
     </div>
     <div class="footer">DrMudhiwalla HealthTech</div>
+<script>
+const logo = document.querySelector('.text-logo');
+if (logo) {
+    window.addEventListener('scroll', () => {
+        logo.style.opacity = window.scrollY > 100 ? '0' : '1';
+        logo.style.transition = 'opacity 0.3s';
+        logo.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+    });
+}
+</script>
 </body>
 </html>

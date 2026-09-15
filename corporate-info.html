@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Information - DrMudhiwalla HealthTech</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error-section { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 40px 20px; text-align: center; }
+        .error-content { max-width: 600px; }
+        .error-emoji { font-size: clamp(60px, 10vw, 100px); margin-bottom: 16px; }
+        .error-label { font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; color: #35AEF4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+        .error-heading { font-size: clamp(24px, 3vw, 44px); font-weight: 600; color: #0f172a; line-height: 1.1; margin-bottom: 16px; }
+        .error-sub { font-size: clamp(14px, 1.25vw, 18px); font-weight: 400; color: #687386; margin-bottom: 32px; line-height: 1.6; }
+        .error-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .error-btn { display: inline-block; background: #35AEF4; color: #fff; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background 0.2s, transform 0.2s; }
+        .error-btn:hover { background: #0284c7; transform: translateY(-1px); }
+        .error-btn-outline { display: inline-block; background: transparent; color: #35AEF4; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; border: 2px solid #35AEF4; font-family: 'Poppins', sans-serif; transition: background 0.2s, color 0.2s; }
+        .error-btn-outline:hover { background: #35AEF4; color: #fff; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="text-logo fade-in-down" style="text-decoration: none;">
+        <div class="logo-title">DrMudhiwalla</div>
+        <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
+    </a>
+    <section class="error-section">
+        <div class="error-content fade-in-up">
+            <div class="error-emoji">&#x1F3E2;</div>
+            <p class="error-label">LOADING</p>
+            <h1 class="error-heading">Corporate Information</h1>
+            <p class="error-sub">Our CIN, GSTIN, and other corporate acronyms are currently being alphabetized by our intern. Yes, we know they're already numbers. The intern is... enthusiastic.</p>
+            <div class="error-links">
+                <a href="index.html" class="error-btn">Go Home &rarr;</a>
+                <a href="bank-model.html" class="error-btn-outline">See Our Bank Model</a>
+            </div>
+        </div>
+    </section>
+    <script>document.querySelectorAll('.fade-in-up, .fade-in-down').forEach(el => { el.addEventListener('animationend', () => { el.style.opacity = '1'; el.style.animation = 'none'; }); });</script>
+</body>
+</html>

@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bank Model - DrMudhiwalla</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drmudhiwalla.com/bank-model.html">
+    <meta property="og:title" content="The Bank Model - DrMudhiwalla HealthTech">
+    <meta property="og:description" content="Learn how DrMudhiwalla sets up health screening kiosks inside bank branches — no separate real estate, no new hires. 8,000+ customers screened in 6 months.">
+    <meta property="og:image" content="https://drmudhiwalla.com/222.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="DrMudhiwalla HealthTech">
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Bank Model - DrMudhiwalla HealthTech">
+    <meta name="twitter:description" content="Learn how DrMudhiwalla sets up health screening kiosks inside bank branches — no separate real estate, no new hires. 8,000+ customers screened in 6 months.">
+    <meta name="twitter:image" content="https://drmudhiwalla.com/222.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -638,5 +653,15 @@
             if (e.key === 'Escape') closeModal();
         });
     </script>
+<script>
+const logo = document.querySelector('.text-logo');
+if (logo) {
+    window.addEventListener('scroll', () => {
+        logo.style.opacity = window.scrollY > 100 ? '0' : '1';
+        logo.style.transition = 'opacity 0.3s';
+        logo.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+    });
+}
+</script>
 </body>
 </html>

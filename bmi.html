@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator - DrMudhiwalla</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drmudhiwalla.com/bmi.html">
+    <meta property="og:title" content="BMI Calculator - DrMudhiwalla HealthTech">
+    <meta property="og:description" content="Calculate your Body Mass Index (BMI) instantly. Find out if you are underweight, normal, overweight, or obese with our free bilingual BMI calculator.">
+    <meta property="og:image" content="https://drmudhiwalla.com/222.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="DrMudhiwalla HealthTech">
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BMI Calculator - DrMudhiwalla HealthTech">
+    <meta name="twitter:description" content="Calculate your Body Mass Index (BMI) instantly. Find out if you are underweight, normal, overweight, or obese with our free bilingual BMI calculator.">
+    <meta name="twitter:image" content="https://drmudhiwalla.com/222.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -257,7 +272,7 @@
                 </div>
                 <div class="field-group">
                     <div class="field-label">Age <span class="hindi">उम्र</span> <span class="required">*</span></div>
-                    <input type="number" class="text-input" id="q-age" placeholder="Your answer" required>
+                    <input type="number" inputmode="numeric" class="text-input" id="q-age" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
                     <div class="field-label">Gender <span class="hindi">लिंग</span> <span class="required">*</span></div>
@@ -279,13 +294,13 @@
                     <div class="field-label">Height (cm) <span class="hindi">ऊंचाई (सेमी)</span> <span class="required">*</span></div>
                     <div class="field-hint">Enter your height in centimeters. Ex- 170</div>
                     <div class="field-hint" style="margin-bottom: 12px;">अपनी ऊंचाई सेंटीमीटर में दर्ज करें। उदाहरण: 170</div>
-                    <input type="number" class="text-input" id="q-height" placeholder="Your answer" required>
+                    <input type="number" inputmode="numeric" class="text-input" id="q-height" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
                     <div class="field-label">Weight (kg) <span class="hindi">वजन (किलो)</span> <span class="required">*</span></div>
                     <div class="field-hint">Enter your weight in kilograms. Ex- 65</div>
                     <div class="field-hint" style="margin-bottom: 12px;">अपना वजन किलोग्राम में दर्ज करें। उदाहरण: 65</div>
-                    <input type="number" class="text-input" id="q-weight" placeholder="Your answer" required>
+                    <input type="number" inputmode="numeric" class="text-input" id="q-weight" placeholder="Your answer" required>
                 </div>
                 <div class="btn-row">
                     <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
@@ -323,6 +338,7 @@
             </div>
 
             <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
+            <a id="downloadBtn" style="display:none; margin-top:20px; padding:12px 28px; background:#35AEF4; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; font-family:'Poppins',sans-serif; cursor:pointer;" href="#" download>Download Result</a>
         </div>
     </div>
 
@@ -493,6 +509,12 @@
             `;
 
             document.getElementById('scoreOverlay').classList.add('active');
+
+            var downloadBtn = document.getElementById('downloadBtn');
+            downloadBtn.style.display = 'inline-block';
+            downloadBtn.onclick = function() {
+                downloadPDF('BMI Calculator', 'Name: ' + document.getElementById('q-name').value + '\nAge: ' + document.getElementById('q-age').value + '\nHeight: ' + heightCm + ' cm\nWeight: ' + weightKg + ' kg\nBMI: ' + bmi.toFixed(1) + ' kg/m\u00B2\nCategory: ' + category.text);
+            };
         }
 
         function closeScoreCard() {
@@ -534,5 +556,46 @@
         observer.observe(wrapper, { childList: true, subtree: true, attributes: true });
         checkScroll();
     </script>
+<script>
+const logo = document.querySelector('.text-logo');
+if (logo) {
+    window.addEventListener('scroll', () => {
+        logo.style.opacity = window.scrollY > 100 ? '0' : '1';
+        logo.style.transition = 'opacity 0.3s';
+        logo.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+    });
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+function downloadPDF(title, resultText) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(22);
+    doc.setTextColor(53, 174, 244);
+    doc.text('DrMudhiwalla HealthTech', 105, 25, { align: 'center' });
+    doc.setFontSize(10);
+    doc.setTextColor(100, 100, 100);
+    doc.text('Health Screening in Everyday Places', 105, 32, { align: 'center' });
+    doc.setDrawColor(53, 174, 244);
+    doc.setLineWidth(0.5);
+    doc.line(20, 38, 190, 38);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(16);
+    doc.setTextColor(15, 23, 42);
+    doc.text(title, 105, 52, { align: 'center' });
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.setTextColor(50, 50, 50);
+    const lines = doc.splitTextToSize(resultText, 160);
+    doc.text(lines, 105, 65, { align: 'center' });
+    doc.setFontSize(9);
+    doc.setTextColor(150, 150, 150);
+    doc.text('Generated on: ' + new Date().toLocaleDateString('en-IN'), 105, 280, { align: 'center' });
+    doc.text('drmudhiwalla.com', 105, 287, { align: 'center' });
+    doc.save(title.toLowerCase().replace(/\s+/g, '-') + '-result.pdf');
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <title>Share Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1200px;
+            height: 630px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            background-image:
+                linear-gradient(rgba(53,174,244,0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(53,174,244,0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 0 80px;
+            gap: 60px;
+        }
+        .left {
+            flex: 0 1 48%;
+        }
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 0;
+            margin-bottom: 32px;
+        }
+        .logo-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #35AEF4;
+        }
+        .logo-subtitle {
+            font-size: 14px;
+            color: #35AEF4;
+            margin-left: 8px;
+        }
+        .logo-subtitle .pvt-ltd {
+            font-size: 10px;
+        }
+        .label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #35AEF4;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 58px;
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.05;
+            margin-bottom: 0;
+        }
+        .accent {
+            font-size: 58px;
+            font-weight: 500;
+            color: #687386;
+            margin-bottom: 16px;
+        }
+        .detail-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #35AEF4;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .detail-bold {
+            font-size: 18px;
+            font-weight: 500;
+            color: #0f172a;
+        }
+        .detail-sub {
+            font-size: 18px;
+            font-weight: 400;
+            color: #687386;
+        }
+        .right {
+            flex: 0 1 36%;
+        }
+        .card {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 60px rgba(100, 120, 160, 0.2);
+            padding: 28px;
+            overflow: hidden;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .card-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-dot {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .card-location {
+            font-size: 13px;
+            font-weight: 400;
+            color: #94a3b8;
+        }
+        .card-customer {
+            font-size: 13px;
+            font-weight: 600;
+            color: #35AEF4;
+        }
+        .bp-section {
+            display: flex;
+            align-items: center;
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+        }
+        .bp-icon {
+            width: 40px;
+            height: 40px;
+            background: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 14px;
+            flex-shrink: 0;
+        }
+        .bp-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        .bp-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .bp-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+        }
+        .bp-value {
+            font-size: 32px;
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        .bp-unit {
+            font-size: 13px;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-left: 2px;
+        }
+        .bp-badge {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #b45309;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 1.3;
+            flex-shrink: 0;
+        }
+        .bp-badge small {
+            font-weight: 400;
+            font-size: 10px;
+        }
+        .lifestyle-section {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 18px 20px;
+        }
+        .lifestyle-header {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 12px;
+        }
+        .lifestyle-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 14px;
+        }
+        .lifestyle-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .lifestyle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 8px 0;
+        }
+        .lifestyle-row + .lifestyle-row {
+            border-top: 1px solid #e2e8f0;
+        }
+        .lifestyle-item-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .lifestyle-item-label {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 400;
+            color: #334155;
+        }
+        .lifestyle-badge {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+        .badge-orange {
+            background: #fff7ed;
+            color: #c2410c;
+            border: 1px solid #fed7aa;
+        }
+        .badge-red {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        .url-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #35AEF4;
+            padding: 14px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .url-text {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .url-tagline {
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="logo">
+                <span class="logo-title">DrMudhiwalla</span>
+                <span class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></span>
+            </div>
+            <p class="label">BUILDING</p>
+            <h1>Health Screening<br>Infrastructure</h1>
+            <p class="accent">in Everyday Places</p>
+            <p class="detail-label">STARTING WITH BANKS</p>
+            <p class="detail-bold">Screening at your bank branch.</p>
+            <p class="detail-sub">No extra visit to a health centre.</p>
+        </div>
+
+        <div class="right">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <div class="card-dot"></div>
+                        <div>
+                            <div class="card-title">Screening in Progress</div>
+                            <div class="card-location">Bank Branch, Delhi</div>
+                        </div>
+                    </div>
+                    <div class="card-customer">Customer No. #041</div>
+                </div>
+
+                <div class="bp-section">
+                    <div class="bp-icon">
+                        <svg viewBox="0 0 24 24" fill="#ef4444">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <div class="bp-info">
+                        <span class="bp-label">Blood Pressure</span>
+                        <span class="bp-value">122 / 83<span class="bp-unit">mmHg</span></span>
+                    </div>
+                    <div class="bp-badge">Stage 1<br><small>Hypertension</small></div>
+                </div>
+
+                <div class="lifestyle-section">
+                    <div class="lifestyle-header">
+                        <span class="lifestyle-icon">&#x1F9D8;</span>
+                        <span class="lifestyle-title">Lifestyle</span>
+                    </div>
+                    <div class="lifestyle-row">
+                        <span class="lifestyle-item-icon">&#x1F319;</span>
+                        <span class="lifestyle-item-label">Sleep</span>
+                        <span class="lifestyle-badge badge-orange">Needs Care</span>
+                    </div>
+                    <div class="lifestyle-row">
+                        <span class="lifestyle-item-icon">&#x1F9E0;</span>
+                        <span class="lifestyle-item-label">Stress</span>
+                        <span class="lifestyle-badge badge-orange">Moderate</span>
+                    </div>
+                    <div class="lifestyle-row">
+                        <span class="lifestyle-item-icon">&#x1F3C3;</span>
+                        <span class="lifestyle-item-label">Activity</span>
+                        <span class="lifestyle-badge badge-red">Low</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="url-bar">
+        <span class="url-text">drmudhiwalla.com</span>
+        <span class="url-tagline">Health Screening in Everyday Places</span>
+    </div>
+</body>
+</html>
