@@ -8,36 +8,843 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .error-section { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 40px 20px; text-align: center; }
-        .error-content { max-width: 600px; }
-        .error-emoji { font-size: clamp(60px, 10vw, 100px); margin-bottom: 16px; }
-        .error-label { font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; color: #35AEF4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .error-heading { font-size: clamp(24px, 3vw, 44px); font-weight: 600; color: #0f172a; line-height: 1.1; margin-bottom: 16px; }
-        .error-sub { font-size: clamp(14px, 1.25vw, 18px); font-weight: 400; color: #687386; margin-bottom: 32px; line-height: 1.6; }
-        .error-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .error-btn { display: inline-block; background: #35AEF4; color: #fff; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background 0.2s, transform 0.2s; }
-        .error-btn:hover { background: #0284c7; transform: translateY(-1px); }
-        .error-btn-outline { display: inline-block; background: transparent; color: #35AEF4; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; border: 2px solid #35AEF4; font-family: 'Poppins', sans-serif; transition: background 0.2s, color 0.2s; }
-        .error-btn-outline:hover { background: #35AEF4; color: #fff; }
+        .policy-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+        .policy-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 32px;
+        }
+        .policy-updated {
+            font-size: 0.85rem;
+            color: #687386;
+            margin-bottom: 40px;
+        }
+        .policy-intro {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .accordion-header:hover {
+            background: #f9fafb;
+        }
+        .accordion-header h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #0f172a;
+            margin: 0;
+        }
+        .accordion-toggle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #35AEF4;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        .accordion-toggle:hover {
+            color: #0284c7;
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .accordion-body-inner {
+            padding: 0 24px 24px;
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.8;
+        }
+        .accordion-body-inner p {
+            margin: 0 0 12px;
+        }
+        .accordion-body-inner ul {
+            margin: 8px 0 12px;
+            padding-left: 20px;
+        }
+        .accordion-body-inner li {
+            margin-bottom: 6px;
+        }
+        .accordion-body-inner strong {
+            color: #0f172a;
+        }
+        .accordion-item.open .accordion-body {
+            max-height: 3000px;
+        }
+        .accordion-item.open .accordion-toggle {
+            display: none;
+        }
+        .accordion-close {
+            display: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #dc2626;
+            cursor: pointer;
+        }
+        .accordion-item.open .accordion-close {
+            display: block;
+        }
+        .back-home-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: inline-block;
+            background: #35AEF4;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            z-index: 100;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home-btn:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+        }
+        .back-home-btn .preview-img {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 2px solid #35AEF4;
+            pointer-events: none;
+        }
+        .back-home-btn:hover .preview-img {
+            display: block;
+        }
+        .contact-block {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .principles-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .principle-item {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .principle-item strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #0f172a;
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn">&larr; Back to Home
+        <img src="1.jpg" alt="Homepage Preview" class="preview-img">
+    </a>
     <a href="index.html" class="text-logo fade-in-down" style="text-decoration: none;">
         <div class="logo-title">DrMudhiwalla</div>
         <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
     </a>
-    <section class="error-section">
-        <div class="error-content fade-in-up">
-            <div class="error-emoji">&#x1F6AB;</div>
-            <p class="error-label">LEGAL STUFF</p>
-            <h1 class="error-heading">Privacy Policy</h1>
-            <p class="error-sub">My lawyer is taking too much time (and money). Please sit tight. In the meantime, just know we won't sell your data to aliens... probably.</p>
-            <div class="error-links">
-                <a href="index.html" class="error-btn">Go Home &rarr;</a>
-                <a href="bank-model.html" class="error-btn-outline">See Our Bank Model</a>
+
+    <section class="policy-section">
+        <h1 class="policy-title">Privacy Policy</h1>
+        <p class="policy-updated">Last Updated: 13 September 2026</p>
+
+        <p class="policy-intro">DrMudhiwalla Healthtech Private Limited ("DrMudhiwalla", "we", "us", or "our") respects the privacy of individuals whose personal information we collect and process. This Privacy Policy explains what information we collect, why we collect it, how we use and protect it, when it may be shared, and the choices and rights available to you.</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Introduction</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>This Privacy Policy applies to information collected through our website, digital platforms, health screening programmes, assessments and related services, unless a separate privacy notice is provided for a particular service.</p>
+                    <p><strong>Our Commitment to Your Health Data</strong></p>
+                    <p>Your health data is entrusted to us. We treat it as a responsibility, not a commodity. Health information is different from ordinary contact information. A blood-pressure reading, blood-sugar result, lifestyle response or health-risk assessment can reveal something meaningful about an individual.</p>
+                    <p>We therefore seek to follow these principles:</p>
+                    <div class="principles-grid">
+                        <div class="principle-item">
+                            <strong>Collect only what is necessary.</strong>
+                            We seek to collect information reasonably required to provide the relevant service.
+                        </div>
+                        <div class="principle-item">
+                            <strong>Use it for clearly communicated purposes.</strong>
+                            We will explain why information is being collected and use it consistently with the purposes communicated to you, subject to applicable law.
+                        </div>
+                        <div class="principle-item">
+                            <strong>Share only what is necessary.</strong>
+                            Participation in a screening programme at a bank, gym, workplace or other partner location does not automatically give that organisation unrestricted access to your detailed health information.
+                        </div>
+                        <div class="principle-item">
+                            <strong>Protect what is entrusted to us.</strong>
+                            We implement reasonable technical and organisational safeguards appropriate to the nature of the information we process.
+                        </div>
+                        <div class="principle-item">
+                            <strong>Do not sell identifiable health information.</strong>
+                            We do not sell identifiable personal health information as a commercial product.
+                        </div>
+                        <div class="principle-item">
+                            <strong>Use aggregated information responsibly.</strong>
+                            Where permitted by applicable law, appropriately aggregated or anonymised information may be used to understand population-level trends, evaluate programmes, improve services and support research.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Questions or Complaints</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>If you have a question, concern or complaint regarding:</p>
+                    <ul>
+                        <li>The personal information we hold about you;</li>
+                        <li>How your information has been collected or used;</li>
+                        <li>A screening report or health assessment;</li>
+                        <li>Sharing of your information with a partner organisation;</li>
+                        <li>Withdrawal of consent;</li>
+                        <li>Correction or deletion of information; or</li>
+                        <li>Any other privacy-related matter,</li>
+                    </ul>
+                    <p>you may contact us using the details provided below. We will review and respond to your concern in accordance with applicable law and our internal grievance-redressal process.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Contact Information</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <div class="contact-block">
+                        <strong>DrMudhiwalla Healthtech Private Limited</strong><br>
+                        Website: www.drmudhiwalla.com<br>
+                        Email: support@drmudhiwalla.com<br>
+                        Privacy enquiries: privacy@drmudhiwalla.com<br>
+                        Registered Office: B-180, Majlis Park, Delhi 110033
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Grievance Officer</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <div class="contact-block">
+                        <strong>Grievance Officer:</strong> Dr. Sanjeet Sahu / Founder & Director<br>
+                        <strong>Email:</strong> grievance@drmudhiwalla.com
+                    </div>
+                    <p style="margin-top: 16px;">The Grievance Officer is the designated point of contact for privacy and data-related grievances. We will endeavour to acknowledge and address grievances within the timelines prescribed by applicable law.</p>
+                    <p>Where a specific service is provided through a partner organisation or another Data Fiduciary, additional grievance or privacy contacts may be provided in the applicable programme-specific notice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Who We Are</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>DrMudhiwalla Healthtech Private Limited is a preventive health technology company focused on making health screening and health-risk awareness more accessible through everyday environments.</p>
+                    <p>Our services may be provided through:</p>
+                    <ul>
+                        <li>Banks;</li>
+                        <li>Workplaces;</li>
+                        <li>Gyms and fitness centres;</li>
+                        <li>Community locations;</li>
+                        <li>Health camps;</li>
+                        <li>Partner organisations; and</li>
+                        <li>Our digital platforms.</li>
+                    </ul>
+                    <p>Depending on the service, we may collect personal information and health-related information to provide screening, assessment, reporting and preventive-health services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>What Personal Data Do We Collect?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Depending on how you interact with us, we may collect:</p>
+                    <p><strong>Identity and contact information</strong></p>
+                    <ul>
+                        <li>Name;</li>
+                        <li>Age or date of birth;</li>
+                        <li>Gender, where relevant to the service;</li>
+                        <li>Mobile number;</li>
+                        <li>Email address;</li>
+                        <li>Location or address, where necessary;</li>
+                        <li>Other information required to identify or communicate with you.</li>
+                    </ul>
+                    <p><strong>Account and digital information</strong></p>
+                    <p>Where applicable:</p>
+                    <ul>
+                        <li>Login or account information;</li>
+                        <li>Device information;</li>
+                        <li>IP address;</li>
+                        <li>Browser and operating-system information;</li>
+                        <li>Website interaction information; and</li>
+                        <li>Information collected through cookies or similar technologies.</li>
+                    </ul>
+                    <p><strong>Service-related information</strong></p>
+                    <p>We may collect information necessary to provide a particular screening, assessment or service. We will seek to avoid collecting information that is not reasonably necessary for the relevant purpose.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>What Health Information Do We Collect?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Depending on the screening or service, health-related information may include:</p>
+                    <p><strong>Physical measurements</strong></p>
+                    <ul>
+                        <li>Height; Weight; Body Mass Index (BMI); Body Roundness Index (BRI); Waist circumference; Waist-to-height or other relevant measurements.</li>
+                    </ul>
+                    <p><strong>Vital measurements</strong></p>
+                    <ul>
+                        <li>Blood pressure; Pulse rate; Heart rate; and Other measurements included in the applicable screening programme.</li>
+                    </ul>
+                    <p><strong>Biometric or laboratory-related measurements</strong></p>
+                    <ul>
+                        <li>Where included: Blood glucose; Cholesterol; Other point-of-care or laboratory measurements.</li>
+                    </ul>
+                    <p><strong>Lifestyle and behavioural information</strong></p>
+                    <ul>
+                        <li>Sleep; Stress; Physical activity; Food and dietary habits; Smoking or tobacco use; Family history; Relevant medical history; and Other questionnaire responses.</li>
+                    </ul>
+                    <p><strong>Assessment outputs</strong></p>
+                    <p>We may also generate: Screening results; Health scores; Lifestyle scores; Risk categories; Preventive-health recommendations; and Reports generated from the information collected during the assessment.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Why Do We Collect This Information?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We collect and process information for purposes such as:</p>
+                    <ul>
+                        <li>Providing the requested screening or assessment;</li>
+                        <li>Measuring and recording screening parameters;</li>
+                        <li>Preparing and communicating health-screening reports;</li>
+                        <li>Generating health-risk or lifestyle assessments;</li>
+                        <li>Providing preventive-health information and recommendations;</li>
+                        <li>Administering our programmes;</li>
+                        <li>Communicating with participants regarding their service;</li>
+                        <li>Improving the quality and effectiveness of our services;</li>
+                        <li>Evaluating screening programmes;</li>
+                        <li>Maintaining appropriate records;</li>
+                        <li>Meeting applicable legal, regulatory and contractual obligations; and</li>
+                        <li>Generating aggregated or anonymised insights where permitted by applicable law.</li>
+                    </ul>
+                    <p>We will not use personal information for a materially different purpose without providing appropriate notice and obtaining consent where required.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Legal Basis / Consent Mechanism</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Depending on the circumstances and the applicable legal framework, we may process personal information:</p>
+                    <ul>
+                        <li>With your consent;</li>
+                        <li>To provide a service requested by you;</li>
+                        <li>To comply with applicable legal obligations;</li>
+                        <li>For other purposes permitted under applicable law; or</li>
+                        <li>Where another lawful basis for processing applies.</li>
+                    </ul>
+                    <p>Where consent is required, we will seek to obtain it through an appropriate mechanism before processing the relevant information.</p>
+                    <p>For health screening, consent may be obtained through a physical or digital consent form, checkbox, assessment interface, registration process or another appropriate mechanism.</p>
+                    <p>Consent should be meaningful. Where required, the relevant notice will explain: What information is being collected → Why it is being collected → How it will be used → Whether it will be shared → How consent can be withdrawn.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Who Can Access Your Information?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Access to personal information is restricted to persons and organisations that reasonably need it for an authorised purpose.</p>
+                    <p>Depending on the service, this may include:</p>
+                    <ul>
+                        <li>Authorised DrMudhiwalla personnel;</li>
+                        <li>Healthcare professionals involved in the service;</li>
+                        <li>Technology and infrastructure providers;</li>
+                        <li>Communication service providers;</li>
+                        <li>Laboratory or diagnostic service providers, where applicable;</li>
+                        <li>Other service providers acting on our behalf; and</li>
+                        <li>Partner organisations, but only to the extent applicable to the programme and permitted by the relevant notice, consent or law.</li>
+                    </ul>
+                    <p>Access should be based on the purpose for which the information is required, rather than simply on the organisation's involvement in the programme.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>What Does a Bank, Gym or Employer Receive?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>This depends on the specific programme. A partner organisation does not automatically receive your complete health record merely because the screening takes place at its premises.</p>
+                    <p>Where a programme is designed to share only a final category or outcome, such as:</p>
+                    <p>Green | Yellow | Red</p>
+                    <p>the partner may receive only that permitted outcome. For example, in a gym screening programme, the gym may receive the participant's final category where the participant has been informed of and consented to such sharing, while detailed health information remains confidential.</p>
+                    <p>Where detailed information needs to be shared for a specific service, the relevant notice or consent mechanism will communicate this.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Do We Share Identifiable Health Information?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We do not sell identifiable health information.</p>
+                    <p>We may share identifiable health information only where appropriate and permitted, such as:</p>
+                    <ul>
+                        <li>To provide a service requested by you;</li>
+                        <li>With healthcare professionals involved in providing the service;</li>
+                        <li>With authorised service providers processing information on our behalf;</li>
+                        <li>With a partner organisation where such sharing is specifically part of the programme and appropriately disclosed/authorised;</li>
+                        <li>Where you have provided the required consent; or</li>
+                        <li>Where disclosure is required or permitted by applicable law.</li>
+                    </ul>
+                    <p>We seek to limit such sharing to the information reasonably necessary for the relevant purpose.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Do We Sell Personal or Health Data?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>No. DrMudhiwalla does not sell identifiable personal information or identifiable personal health information.</p>
+                    <p>We do not treat an individual's health information as a commercial asset to be sold to advertisers, banks, employers, insurers, marketers or other third parties.</p>
+                    <p>This does not prevent us from using appropriately aggregated or anonymised information for legitimate purposes where permitted by applicable law.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Do We Use Your Data for Advertising?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We may use basic website or contact information for legitimate communications relating to our services, where permitted by applicable law and subject to applicable consent requirements.</p>
+                    <p>However:</p>
+                    <ul>
+                        <li>We do not use identifiable health information to target individuals with advertising.</li>
+                        <li>We do not intend to use information such as: Blood pressure; Blood glucose; Cholesterol; Sleep score; Stress score; Health-risk category; or Other identifiable health information to create targeted advertising profiles for commercial advertising.</li>
+                    </ul>
+                    <p>Where we use cookies, analytics or similar technologies on our Website, their use will be subject to the applicable notice, settings and consent requirements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Do We Use Data for AI / Machine Learning?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We do not use identifiable personal health information to train general-purpose AI or machine-learning models without appropriate disclosure and lawful authorisation.</p>
+                    <p>We may use technology, including software-assisted analytics or artificial intelligence, to support legitimate functions such as:</p>
+                    <ul>
+                        <li>Data processing; Report generation; Administrative automation; Service improvement; Statistical analysis; or Other functions necessary to provide our Services.</li>
+                    </ul>
+                    <p>Where AI or machine-learning technology is used in a manner involving personal information, we will seek to apply appropriate safeguards and comply with applicable law.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Do We Use Aggregated / Anonymised Data?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Yes. Preventive health screening can generate valuable population-level insights.</p>
+                    <p>Where permitted by applicable law, we may use appropriately aggregated or anonymised information to:</p>
+                    <ul>
+                        <li>Understand population-level health trends;</li>
+                        <li>Evaluate screening programmes;</li>
+                        <li>Measure programme effectiveness;</li>
+                        <li>Improve our screening protocols;</li>
+                        <li>Develop and improve products and services;</li>
+                        <li>Conduct statistical analysis;</li>
+                        <li>Support research;</li>
+                        <li>Develop preventive-health insights; and</li>
+                        <li>Prepare reports for partner organisations.</li>
+                    </ul>
+                    <p>Such information should not identify an individual.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Where Is Your Data Stored?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Personal information may be stored using our own systems and/or third-party technology and cloud infrastructure providers engaged by us.</p>
+                    <p>Depending on the technology architecture and service involved, information may be stored or processed on servers located in India or other jurisdictions where permitted under applicable law.</p>
+                    <p>We will take appropriate contractual, technical and organisational measures in relation to such processing. The specific technology providers used by us may change from time to time as our systems evolve.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>How Long Do We Retain Your Information?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We retain personal information only for as long as reasonably necessary for:</p>
+                    <ul>
+                        <li>Providing the relevant service;</li>
+                        <li>Maintaining appropriate health or service records;</li>
+                        <li>Fulfilling contractual or legal obligations;</li>
+                        <li>Resolving disputes;</li>
+                        <li>Maintaining security and audit records; or</li>
+                        <li>Other legitimate purposes permitted by applicable law.</li>
+                    </ul>
+                    <p>The retention period may differ depending on the nature of the information and the service. When personal information is no longer required, we will seek to delete it or otherwise dispose of it securely, subject to legal, regulatory or legitimate retention requirements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>How Do We Secure Your Information?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We implement reasonable technical and organisational measures appropriate to the nature and risks associated with the information we process. These may include:</p>
+                    <ul>
+                        <li>Access controls;</li>
+                        <li>Authentication mechanisms;</li>
+                        <li>Role-based access;</li>
+                        <li>Encryption or other security measures where appropriate;</li>
+                        <li>Secure transmission;</li>
+                        <li>Logging and monitoring;</li>
+                        <li>Backup and recovery procedures;</li>
+                        <li>Confidentiality obligations for authorised personnel; and</li>
+                        <li>Security controls for service providers.</li>
+                    </ul>
+                    <p>No electronic system or method of transmission can be guaranteed to be completely secure. However, we seek to continuously improve our safeguards as our systems, services and security risks evolve.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>What Rights Do You Have?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Subject to applicable law and the relevant provisions being in force, you may have rights including:</p>
+                    <ul>
+                        <li>The right to obtain information about your personal data and its processing;</li>
+                        <li>The right to request correction of inaccurate or incomplete information;</li>
+                        <li>The right to request erasure of personal information where applicable;</li>
+                        <li>The right to withdraw consent where processing is based on consent;</li>
+                        <li>The right to access information regarding sharing of personal data, where applicable;</li>
+                        <li>The right to raise a grievance; and</li>
+                        <li>The right to nominate another individual to exercise applicable rights in accordance with law.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>How Can You Withdraw Consent?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Where processing is based on consent, you may withdraw your consent by contacting us through the details provided in this Privacy Policy or by using the withdrawal mechanism made available for the relevant service.</p>
+                    <p>We aim to make withdrawal of consent reasonably straightforward. Where technically and legally applicable, the process for withdrawing consent should be comparable to the process through which consent was given.</p>
+                    <p>Withdrawal of consent will not affect the lawfulness of processing carried out before withdrawal. Withdrawal may also not require deletion of information where continued retention or processing is required or permitted by applicable law.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>How Can You Request Access, Correction or Deletion?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>You may contact us at: <strong>privacy@drmudhiwalla.com</strong></p>
+                    <p>with the subject: <strong>Privacy Request – [Nature of Request]</strong></p>
+                    <p>For example:</p>
+                    <ul>
+                        <li>Privacy Request – Access</li>
+                        <li>Privacy Request – Correction</li>
+                        <li>Privacy Request – Deletion</li>
+                        <li>Privacy Request – Consent Withdrawal</li>
+                        <li>Privacy Complaint</li>
+                    </ul>
+                    <p>We may need to verify your identity before acting on a request concerning your personal information. This is intended to protect your information from unauthorized access or deletion.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>What Happens in Case of a Data Breach?</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>If we become aware of a personal data breach, we will take appropriate steps to:</p>
+                    <ul>
+                        <li>Assess and contain the incident;</li>
+                        <li>Secure affected systems;</li>
+                        <li>Investigate the nature and extent of the breach;</li>
+                        <li>Take steps to mitigate potential harm;</li>
+                        <li>Notify affected individuals where required;</li>
+                        <li>Notify relevant authorities or regulatory bodies where required; and</li>
+                        <li>Take corrective measures to reduce the likelihood of recurrence.</li>
+                    </ul>
+                    <p>Our response will be carried out in accordance with applicable legal and regulatory requirements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Children's Data</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our Services are primarily intended for adults unless a particular programme expressly provides otherwise.</p>
+                    <p>Where a service involves a child or another individual who requires a parent, guardian or other authorised person to provide consent under applicable law, we will seek to implement the appropriate consent mechanism.</p>
+                    <p>We do not knowingly seek to collect children's personal information for unrelated commercial purposes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Third-Party Service Providers</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We may use third-party providers for services such as:</p>
+                    <ul>
+                        <li>Cloud hosting;</li>
+                        <li>Website infrastructure;</li>
+                        <li>Communication and messaging;</li>
+                        <li>Email;</li>
+                        <li>Analytics;</li>
+                        <li>Data processing;</li>
+                        <li>Laboratory services;</li>
+                        <li>Report generation; and</li>
+                        <li>Other operational functions.</li>
+                    </ul>
+                    <p>Such providers may process information on our behalf where necessary to provide the relevant service. We seek to ensure that appropriate contractual and security safeguards apply to such processing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Third-Party Websites</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our Website may contain links to third-party websites or services. We are not responsible for the privacy practices, security or content of third-party websites.</p>
+                    <p>We recommend reviewing the privacy policy of any third-party website before providing personal information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Cookies and Website Analytics</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our Website may use cookies, analytics tools and similar technologies to:</p>
+                    <ul>
+                        <li>Operate the Website;</li>
+                        <li>Understand Website usage;</li>
+                        <li>Improve performance;</li>
+                        <li>Maintain security; and</li>
+                        <li>Understand how visitors interact with our content.</li>
+                    </ul>
+                    <p>Where required, we will provide appropriate notice and obtain consent for non-essential cookies or similar technologies.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Changes to This Privacy Policy</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We may update this Privacy Policy from time to time to reflect:</p>
+                    <ul>
+                        <li>Changes in our services;</li>
+                        <li>Changes in our technology;</li>
+                        <li>Changes in our data practices;</li>
+                        <li>Changes in applicable law or regulations; or</li>
+                        <li>Changes in our privacy and security practices.</li>
+                    </ul>
+                    <p>The updated version will be published on this Website with a revised "Last Updated" date. Where required by applicable law, we will provide additional notice or obtain consent for material changes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Governing Law</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>This Privacy Policy shall be governed by the laws of India.</p>
+                    <p>Any dispute arising in connection with this Privacy Policy shall be subject to applicable Indian law and the jurisdiction of the competent courts or authorities as provided by law.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Contact Us</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <div class="contact-block">
+                        <strong>DrMudhiwalla Healthtech Private Limited</strong><br>
+                        Privacy Contact: privacy@drmudhiwalla.com<br>
+                        Grievance Officer: Dr. Sanjeet Sahu / Founder & Director<br>
+                        Grievance Email: grievance@drmudhiwalla.com<br>
+                        Registered Office: B-180, Majlis Park, Delhi 110033<br>
+                        Website: www.drmudhiwalla.com
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <script>document.querySelectorAll('.fade-in-up, .fade-in-down').forEach(el => { el.addEventListener('animationend', () => { el.style.opacity = '1'; el.style.animation = 'none'; }); });</script>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.closest('.accordion-item');
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+    </script>
 </body>
 </html>

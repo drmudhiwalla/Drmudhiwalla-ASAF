@@ -489,9 +489,9 @@ body {
 
 .footer-columns {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
-    padding-bottom: 1.5rem;
+    grid-template-columns: 1fr repeat(3, auto);
+    gap: 3rem;
+    padding-bottom: 0.4rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -604,10 +604,37 @@ body {
 
 .footer-legal {
     width: 100%;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.2rem;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+    color: #fff;
+}
+
+.footer-plus {
+    display: none;
+}
+
+.footer-col-corporate {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-corporate-inline {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 0.3rem 0;
+    line-height: 1.6;
 }
 
 /* Tablets */
@@ -1729,6 +1756,7 @@ body {
     }
 
     .footer-plus {
+        display: block;
         font-size: 1.2rem;
         font-weight: 400;
         transition: transform 0.3s;

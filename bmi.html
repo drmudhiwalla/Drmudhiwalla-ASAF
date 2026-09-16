@@ -264,32 +264,8 @@
                 </div>
             </div>
 
-            <!-- Section 2: Basic Info -->
+            <!-- Section 2: Height & Weight -->
             <div class="form-section" id="section-1">
-                <div class="field-group">
-                    <div class="field-label">Name <span class="hindi">आपका नाम</span> <span class="required">*</span></div>
-                    <input type="text" class="text-input" id="q-name" placeholder="Your answer" required>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">Age <span class="hindi">उम्र</span> <span class="required">*</span></div>
-                    <input type="number" inputmode="numeric" class="text-input" id="q-age" placeholder="Your answer" required>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">Gender <span class="hindi">लिंग</span> <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="gender" value="male"><span class="radio-circle"></span><span class="radio-label">Male <span class="hindi-option">पुरुष</span></span></label>
-                        <label class="radio-option"><input type="radio" name="gender" value="female"><span class="radio-circle"></span><span class="radio-label">Female <span class="hindi-option">महिला</span></span></label>
-                        <label class="radio-option"><input type="radio" name="gender" value="other"><span class="radio-circle"></span><span class="radio-label">Other <span class="hindi-option">अन्य</span></span></label>
-                    </div>
-                </div>
-                <div class="btn-row">
-                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
-                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
-                </div>
-            </div>
-
-            <!-- Section 3: Height & Weight -->
-            <div class="form-section" id="section-2">
                 <div class="field-group">
                     <div class="field-label">Height (cm) <span class="hindi">ऊंचाई (सेमी)</span> <span class="required">*</span></div>
                     <div class="field-hint">Enter your height in centimeters. Ex- 170</div>
@@ -359,7 +335,7 @@
 
     <script>
         let currentSection = 0;
-        const totalSections = 3;
+        const totalSections = 2;
 
         function updateUI() {
             document.querySelectorAll('.form-section').forEach((s, i) => {
@@ -397,29 +373,6 @@
             let valid = true;
 
             if (index === 1) {
-                const name = document.getElementById('q-name');
-                if (!name.value.trim()) { showError(name, 'Please enter your name'); valid = false; }
-
-                const age = document.getElementById('q-age');
-                if (!age.value.trim()) { showError(age, 'Please enter your age'); valid = false; }
-
-                if (!document.querySelector('input[name="gender"]:checked')) {
-                    const genderGroup = section.querySelector('.radio-group');
-                    genderGroup.classList.add('error');
-                    let errEl = genderGroup.parentElement.querySelector('.error-msg');
-                    if (!errEl) {
-                        errEl = document.createElement('div');
-                        errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please select your gender';
-                        genderGroup.parentElement.appendChild(errEl);
-                    } else {
-                        errEl.classList.add('show');
-                    }
-                    valid = false;
-                }
-            }
-
-            if (index === 2) {
                 const height = document.getElementById('q-height');
                 if (!height.value.trim()) { showError(height, 'Please enter your height'); valid = false; }
                 else {
@@ -513,7 +466,7 @@
             var downloadBtn = document.getElementById('downloadBtn');
             downloadBtn.style.display = 'inline-block';
             downloadBtn.onclick = function() {
-                downloadPDF('BMI Calculator', 'Name: ' + document.getElementById('q-name').value + '\nAge: ' + document.getElementById('q-age').value + '\nHeight: ' + heightCm + ' cm\nWeight: ' + weightKg + ' kg\nBMI: ' + bmi.toFixed(1) + ' kg/m\u00B2\nCategory: ' + category.text);
+                downloadPDF('BMI Calculator', 'Height: ' + heightCm + ' cm\nWeight: ' + weightKg + ' kg\nBMI: ' + bmi.toFixed(1) + ' kg/m\u00B2\nCategory: ' + category.text);
             };
         }
 
@@ -526,17 +479,6 @@
                 input.classList.remove('field-error');
                 const err = input.parentElement.querySelector('.error-msg');
                 if (err) err.classList.remove('show');
-            });
-        });
-
-        document.querySelectorAll('input[type="radio"]').forEach(radio => {
-            radio.addEventListener('change', () => {
-                const group = radio.closest('.radio-group');
-                if (group) {
-                    group.classList.remove('error');
-                    const err = group.parentElement.querySelector('.error-msg');
-                    if (err) err.classList.remove('show');
-                }
             });
         });
 

@@ -255,32 +255,8 @@
                 </div>
             </div>
 
-            <!-- Section 2: Personal Info -->
+            <!-- Section 2: Measurements -->
             <div class="form-section" id="section-1">
-                <div class="field-group">
-                    <div class="field-label">Name <span class="hindi">आपका नाम</span> <span class="required">*</span></div>
-                    <input type="text" class="text-input" id="q-name" placeholder="Your answer" required>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">Age <span class="hindi">उम्र</span> <span class="required">*</span></div>
-                    <input type="number" inputmode="numeric" class="text-input" id="q-age" placeholder="Your answer" required>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">Gender <span class="hindi">लिंग</span> <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="gender" value="male"><span class="radio-circle"></span><span class="radio-label">Male <span class="hindi-option">पुरुष</span></span></label>
-                        <label class="radio-option"><input type="radio" name="gender" value="female"><span class="radio-circle"></span><span class="radio-label">Female <span class="hindi-option">महिला</span></span></label>
-                        <label class="radio-option"><input type="radio" name="gender" value="other"><span class="radio-circle"></span><span class="radio-label">Other <span class="hindi-option">अन्य</span></span></label>
-                    </div>
-                </div>
-                <div class="btn-row">
-                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
-                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
-                </div>
-            </div>
-
-            <!-- Section 3: Measurements -->
-            <div class="form-section" id="section-2">
                 <div class="field-group">
                     <div class="field-label">Height <span class="hindi">लंबाई (सेमी)</span> <span class="required">*</span></div>
                     <div class="field-hint">Enter height in centimeters (e.g., 170)</div>
@@ -290,11 +266,6 @@
                     <div class="field-label">Waist Circumference <span class="hindi">कमर की परिधि (सेमी)</span> <span class="required">*</span></div>
                     <div class="field-hint">Measure at the narrowest point, typically at the level of the navel</div>
                     <input type="number" inputmode="numeric" class="text-input" id="q-waist" placeholder="Waist in cm" required>
-                </div>
-                <div class="field-group">
-                    <div class="field-label">Hip Circumference <span class="hindi">कूल्हे की परिधि (सेमी)</span> <span class="required">*</span></div>
-                    <div class="field-hint">Measure at the widest point of the hips</div>
-                    <input type="number" inputmode="numeric" class="text-input" id="q-hip" placeholder="Hip in cm" required>
                 </div>
                 <div class="btn-row">
                     <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
@@ -323,8 +294,8 @@
             <div class="components-list" id="componentsList"></div>
 
             <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                BRI = 364.2 − 365.5 × √(1 − [(W² + H²) / (2 × HT²)])<br>
-                where W = waist/2.54, H = hip/2.54, HT = height/2.54<br>
+                BRI = 364.2 − 365.5 × √(1 − (WC / (π × HT))²)<br>
+                where WC = waist circumference, HT = height<br>
                 <strong>&lt; 3.4</strong> Very Low &nbsp;|&nbsp; <strong>3.4–6.9</strong> Low &nbsp;|&nbsp; <strong>7.0–11.0</strong> Normal &nbsp;|&nbsp; <strong>11.1–16.0</strong> High &nbsp;|&nbsp; <strong>&gt; 16.0</strong> Very High
             </div>
 
@@ -350,7 +321,7 @@
 
     <script>
         let currentSection = 0;
-        const totalSections = 3;
+        const totalSections = 2;
 
         function updateUI() {
             document.querySelectorAll('.form-section').forEach((s, i) => {
@@ -388,41 +359,14 @@
             let valid = true;
 
             if (index === 1) {
-                const name = document.getElementById('q-name');
-                if (!name.value.trim()) { showError(name, 'Please enter your name'); valid = false; }
-
-                const age = document.getElementById('q-age');
-                if (!age.value.trim()) { showError(age, 'Please enter your age'); valid = false; }
-
-                if (!document.querySelector('input[name="gender"]:checked')) {
-                    const genderGroup = section.querySelector('.radio-group');
-                    genderGroup.classList.add('error');
-                    let errEl = genderGroup.parentElement.querySelector('.error-msg');
-                    if (!errEl) {
-                        errEl = document.createElement('div');
-                        errEl.className = 'error-msg show';
-                        errEl.textContent = 'Please select your gender';
-                        genderGroup.parentElement.appendChild(errEl);
-                    } else {
-                        errEl.classList.add('show');
-                    }
-                    valid = false;
-                }
-            }
-
-            if (index === 2) {
                 const height = document.getElementById('q-height');
                 const waist = document.getElementById('q-waist');
-                const hip = document.getElementById('q-hip');
 
                 if (!height.value.trim()) { showError(height, 'Please enter your height'); valid = false; }
                 else if (parseFloat(height.value) <= 0) { showError(height, 'Height must be positive'); valid = false; }
 
                 if (!waist.value.trim()) { showError(waist, 'Please enter your waist circumference'); valid = false; }
                 else if (parseFloat(waist.value) <= 0) { showError(waist, 'Waist must be positive'); valid = false; }
-
-                if (!hip.value.trim()) { showError(hip, 'Please enter your hip circumference'); valid = false; }
-                else if (parseFloat(hip.value) <= 0) { showError(hip, 'Hip must be positive'); valid = false; }
             }
 
             return valid;
@@ -446,19 +390,11 @@
         function calculateBRI() {
             const height = parseFloat(document.getElementById('q-height').value);
             const waist = parseFloat(document.getElementById('q-waist').value);
-            const hip = parseFloat(document.getElementById('q-hip').value);
 
-            const heightIn = height / 2.54;
-            const waistIn = waist / 2.54;
-            const hipIn = hip / 2.54;
+            const whtr = waist / height;
+            const eccentricity = Math.sqrt(1 - Math.pow(whtr / Math.PI, 2));
 
-            const numerator = Math.pow(waistIn, 2) + Math.pow(hipIn, 2);
-            const denominator = 2 * Math.pow(heightIn, 2);
-            const inside = 1 - (numerator / denominator);
-
-            if (inside < 0) return null;
-
-            const bri = 364.2 - 365.5 * Math.sqrt(inside);
+            const bri = 364.2 - 365.5 * eccentricity;
             return Math.round(bri * 10) / 10;
         }
 
@@ -495,7 +431,6 @@
             const list = document.getElementById('componentsList');
             const height = parseFloat(document.getElementById('q-height').value);
             const waist = parseFloat(document.getElementById('q-waist').value);
-            const hip = parseFloat(document.getElementById('q-hip').value);
             list.innerHTML = `
                 <div class="component-row">
                     <span class="component-name">Height</span>
@@ -504,14 +439,6 @@
                 <div class="component-row">
                     <span class="component-name">Waist Circumference</span>
                     <span class="component-score">${waist} cm</span>
-                </div>
-                <div class="component-row">
-                    <span class="component-name">Hip Circumference</span>
-                    <span class="component-score">${hip} cm</span>
-                </div>
-                <div class="component-row">
-                    <span class="component-name">Waist-to-Hip Ratio</span>
-                    <span class="component-score">${(waist / hip).toFixed(2)}</span>
                 </div>
                 <div class="component-row">
                     <span class="component-name">Category</span>
@@ -524,7 +451,7 @@
             var downloadBtn = document.getElementById('downloadBtn');
             downloadBtn.style.display = 'inline-block';
             downloadBtn.onclick = function() {
-                downloadPDF('BRI Assessment', 'Name: ' + document.getElementById('q-name').value + '\nAge: ' + document.getElementById('q-age').value + '\nHeight: ' + height + ' cm\nWaist: ' + waist + ' cm\nHip: ' + hip + ' cm\nBRI: ' + bri + '\nCategory: ' + category.text);
+                downloadPDF('BRI Assessment', 'Height: ' + height + ' cm\nWaist: ' + waist + ' cm\nBRI: ' + bri + '\nCategory: ' + category.text);
             };
         }
 
@@ -537,17 +464,6 @@
                 input.classList.remove('field-error');
                 const err = input.parentElement.querySelector('.error-msg');
                 if (err) err.classList.remove('show');
-            });
-        });
-
-        document.querySelectorAll('input[type="radio"]').forEach(radio => {
-            radio.addEventListener('change', () => {
-                const group = radio.closest('.radio-group');
-                if (group) {
-                    group.classList.remove('error');
-                    const err = group.parentElement.querySelector('.error-msg');
-                    if (err) err.classList.remove('show');
-                }
             });
         });
 
