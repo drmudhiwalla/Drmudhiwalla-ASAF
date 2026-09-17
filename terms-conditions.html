@@ -8,36 +8,477 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .error-section { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 40px 20px; text-align: center; }
-        .error-content { max-width: 600px; }
-        .error-emoji { font-size: clamp(60px, 10vw, 100px); margin-bottom: 16px; }
-        .error-label { font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; color: #35AEF4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .error-heading { font-size: clamp(24px, 3vw, 44px); font-weight: 600; color: #0f172a; line-height: 1.1; margin-bottom: 16px; }
-        .error-sub { font-size: clamp(14px, 1.25vw, 18px); font-weight: 400; color: #687386; margin-bottom: 32px; line-height: 1.6; }
-        .error-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .error-btn { display: inline-block; background: #35AEF4; color: #fff; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background 0.2s, transform 0.2s; }
-        .error-btn:hover { background: #0284c7; transform: translateY(-1px); }
-        .error-btn-outline { display: inline-block; background: transparent; color: #35AEF4; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; border: 2px solid #35AEF4; font-family: 'Poppins', sans-serif; transition: background 0.2s, color 0.2s; }
-        .error-btn-outline:hover { background: #35AEF4; color: #fff; }
+        .policy-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+        .policy-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 32px;
+        }
+        .policy-updated {
+            font-size: 0.85rem;
+            color: #687386;
+            margin-bottom: 40px;
+        }
+        .policy-intro {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .accordion-header:hover {
+            background: #f9fafb;
+        }
+        .accordion-header h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #0f172a;
+            margin: 0;
+        }
+        .accordion-toggle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #35AEF4;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        .accordion-toggle:hover {
+            color: #0284c7;
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .accordion-body-inner {
+            padding: 0 24px 24px;
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.8;
+        }
+        .accordion-body-inner p {
+            margin: 0 0 12px;
+        }
+        .accordion-body-inner ul {
+            margin: 8px 0 12px;
+            padding-left: 20px;
+        }
+        .accordion-body-inner li {
+            margin-bottom: 6px;
+        }
+        .accordion-body-inner strong {
+            color: #0f172a;
+        }
+        .accordion-item.open .accordion-body {
+            max-height: 3000px;
+        }
+        .accordion-item.open .accordion-toggle {
+            display: none;
+        }
+        .accordion-close {
+            display: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #dc2626;
+            cursor: pointer;
+        }
+        .accordion-item.open .accordion-close {
+            display: block;
+        }
+        .back-home-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: inline-block;
+            background: #35AEF4;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            z-index: 100;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home-btn:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+        }
+        .contact-block {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn">&larr; Back to Home</a>
     <a href="index.html" class="text-logo fade-in-down" style="text-decoration: none;">
         <div class="logo-title">DrMudhiwalla</div>
         <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
     </a>
-    <section class="error-section">
-        <div class="error-content fade-in-up">
-            <div class="error-emoji">&#x1F4DC;</div>
-            <p class="error-label">LEGAL STUFF</p>
-            <h1 class="error-heading">Terms & Conditions</h1>
-            <p class="error-sub">My lawyer is taking too much time (and money). Please sit tight. The only term you need to know right now: stay healthy.</p>
-            <div class="error-links">
-                <a href="index.html" class="error-btn">Go Home &rarr;</a>
-                <a href="bank-model.html" class="error-btn-outline">See Our Bank Model</a>
+
+    <section class="policy-section">
+        <h1 class="policy-title">Terms & Conditions</h1>
+        <p class="policy-updated">Last Updated: 17 September 2026</p>
+
+        <p class="policy-intro">Welcome to the website of DrMudhiwalla Healthtech Private Limited ("DrMudhiwalla", "we", "us", or "our"). These Terms & Conditions ("Terms") govern your access to and use of www.drmudhiwalla.com ("Website") and, where applicable, the preventive health screening, assessment and related services made available through the Website or through our partner locations ("Services"). By accessing or using the Website or participating in our Services, you acknowledge that you have read, understood and agree to these Terms. If you do not agree with these Terms, please do not use the Website or Services.</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>1. About DrMudhiwalla</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>DrMudhiwalla Healthtech Private Limited is a preventive health technology company focused on making health screening, health-risk awareness and preventive health engagement more accessible.</p>
+                    <p>Our Services may be offered through banks, workplaces, gyms and fitness centres, community locations, health camps, partner organisations and our digital platforms.</p>
+                    <p>The nature, scope and availability of Services may vary depending on the particular programme, location and partner organisation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>2. Use of the Website</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>You may use the Website only for lawful purposes and in accordance with these Terms.</p>
+                    <p>You agree not to:</p>
+                    <ul>
+                        <li>Use the Website for any unlawful, fraudulent or unauthorised purpose;</li>
+                        <li>Provide false, misleading or unauthorised information;</li>
+                        <li>Attempt to gain unauthorised access to the Website, its systems or databases;</li>
+                        <li>Interfere with the security, functionality or operation of the Website;</li>
+                        <li>Introduce viruses, malware or other harmful code;</li>
+                        <li>Copy, reproduce, modify, distribute or commercially exploit Website content without our prior written permission;</li>
+                        <li>Attempt to reverse engineer or otherwise interfere with the Website's software or technology; or</li>
+                        <li>Use the Website in a manner that may harm DrMudhiwalla, its users, partners or service providers.</li>
+                    </ul>
+                    <p>We may restrict or suspend access to the Website where reasonably necessary to protect the Website, our users, our systems or our Services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>3. Preventive Health Screening</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our Services are intended to support preventive health awareness, screening, lifestyle assessment and health-risk awareness.</p>
+                    <p>Our Services are not intended to provide a medical diagnosis or replace consultation, examination or treatment by a qualified healthcare professional.</p>
+                    <p>Depending on the particular Service, screening may include physical measurements, vital measurements, lifestyle assessments, questionnaires, point-of-care testing, risk assessments or other preventive-health parameters.</p>
+                    <p>The specific parameters included in a screening may vary by programme.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>4. Screening Results and Their Limitations</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Screening measurements, scores, classifications and reports are based on the information and measurements available at the time of assessment.</p>
+                    <p>Results may be affected by factors including:</p>
+                    <ul>
+                        <li>Conditions at the time of measurement;</li>
+                        <li>Device or measurement variability;</li>
+                        <li>User-provided information;</li>
+                        <li>Temporary physiological or lifestyle factors;</li>
+                        <li>Incomplete or inaccurate information; and</li>
+                        <li>Limitations of the particular screening methodology.</li>
+                    </ul>
+                    <p>A screening result or risk category represents an assessment based on the information available at the time. It does not, by itself, establish the presence or absence of a disease or medical condition.</p>
+                    <p>A result indicating a lower level of risk does not guarantee the absence of a medical condition. Similarly, an elevated or higher-risk result does not constitute a medical diagnosis.</p>
+                    <p>Where appropriate, you should seek further evaluation from a qualified healthcare professional.</p>
+                    <p>If you are experiencing symptoms or believe that you require urgent medical attention, seek appropriate medical or emergency care and do not rely on our Services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>5. User-Provided Information</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Where you provide information to us through the Website or our Services, you agree to provide information that is accurate and complete to the best of your knowledge.</p>
+                    <p>You are responsible for reviewing the information you provide and notifying us where you believe that any material information is incorrect.</p>
+                    <p>If you provide information on behalf of another person, you represent that you are authorised to provide such information and, where required, the relevant consent.</p>
+                    <p>We are not responsible for inaccuracies in screening results arising from information that is incorrect or incomplete when provided by the user.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>6. Personal and Health Information</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our Services may involve the collection and processing of personal information and health-related information.</p>
+                    <p>The collection, use, sharing, storage, retention and protection of such information are governed by our Privacy Policy and the applicable consent or privacy notice provided for the relevant Service.</p>
+                    <p>Our Privacy Policy forms an integral part of these Terms.</p>
+                    <p>Your health data is entrusted to us. We treat it as a responsibility, not a commodity.</p>
+                    <p>Our commitments regarding personal and health information—including how it is collected, used, shared, protected, retained and, where applicable, aggregated or anonymised—are explained in our Privacy Policy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>7. Consent for Services</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Certain Services may require consent before personal or health information is collected or processed.</p>
+                    <p>Where applicable, the relevant consent notice will explain the information being collected, the purpose of processing, applicable sharing arrangements and how consent may be withdrawn.</p>
+                    <p>Participation in a particular screening programme is subject to the applicable consent and programme-specific terms.</p>
+                    <p>Withdrawal of consent, where applicable, may affect our ability to continue providing a Service that depends upon the relevant information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>8. Partner Locations</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our Services may be delivered at locations operated by banks, employers, gyms, community organisations or other partner organisations.</p>
+                    <p>A partner organisation may facilitate or host a screening programme but does not, merely by hosting the programme, become entitled to unrestricted access to your personal or health information.</p>
+                    <p>The information that may be shared with a partner will depend on the particular programme and the applicable consent, privacy notice and law.</p>
+                    <p>For example, a programme may permit a partner organisation to receive only a Green / Yellow / Red outcome while detailed health measurements and questionnaire responses remain confidential.</p>
+                    <p>Further information about such sharing is provided in our Privacy Policy and the relevant programme-specific notice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>9. Third-Party Services</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We may engage third-party service providers to support the operation and delivery of our Website and Services, including providers of hosting, cloud infrastructure, communication, technology, analytics, laboratory or other operational services.</p>
+                    <p>Where such providers process personal information on our behalf, such processing will be subject to applicable contractual, security and legal requirements.</p>
+                    <p>Our Privacy Policy explains our approach to third-party processing and data protection.</p>
+                    <p>Where you directly use a third-party website, platform or service, your use may also be governed by that provider's own terms and privacy policy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>10. Intellectual Property</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>All content and materials available through the Website, including text, logos, brand names, graphics, photographs, videos, designs, software, user interfaces, reports, assessment materials and other proprietary materials, are owned by or licensed to DrMudhiwalla Healthtech Private Limited, unless otherwise stated.</p>
+                    <p>You may not reproduce, modify, publish, distribute, transmit, sell, license or commercially exploit such materials without our prior written permission.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>11. Website and Service Availability</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We endeavour to maintain the availability and functionality of the Website and Services.</p>
+                    <p>However, we do not guarantee that the Website or any Service will always be:</p>
+                    <ul>
+                        <li>Available;</li>
+                        <li>Uninterrupted;</li>
+                        <li>Secure;</li>
+                        <li>Error-free; or</li>
+                        <li>Free from viruses or other harmful components.</li>
+                    </ul>
+                    <p>The Website or Services may occasionally be unavailable due to maintenance, upgrades, technical problems, infrastructure failures, security incidents or circumstances beyond our reasonable control.</p>
+                    <p>We may modify, suspend or discontinue any part of the Website or Services where reasonably necessary.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>12. No Guarantee of Health Outcomes</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Participation in a preventive health screening or use of our Services does not guarantee:</p>
+                    <ul>
+                        <li>Prevention of a disease or health condition;</li>
+                        <li>Detection of every existing health condition;</li>
+                        <li>Prediction of future health events;</li>
+                        <li>Improvement in health outcomes; or</li>
+                        <li>Any particular medical or health outcome.</li>
+                    </ul>
+                    <p>Preventive health outcomes depend on numerous individual and environmental factors, including health status, lifestyle, medical history, access to healthcare and adherence to appropriate medical advice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>13. Limitation of Liability</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>To the extent permitted by applicable law, DrMudhiwalla Healthtech Private Limited, its directors, employees, representatives, affiliates and service providers shall not be liable for indirect, incidental, consequential or special losses arising from or relating to:</p>
+                    <ul>
+                        <li>Your use of or inability to use the Website;</li>
+                        <li>Reliance on general information published on the Website;</li>
+                        <li>Interpretation or use of screening results or risk assessments;</li>
+                        <li>Limitations inherent in screening methodologies or devices;</li>
+                        <li>Inaccurate or incomplete information provided by you;</li>
+                        <li>Third-party websites, platforms or services;</li>
+                        <li>Temporary interruption or unavailability of the Website or Services; or</li>
+                        <li>Events beyond our reasonable control.</li>
+                    </ul>
+                    <p>Nothing in these Terms is intended to exclude or limit any liability or statutory right that cannot legally be excluded or limited under applicable law.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>14. Changes to Services and These Terms</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>We may modify, update, suspend or discontinue any Website feature or Service from time to time.</p>
+                    <p>The availability, methodology, parameters, programme structure or scope of a particular Service may change.</p>
+                    <p>We may also update these Terms to reflect changes in our Services, technology, business practices or applicable laws and regulations.</p>
+                    <p>The updated version will be published on the Website with a revised "Last Updated" date.</p>
+                    <p>Where required by applicable law, we will provide additional notice or obtain any required consent.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>15. Governing Law and Jurisdiction</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>These Terms shall be governed by and interpreted in accordance with the laws of India.</p>
+                    <p>Subject to applicable law, disputes arising out of or relating to these Terms or your use of the Website shall be subject to the jurisdiction of the competent courts in Delhi, India.</p>
+                    <p>Nothing in this clause limits any statutory right to approach a competent authority, regulator, tribunal or other forum where such right exists under applicable law.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>16. Severability</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>If any provision of these Terms is found to be invalid, unlawful or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>17. Entire Agreement</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>These Terms, together with our Privacy Policy, applicable consent notices and any additional terms specifically applicable to a particular Service, constitute the terms governing your use of the Website and Services.</p>
+                    <p>Where a specific programme has separate terms or consent requirements, those terms will apply to that programme to the extent of any inconsistency.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>18. Contact Us</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <div class="contact-block">
+                        <strong>DrMudhiwalla Healthtech Private Limited</strong><br>
+                        Website: www.drmudhiwalla.com<br>
+                        Email: support@drmudhiwalla.com<br>
+                        Privacy Enquiries: privacy@drmudhiwalla.com<br>
+                        Grievance Officer: Dr. Sanjeet Sahu, Founder & Director<br>
+                        Grievance Email: grievance@drmudhiwalla.com<br>
+                        Registered Office: B-180, Majlis Park, Delhi-110033
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <script>document.querySelectorAll('.fade-in-up, .fade-in-down').forEach(el => { el.addEventListener('animationend', () => { el.style.opacity = '1'; el.style.animation = 'none'; }); });</script>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.closest('.accordion-item');
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+    </script>
 </body>
 </html>

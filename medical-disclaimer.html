@@ -8,36 +8,294 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .error-section { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 40px 20px; text-align: center; }
-        .error-content { max-width: 600px; }
-        .error-emoji { font-size: clamp(60px, 10vw, 100px); margin-bottom: 16px; }
-        .error-label { font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; color: #35AEF4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .error-heading { font-size: clamp(24px, 3vw, 44px); font-weight: 600; color: #0f172a; line-height: 1.1; margin-bottom: 16px; }
-        .error-sub { font-size: clamp(14px, 1.25vw, 18px); font-weight: 400; color: #687386; margin-bottom: 32px; line-height: 1.6; }
-        .error-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .error-btn { display: inline-block; background: #35AEF4; color: #fff; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background 0.2s, transform 0.2s; }
-        .error-btn:hover { background: #0284c7; transform: translateY(-1px); }
-        .error-btn-outline { display: inline-block; background: transparent; color: #35AEF4; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; border: 2px solid #35AEF4; font-family: 'Poppins', sans-serif; transition: background 0.2s, color 0.2s; }
-        .error-btn-outline:hover { background: #35AEF4; color: #fff; }
+        .policy-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+        .policy-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 32px;
+        }
+        .policy-updated {
+            font-size: 0.85rem;
+            color: #687386;
+            margin-bottom: 40px;
+        }
+        .policy-intro {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .accordion-header:hover {
+            background: #f9fafb;
+        }
+        .accordion-header h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #0f172a;
+            margin: 0;
+        }
+        .accordion-toggle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #35AEF4;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        .accordion-toggle:hover {
+            color: #0284c7;
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .accordion-body-inner {
+            padding: 0 24px 24px;
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.8;
+        }
+        .accordion-body-inner p {
+            margin: 0 0 12px;
+        }
+        .accordion-body-inner ul {
+            margin: 8px 0 12px;
+            padding-left: 20px;
+        }
+        .accordion-body-inner li {
+            margin-bottom: 6px;
+        }
+        .accordion-body-inner strong {
+            color: #0f172a;
+        }
+        .accordion-item.open .accordion-body {
+            max-height: 3000px;
+        }
+        .accordion-item.open .accordion-toggle {
+            display: none;
+        }
+        .accordion-close {
+            display: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #dc2626;
+            cursor: pointer;
+        }
+        .accordion-item.open .accordion-close {
+            display: block;
+        }
+        .back-home-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: inline-block;
+            background: #35AEF4;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            z-index: 100;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home-btn:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+        }
+        .contact-block {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .important-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 32px 0;
+            font-size: 0.9rem;
+            color: #92400e;
+            line-height: 1.7;
+        }
+        .important-box strong {
+            color: #78350f;
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn">&larr; Back to Home</a>
     <a href="index.html" class="text-logo fade-in-down" style="text-decoration: none;">
         <div class="logo-title">DrMudhiwalla</div>
         <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
     </a>
-    <section class="error-section">
-        <div class="error-content fade-in-up">
-            <div class="error-emoji">&#x2695;</div>
-            <p class="error-label">LEGAL STUFF</p>
-            <h1 class="error-heading">Medical Disclaimer</h1>
-            <p class="error-sub">My lawyer is taking too much time (and money). Please sit tight. But seriously, we're not your doctor. If something hurts, please go see one. We just do the screening part.</p>
-            <div class="error-links">
-                <a href="index.html" class="error-btn">Go Home &rarr;</a>
-                <a href="bank-model.html" class="error-btn-outline">See Our Bank Model</a>
+
+    <section class="policy-section">
+        <h1 class="policy-title">Health Screening Disclaimer</h1>
+        <p class="policy-updated">Last Updated: 17 September 2026</p>
+
+        <p class="policy-intro">At DrMudhiwalla Healthtech Private Limited, our health screening services are designed to support preventive health awareness, early identification of potential health risks and informed health decisions. Please read the following before participating in a screening or relying on a screening result.</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>1. Screening is not diagnosis</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our screening services are not a medical diagnosis and do not replace consultation, examination or treatment by a qualified healthcare professional.</p>
+                    <p>Depending on the programme, screening may include measurements such as blood pressure, blood glucose, cholesterol, BMI, BRI, waist measurements, lifestyle, sleep, stress, physical activity and other health-related assessments.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>2. Screening results are indicative</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>A screening result, score or Green / Yellow / Red risk category reflects an assessment based on the information and measurements available at the time of screening.</p>
+                    <p>It does not confirm the presence or absence of a disease or medical condition.</p>
+                    <p>A result indicating lower risk does not guarantee that you are free from a health condition. Similarly, a higher-risk result does not by itself establish a diagnosis.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>3. Results may have limitations</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Screening results can be influenced by:</p>
+                    <ul>
+                        <li>The circumstances at the time of measurement;</li>
+                        <li>Device or measurement variability;</li>
+                        <li>Temporary physiological factors;</li>
+                        <li>Information provided by the participant;</li>
+                        <li>Incomplete or inaccurate information; and</li>
+                        <li>Limitations of the screening methodology.</li>
+                    </ul>
+                    <p>Where appropriate, further clinical evaluation or diagnostic testing may be recommended.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>4. Do not change treatment based solely on screening</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>You should not start, stop or change any medication, treatment or other medical intervention solely on the basis of our screening results or risk assessment.</p>
+                    <p>Please consult a qualified healthcare professional for personalised medical advice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>5. If you have symptoms</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Our screening service is not an emergency medical service.</p>
+                    <p>If you are experiencing symptoms, feel unwell, or believe you require urgent medical attention, seek appropriate medical or emergency care immediately rather than relying on a screening result.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>6. Your health information</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Information collected during a screening may include personal and health-related information.</p>
+                    <p>How we collect, use, share, retain and protect such information is explained in our Privacy Policy and the applicable consent notice for the screening programme.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>7. Partner locations</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <p>Screenings may be conducted at banks, gyms, workplaces, community locations or other partner establishments.</p>
+                    <p>The fact that a screening is conducted at a partner location does not mean that the partner automatically receives your detailed health information. Any sharing of information will be governed by the applicable programme, consent, Privacy Policy and applicable law.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>IMPORTANT</strong><br>
+            A HEALTH SCREENING IS A PREVENTIVE AWARENESS TOOL — NOT A SUBSTITUTE FOR MEDICAL DIAGNOSIS OR PROFESSIONAL MEDICAL CARE.<br><br>
+            By participating in a DrMudhiwalla health screening, you acknowledge that you have read and understood this disclaimer and that screening results should be interpreted in their appropriate context.
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Contact Us</h3>
+                <span class="accordion-toggle">Read More</span>
+                <span class="accordion-close">Close</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <div class="contact-block">
+                        <strong>DrMudhiwalla Healthtech Private Limited</strong><br>
+                        Website: www.drmudhiwalla.com<br>
+                        Email: sanjeet@drmudhiwalla.com
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <script>document.querySelectorAll('.fade-in-up, .fade-in-down').forEach(el => { el.addEventListener('animationend', () => { el.style.opacity = '1'; el.style.animation = 'none'; }); });</script>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.closest('.accordion-item');
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+    </script>
 </body>
 </html>
