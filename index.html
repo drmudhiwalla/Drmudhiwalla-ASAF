@@ -31,7 +31,7 @@
     <meta property="whatsapp:description" content="Building health screening infrastructure in everyday places, starting with banks.">
     <meta property="whatsapp:image" content="https://drmudhiwalla.com/222.png">
 
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -97,8 +97,8 @@
 
             <div class="hero-detail">
                 <p class="hero-detail-label">STARTING WITH BANKS</p>
-                <p class="hero-detail-bold">Screening at your bank branch.</p>
-                <p class="hero-detail-sub">No extra visit to a health centre.</p>
+                <p class="hero-detail-bold">Screening at your bank branch</p>
+                <p class="hero-detail-sub">No extra visit to a health centre</p>
             </div>
 
             <a href="bank-model.html" class="hero-btn">See our Bank Model &rarr;</a>
@@ -167,21 +167,21 @@
         </div>
         <div class="footer-container">
             <div class="footer-columns">
-                <div class="footer-col footer-col-corporate">
+                <div class="footer-col footer-col-corporate reveal">
                     <p class="footer-corporate-inline">Address: B-180, Majlis Park, North Delhi 110033</p>
                     <p class="footer-corporate-inline">CIN: U86201DL2025PTC451980</p>
                     <p class="footer-corporate-inline">GST: 07AALCD8789M1ZL</p>
                 </div>
-                <div class="footer-col">
-                    <h3 class="footer-heading" onclick="toggleFooterCol(this)">About DrMudhiwalla<span class="footer-plus">+</span></h3>
+                <div class="footer-col reveal">
+                    <h3 class="footer-heading" onclick="toggleFooterCol(this)">About Us<span class="footer-plus">+</span></h3>
                     <ul class="footer-links">
-                        <li><a href="about-founder.html">About Us</a></li>
+                        <li><a href="about-founder.html">DrMudhiwalla</a></li>
                         <li><a href="our-approach.html">Our Approach</a></li>
                         <li><a href="#" onclick="document.getElementById('contactModal').classList.add('active'); return false;">Contact</a></li>
-                        <li><a href="offerletter-signed.jpg" target="_blank" rel="noopener">Careers</a></li>
+                        <li><a href="careers.html">Careers</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col reveal">
                     <h3 class="footer-heading" onclick="toggleFooterCol(this)">Solutions<span class="footer-plus">+</span></h3>
                     <ul class="footer-links">
                         <li><a href="bank-model.html">Banks</a></li>
@@ -190,7 +190,7 @@
                         <li><a href="community-screening.html">Community Screening</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col reveal">
                     <h3 class="footer-heading" onclick="toggleFooterCol(this)">Resources<span class="footer-plus">+</span></h3>
                     <ul class="footer-links">
                         <li><a href="health-insights.html">Health Insights</a></li>
@@ -290,7 +290,7 @@
             });
         });
 
-        const text = "Bringing screening where people already are.";
+        const text = "Bringing screening where people already are";
         const el = document.getElementById('typewriter');
         let i = 0, deleting = false;
 
@@ -347,6 +347,17 @@
                 setTimeout(() => c.classList.remove('show'), 2000);
             });
         }
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal, .zoom').forEach(el => scrollObserver.observe(el));
         function toggleFooterCol(heading) {
             if (window.innerWidth > 768) return;
             const col = heading.parentElement;

@@ -1,24 +1,150 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Approach - DrMudhiwalla HealthTech</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drmudhiwalla.com/our-approach.html">
+    <meta property="og:title" content="Our Approach - DrMudhiwalla HealthTech">
+    <meta property="og:description" content="Building preventive health infrastructure where people already are.">
+    <meta property="og:image" content="https://drmudhiwalla.com/222.png">
+    <meta property="og:site_name" content="DrMudhiwalla HealthTech">
+    <meta property="og:locale" content="en_IN">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .error-section { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 40px 20px; text-align: center; }
-        .error-content { max-width: 600px; }
-        .error-emoji { font-size: clamp(60px, 10vw, 100px); margin-bottom: 16px; }
-        .error-label { font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; color: #35AEF4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .error-heading { font-size: clamp(24px, 3vw, 44px); font-weight: 600; color: #0f172a; line-height: 1.1; margin-bottom: 16px; }
-        .error-sub { font-size: clamp(14px, 1.25vw, 18px); font-weight: 400; color: #687386; margin-bottom: 32px; line-height: 1.6; }
-        .error-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .error-btn { display: inline-block; background: #35AEF4; color: #fff; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background 0.2s, transform 0.2s; }
-        .error-btn:hover { background: #0284c7; transform: translateY(-1px); }
-        .error-btn-outline { display: inline-block; background: transparent; color: #35AEF4; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; border: 2px solid #35AEF4; font-family: 'Poppins', sans-serif; transition: background 0.2s, color 0.2s; }
-        .error-btn-outline:hover { background: #35AEF4; color: #fff; }
+        .approach-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 60vh;
+            padding: 120px 8vw 60px;
+            text-align: center;
+        }
+        .approach-hero-content { max-width: 800px; }
+        .approach-hero .label {
+            font-size: clamp(12px, 1vw, 16px);
+            font-weight: 600;
+            color: #35AEF4;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .approach-hero h1 {
+            font-size: clamp(28px, 4vw, 52px);
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.15;
+            margin-bottom: 0;
+        }
+
+        .pillars-section {
+            padding: 0 8vw 80px;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .pillar-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 36px 28px;
+            box-shadow: 0 4px 24px rgba(100,120,160,0.08);
+            border: 1px solid #f1f5f9;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(100,120,160,0.15);
+        }
+        .pillar-num {
+            font-size: 48px;
+            font-weight: 800;
+            color: #35AEF4;
+            opacity: 0.25;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .pillar-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .pillar-card .subtitle {
+            font-size: 14px;
+            font-weight: 600;
+            color: #35AEF4;
+            margin-bottom: 12px;
+        }
+        .pillar-card p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .summary-section {
+            text-align: center;
+            padding: 0 8vw 80px;
+        }
+        .summary-box {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .summary-box .tagline {
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+        .summary-box .tagline span {
+            color: #35AEF4;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: #35AEF4;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(53,174,244,0.25);
+        }
+        .cta-btn:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(53,174,244,0.35);
+        }
+
+        .footer-bar {
+            background: #35AEF4;
+            color: #fff;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 12px;
+            margin: 0 8vw 40px;
+            border-radius: 12px;
+        }
+        .footer-bar a { color: #fff; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .pillars-grid { grid-template-columns: 1fr; }
+            .approach-hero { padding: 100px 20px 40px; min-height: 50vh; }
+            .text-logo { top: 12px; left: 12px; }
+            .logo-title { font-size: 1.2rem; }
+            .logo-subtitle { font-size: 0.65rem; }
+        }
     </style>
 </head>
 <body>
@@ -26,18 +152,75 @@
         <div class="logo-title">DrMudhiwalla</div>
         <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
     </a>
-    <section class="error-section">
-        <div class="error-content fade-in-up">
-            <div class="error-emoji">&#x1F9D0;</div>
-            <p class="error-label">COMING SOON</p>
-            <h1 class="error-heading">Our Approach</h1>
-            <p class="error-sub">Our approach is so revolutionary, even we haven't figured it out yet. Our strategy team is currently on a tea break... since January.</p>
-            <div class="error-links">
-                <a href="index.html" class="error-btn">Go Home &rarr;</a>
-                <a href="bank-model.html" class="error-btn-outline">See Our Bank Model</a>
+
+    <section class="approach-hero">
+        <div class="approach-hero-content fade-in-up">
+            <p class="label">Our Approach</p>
+            <h1>Building Preventive Health Infrastructure, Where People Already Are.</h1>
+        </div>
+    </section>
+
+    <section class="pillars-section">
+        <div class="pillars-grid">
+            <div class="pillar-card fade-in-up" style="animation-delay: 0.1s;">
+                <div class="pillar-num">01</div>
+                <h2>Banks</h2>
+                <div class="subtitle">Embedded Screening</div>
+                <p>Preventive health screening integrated into everyday banking.</p>
+            </div>
+            <div class="pillar-card fade-in-up" style="animation-delay: 0.2s;">
+                <div class="pillar-num">02</div>
+                <h2>Commercial Locations</h2>
+                <div class="subtitle">Accessible Screening</div>
+                <p>Screening at high-footfall places — malls, bus stops, railway stations and more.</p>
+            </div>
+            <div class="pillar-card fade-in-up" style="animation-delay: 0.3s;">
+                <div class="pillar-num">03</div>
+                <h2>Community Centres</h2>
+                <div class="subtitle">Community Screening</div>
+                <p>Taking preventive health to weekly markets, melas, village fairs and community gatherings.</p>
             </div>
         </div>
     </section>
-    <script>document.querySelectorAll('.fade-in-up, .fade-in-down').forEach(el => { el.addEventListener('animationend', () => { el.style.opacity = '1'; el.style.animation = 'none'; }); });</script>
+
+    <section class="summary-section">
+        <div class="summary-box fade-in-up">
+            <p class="tagline">Three environments. One purpose:<br><span>Make preventive health screening easier to access.</span></p>
+            <a href="bank-model.html" class="cta-btn">See our Bank Model &rarr;</a>
+        </div>
+    </section>
+
+    <div class="footer-bar">
+        <a href="index.html">DrMudhiwalla HealthTech Pvt Ltd</a> &nbsp;|&nbsp; CIN: U86201DL2025PTC451980 &nbsp;|&nbsp; GST: 07AALCD8789M1ZL
+    </div>
+
+    <script>
+        const logo = document.querySelector('.text-logo');
+        if (logo) {
+            window.addEventListener('scroll', () => {
+                logo.style.opacity = window.scrollY > 100 ? '0' : '1';
+                logo.style.transition = 'opacity 0.3s';
+                logo.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+            });
+        }
+        document.querySelectorAll('.fade-in-up, .fade-in-down').forEach(el => {
+            el.addEventListener('animationend', () => {
+                el.style.opacity = '1';
+                el.style.animation = 'none';
+            });
+        });
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal, .zoom').forEach(el => scrollObserver.observe(el));
+    </script>
 </body>
 </html>
+

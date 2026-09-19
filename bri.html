@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRI Calculator - DrMudhiwalla</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://drmudhiwalla.com/bri.html">
@@ -246,9 +247,9 @@
                 <div class="intro-section">
                     <div class="intro-icon">&#x1F4CF;</div>
                     <h2>BRI Calculator</h2>
-                    <div class="hindi-title">(बॉडी राउंडनेस इंडेक्स)</div>
+                    <div class="hindi-title">(à¤¬à¥‰à¤¡à¥€ à¤°à¤¾à¤‰à¤‚à¤¡à¤¨à¥‡à¤¸ à¤‡à¤‚à¤¡à¥‡à¤•à¥à¤¸)</div>
                     <p>Body Roundness Index (BRI) is a measure that estimates the proportion of visceral adipose tissue based on height and waist circumference. A higher BRI indicates greater central obesity and associated health risks.</p>
-                    <p class="hindi-desc">बॉडी राउंडनेस इंडेक्स (BRI) एक माप है जो कमर और कद के आधार पर विसरल चर्बी के अनुपात का अनुमान लगाता है। उच्च BRI अधिक केंद्रीय मोटापे और संबंधित स्वास्थ्य जोखिमों का संकेत देता है।</p>
+                    <p class="hindi-desc">à¤¬à¥‰à¤¡à¥€ à¤°à¤¾à¤‰à¤‚à¤¡à¤¨à¥‡à¤¸ à¤‡à¤‚à¤¡à¥‡à¤•à¥à¤¸ (BRI) à¤à¤• à¤®à¤¾à¤ª à¤¹à¥ˆ à¤œà¥‹ à¤•à¤®à¤° à¤”à¤° à¤•à¤¦ à¤•à¥‡ à¤†à¤§à¤¾à¤° à¤ªà¤° à¤µà¤¿à¤¸à¤°à¤² à¤šà¤°à¥à¤¬à¥€ à¤•à¥‡ à¤…à¤¨à¥à¤ªà¤¾à¤¤ à¤•à¤¾ à¤…à¤¨à¥à¤®à¤¾à¤¨ à¤²à¤—à¤¾à¤¤à¤¾ à¤¹à¥ˆà¥¤ à¤‰à¤šà¥à¤š BRI à¤…à¤§à¤¿à¤• à¤•à¥‡à¤‚à¤¦à¥à¤°à¥€à¤¯ à¤®à¥‹à¤Ÿà¤¾à¤ªà¥‡ à¤”à¤° à¤¸à¤‚à¤¬à¤‚à¤§à¤¿à¤¤ à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯ à¤œà¥‹à¤–à¤¿à¤®à¥‹à¤‚ à¤•à¤¾ à¤¸à¤‚à¤•à¥‡à¤¤ à¤¦à¥‡à¤¤à¤¾ à¤¹à¥ˆà¥¤</p>
                 </div>
                 <div class="btn-row" style="justify-content: flex-end;">
                     <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
@@ -258,12 +259,12 @@
             <!-- Section 2: Measurements -->
             <div class="form-section" id="section-1">
                 <div class="field-group">
-                    <div class="field-label">Height <span class="hindi">लंबाई (सेमी)</span> <span class="required">*</span></div>
+                    <div class="field-label">Height <span class="hindi">à¤²à¤‚à¤¬à¤¾à¤ˆ (à¤¸à¥‡à¤®à¥€)</span> <span class="required">*</span></div>
                     <div class="field-hint">Enter height in centimeters (e.g., 170)</div>
                     <input type="number" inputmode="numeric" class="text-input" id="q-height" placeholder="Height in cm" required>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">Waist Circumference <span class="hindi">कमर की परिधि (सेमी)</span> <span class="required">*</span></div>
+                    <div class="field-label">Waist Circumference <span class="hindi">à¤•à¤®à¤° à¤•à¥€ à¤ªà¤°à¤¿à¤§à¤¿ (à¤¸à¥‡à¤®à¥€)</span> <span class="required">*</span></div>
                     <div class="field-hint">Measure at the narrowest point, typically at the level of the navel</div>
                     <input type="number" inputmode="numeric" class="text-input" id="q-waist" placeholder="Waist in cm" required>
                 </div>
@@ -282,7 +283,7 @@
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
         <div class="score-card">
             <h2>Your BRI Score</h2>
-            <div class="hindi-sub">आपका बॉडी राउंडनेस इंडेक्स स्कोर</div>
+            <div class="hindi-sub">à¤†à¤ªà¤•à¤¾ à¤¬à¥‰à¤¡à¥€ à¤°à¤¾à¤‰à¤‚à¤¡à¤¨à¥‡à¤¸ à¤‡à¤‚à¤¡à¥‡à¤•à¥à¤¸ à¤¸à¥à¤•à¥‹à¤°</div>
 
             <div class="global-score-circle" id="scoreCircle">
                 <div class="global-score-num" id="scoreNum">0</div>
@@ -294,9 +295,9 @@
             <div class="components-list" id="componentsList"></div>
 
             <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                BRI = 364.2 − 365.5 × √(1 − (WC / (π × HT))²)<br>
+                BRI = 364.2 âˆ’ 365.5 Ã— âˆš(1 âˆ’ (WC / (Ï€ Ã— HT))Â²)<br>
                 where WC = waist circumference, HT = height<br>
-                <strong>&lt; 3.4</strong> Very Low &nbsp;|&nbsp; <strong>3.4–6.9</strong> Low &nbsp;|&nbsp; <strong>7.0–11.0</strong> Normal &nbsp;|&nbsp; <strong>11.1–16.0</strong> High &nbsp;|&nbsp; <strong>&gt; 16.0</strong> Very High
+                <strong>&lt; 3.4</strong> Very Low &nbsp;|&nbsp; <strong>3.4â€“6.9</strong> Low &nbsp;|&nbsp; <strong>7.0â€“11.0</strong> Normal &nbsp;|&nbsp; <strong>11.1â€“16.0</strong> High &nbsp;|&nbsp; <strong>&gt; 16.0</strong> Very High
             </div>
 
             <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
@@ -399,11 +400,11 @@
         }
 
         function getBRICategory(bri) {
-            if (bri < 3.4) return { text: 'Very Low', class: 'very-low', hindi: 'बहुत कम', desc: 'Indicates thin/ectomorphic body composition. You may have low body fat and a lean physique.' };
-            if (bri <= 6.9) return { text: 'Low', class: 'low', hindi: 'कम', desc: 'Below average body roundness. Generally associated with lower visceral fat levels.' };
-            if (bri <= 11.0) return { text: 'Normal', class: 'normal', hindi: 'सामान्य', desc: 'Healthy body roundness level. Associated with optimal visceral fat distribution and lower health risks.' };
-            if (bri <= 16.0) return { text: 'High', class: 'high', hindi: 'उच्च', desc: 'Elevated body roundness indicating increased visceral fat. Consider lifestyle modifications.' };
-            return { text: 'Very High', class: 'very-high', hindi: 'बहुत उच्च', desc: 'Very high body roundness indicating significant visceral adiposity. Consult a healthcare professional.' };
+            if (bri < 3.4) return { text: 'Very Low', class: 'very-low', hindi: 'à¤¬à¤¹à¥à¤¤ à¤•à¤®', desc: 'Indicates thin/ectomorphic body composition. You may have low body fat and a lean physique.' };
+            if (bri <= 6.9) return { text: 'Low', class: 'low', hindi: 'à¤•à¤®', desc: 'Below average body roundness. Generally associated with lower visceral fat levels.' };
+            if (bri <= 11.0) return { text: 'Normal', class: 'normal', hindi: 'à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯', desc: 'Healthy body roundness level. Associated with optimal visceral fat distribution and lower health risks.' };
+            if (bri <= 16.0) return { text: 'High', class: 'high', hindi: 'à¤‰à¤šà¥à¤š', desc: 'Elevated body roundness indicating increased visceral fat. Consider lifestyle modifications.' };
+            return { text: 'Very High', class: 'very-high', hindi: 'à¤¬à¤¹à¥à¤¤ à¤‰à¤šà¥à¤š', desc: 'Very high body roundness indicating significant visceral adiposity. Consult a healthcare professional.' };
         }
 
         function submitForm() {
@@ -426,7 +427,7 @@
 
             const interpEl = document.getElementById('scoreInterp');
             interpEl.className = 'score-interpretation ' + category.class;
-            interpEl.textContent = category.text + ' — ' + category.hindi;
+            interpEl.textContent = category.text + ' â€” ' + category.hindi;
 
             const list = document.getElementById('componentsList');
             const height = parseFloat(document.getElementById('q-height').value);
