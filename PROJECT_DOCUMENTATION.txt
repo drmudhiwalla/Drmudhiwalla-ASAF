@@ -1,0 +1,61 @@
+==============================================
+This Project - Notes & Documentation
+==============================================
+
+What it is
+The main website for DrMudhiwalla HealthTech Pvt Ltd. Covers the whole
+story - the bank screening model, founder, team, certificates, annual
+reports - plus a set of free health calculators (BMI, BP, BRI, sleep,
+stress) that run right in the browser.
+
+Why it exists
+We needed an online presence that:
+- explains what we do and how the bank model works
+- builds trust (DPIIT/Udyam certificates, financial reports, letters)
+- gives people something actually useful, not just marketing
+- looks good when shared on WhatsApp / LinkedIn (preview images matter)
+
+Tech used
+- Plain HTML5 - one file per page, no framework at all
+- CSS3 - one big styles.css holds the whole look, animations, mobile layout
+- Vanilla JavaScript - small stuff only (menu, scroll fade)
+- Poppins font (Google Fonts), inline SVG icons
+- No backend, no database, no build step. The files in the folder are
+  exactly what the browser loads.
+
+Dev tooling
+- live-server (npm) - auto reload while editing
+- puppeteer + pdf2pic + pdf-poppler - to convert PDF certificates and
+  reports into images so they display inside the site
+
+How a page comes together
+   HTML FILE + styles.css + script.js
+       |              |
+       v              v
+   content      brand look, animations, mobile
+
+   loads in browser as-is - nothing gets compiled.
+
+Assessment tools flow
+  user answers form
+        v
+  score computed in JS on that page
+        v
+  result shown (GREEN / YELLOW / RED or a score)
+        v
+  nothing saved - data stays in the browser
+
+Why kept it this simple
+- The site is mostly content; there was nothing dynamic to store. A
+  static site does it all and costs nothing to host.
+- Easy to hand-edit, and content changed a lot in the early days.
+- One stylesheet keeps the brand consistent across all the pages.
+- The calculators are just math, a server would be overkill, and doing
+  it in the browser keeps people's data private.
+- The same scoring logic (PSQI-style sleep, PSS-4 stress, BMI/BP/BRI)
+  was later reused in the separate gym screening app.
+
+Other bits
+- /members has the team photos.
+- /page/index.html is a standalone printable offer letter.
+- robots.txt + sitemap.xml for search engines, custom 404 page.
