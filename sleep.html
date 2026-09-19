@@ -259,9 +259,9 @@
                 <div class="intro-section">
                     <div class="intro-icon">&#x1F311;</div>
                     <h2>Sleep Quality Assessment</h2>
-                    <div class="hindi-title">(à¤ªà¤¿à¤›à¤²à¥‡ 1 à¤®à¤¹à¥€à¤¨à¥‡ à¤•à¥€ à¤¨à¥€à¤‚à¤¦ à¤•à¤¾ à¤†à¤•à¤²à¤¨)</div>
+                    <div class="hindi-title">(पिछले 1 महीने की नींद का आकलन)</div>
                     <p>The following questions relate to your usual sleep habits during the past one month. Please answer based on your experience during most days and nights.</p>
-                    <p class="hindi-desc">à¤¨à¤¿à¤®à¥à¤¨à¤²à¤¿à¤–à¤¿à¤¤ à¤ªà¥à¤°à¤¶à¥à¤¨ à¤ªà¤¿à¤›à¤²à¥‡ 1 à¤®à¤¹à¥€à¤¨à¥‡ à¤•à¥‡ à¤¦à¥Œà¤°à¤¾à¤¨ à¤†à¤ªà¤•à¥€ à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯ à¤¨à¥€à¤‚à¤¦ à¤•à¥€ à¤†à¤¦à¤¤à¥‹à¤‚ à¤¸à¥‡ à¤¸à¤‚à¤¬à¤‚à¤§à¤¿à¤¤ à¤¹à¥ˆà¤‚à¥¤ à¤•à¥ƒà¤ªà¤¯à¤¾ à¤…à¤§à¤¿à¤•à¤¾à¤‚à¤¶ à¤¦à¤¿à¤¨à¥‹à¤‚ à¤”à¤° à¤°à¤¾à¤¤à¥‹à¤‚ à¤•à¥‡ à¤…à¤¨à¥à¤­à¤µ à¤•à¥‡ à¤†à¤§à¤¾à¤° à¤ªà¤° à¤‰à¤¤à¥à¤¤à¤° à¤¦à¥‡à¤‚à¥¤</p>
+                    <p class="hindi-desc">निम्नलिखित प्रश्न पिछले 1 महीने के दौरान आपकी सामान्य नींद की आदतों से संबंधित हैं। कृपया अधिकांश दिनों और रातों के अनुभव के आधार पर उत्तर दें।</p>
                 </div>
                 <div class="btn-row" style="justify-content: flex-end;">
                     <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
@@ -271,15 +271,15 @@
             <!-- Section 2: Basic Info -->
             <div class="form-section" id="section-1">
                 <div class="field-group">
-                    <div class="field-label">Name <span class="hindi">à¤†à¤ªà¤•à¤¾ à¤¨à¤¾à¤®</span> <span class="required">*</span></div>
+                    <div class="field-label">Name <span class="hindi">आपका नाम</span> <span class="required">*</span></div>
                     <input type="text" class="text-input" id="q-name" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">Age <span class="hindi">à¤‰à¤®à¥à¤°</span> <span class="required">*</span></div>
+                    <div class="field-label">Age <span class="hindi">उम्र</span> <span class="required">*</span></div>
                     <input type="number" inputmode="numeric" class="text-input" id="q-age" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">Working status <span class="hindi">à¤•à¥à¤¯à¤¾ à¤•à¤°à¤¤à¥‡ à¤¹à¥ˆà¤‚ à¤†à¤ª</span> <span class="required">*</span></div>
+                    <div class="field-label">Working status <span class="hindi">क्या करते हैं आप</span> <span class="required">*</span></div>
                     <div class="radio-group">
                         <label class="radio-option"><input type="radio" name="work-status" value="dont-wish"><span class="radio-circle"></span><span class="radio-label">Don't wish to mention</span></label>
                         <label class="radio-option"><input type="radio" name="work-status" value="salaried"><span class="radio-circle"></span><span class="radio-label">Salaried Job</span></label>
@@ -298,7 +298,7 @@
             <div class="form-section" id="section-2">
                 <div class="field-group">
                     <div class="field-label">What time do you usually go to bed at night? <span class="required">*</span></div>
-                    <div class="field-hint">à¤ªà¤¿à¤›à¤²à¥‡ 1 à¤®à¤¹à¥€à¤¨à¥‡ à¤®à¥‡à¤‚ à¤†à¤ª à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯à¤¤à¤ƒ à¤°à¤¾à¤¤ à¤•à¥‹ à¤•à¤¿à¤¸ à¤¸à¤®à¤¯ à¤¸à¥‹à¤¨à¥‡ à¤œà¤¾à¤¤à¥‡ à¤¹à¥ˆà¤‚?</div>
+                    <div class="field-hint">पिछले 1 महीने में आप सामान्यतः रात को किस समय सोने जाते हैं?</div>
                     <div class="time-input-group">
                         <input type="text" inputmode="numeric" class="time-input" id="bed-hh" maxlength="2" placeholder="HH" data-max="12" data-min="1">
                         <span class="time-separator">:</span>
@@ -311,7 +311,7 @@
                 </div>
                 <div class="field-group">
                     <div class="field-label">What time do you usually wake up in the morning? <span class="required">*</span></div>
-                    <div class="field-hint">à¤ªà¤¿à¤›à¤²à¥‡ 1 à¤®à¤¹à¥€à¤¨à¥‡ à¤®à¥‡à¤‚ à¤†à¤ª à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯à¤¤à¤ƒ à¤¸à¥à¤¬à¤¹ à¤•à¤¿à¤¸ à¤¸à¤®à¤¯ à¤‰à¤ à¤¤à¥‡ à¤¹à¥ˆà¤‚?</div>
+                    <div class="field-hint">पिछले 1 महीने में आप सामान्यतः सुबह किस समय उठते हैं?</div>
                     <div class="time-input-group">
                         <input type="text" inputmode="numeric" class="time-input" id="wake-hh" maxlength="2" placeholder="HH" data-max="12" data-min="1">
                         <span class="time-separator">:</span>
@@ -333,13 +333,13 @@
                 <div class="field-group">
                     <div class="field-label">How many minutes does it usually take you to fall asleep? <span class="required">*</span></div>
                     <div class="field-hint">Ex- 20 or 30 minutes</div>
-                    <div class="field-hint" style="margin-bottom: 12px;">à¤†à¤ªà¤•à¥‹ à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯à¤¤à¤ƒ à¤¸à¥‹à¤¨à¥‡ à¤®à¥‡à¤‚ à¤•à¤¿à¤¤à¤¨à¥‡ à¤®à¤¿à¤¨à¤Ÿ à¤²à¤—à¤¤à¥‡ à¤¹à¥ˆà¤‚? 20 à¤¯à¤¾ 30 à¤®à¤¿à¤¨à¤Ÿ</div>
+                    <div class="field-hint" style="margin-bottom: 12px;">आपको सामान्यतः सोने में कितने मिनट लगते हैं? 20 या 30 मिनट</div>
                     <input type="number" inputmode="numeric" class="text-input" id="q-latency" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
                     <div class="field-label">On average, how many hours of actual sleep do you get each night? <span class="required">*</span></div>
                     <div class="field-hint">Ex- 6.5 hours</div>
-                    <div class="field-hint" style="margin-bottom: 12px;">à¤”à¤¸à¤¤à¤¨ à¤†à¤ªà¤•à¥‹ à¤ªà¥à¤°à¤¤à¤¿à¤¦à¤¿à¤¨ à¤°à¤¾à¤¤ à¤®à¥‡à¤‚ à¤•à¤¿à¤¤à¤¨à¥‡ à¤˜à¤‚à¤Ÿà¥‡ à¤•à¥€ à¤µà¤¾à¤¸à¥à¤¤à¤µà¤¿à¤• à¤¨à¥€à¤‚à¤¦ à¤®à¤¿à¤²à¤¤à¥€ à¤¹à¥ˆ? à¤‰à¤¦à¤¾à¤¹à¤°à¤£: 6.5 à¤˜à¤‚à¤Ÿà¥‡</div>
+                    <div class="field-hint" style="margin-bottom: 12px;">औसतन आपको प्रतिदिन रात में कितने घंटे की वास्तविक नींद मिलती है? उदाहरण: 6.5 घंटे</div>
                     <input type="number" inputmode="numeric" step="0.5" class="text-input" id="q-duration" placeholder="Your answer" required>
                 </div>
                 <div class="btn-row">
@@ -352,22 +352,22 @@
             <div class="form-section" id="section-4">
                 <div class="field-group">
                     <div class="field-label">During the past month, how often did you wake up in the middle of the night or very early in the morning? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">à¤ªà¤¿à¤›à¤²à¥‡ 1 à¤®à¤¹à¥€à¤¨à¥‡ à¤®à¥‡à¤‚ à¤†à¤ª à¤•à¤¿à¤¤à¤¨à¥€ à¤¬à¤¾à¤° à¤°à¤¾à¤¤ à¤®à¥‡à¤‚ à¤¬à¥€à¤š à¤®à¥‡à¤‚ à¤¯à¤¾ à¤¬à¤¹à¥à¤¤ à¤¸à¥à¤¬à¤¹ à¤œà¤¾à¤— à¤—à¤?</div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में आप कितनी बार रात में बीच में या बहुत सुबह जाग गए?</div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="waking" value="0"><span class="radio-circle"></span><span class="radio-label">Not during the past month <span class="hindi-option">à¤ªà¤¿à¤›à¤²à¥‡ 1 à¤®à¤¹à¥€à¤¨à¥‡ à¤®à¥‡à¤‚ à¤¨à¤¹à¥€à¤‚</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="1"><span class="radio-circle"></span><span class="radio-label">Less than once a week <span class="hindi-option">à¤¸à¤ªà¥à¤¤à¤¾à¤¹ à¤®à¥‡à¤‚ 1 à¤¬à¤¾à¤° à¤¸à¥‡ à¤•à¤®</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="2"><span class="radio-circle"></span><span class="radio-label">Once or twice a week <span class="hindi-option">à¤¸à¤ªà¥à¤¤à¤¾à¤¹ à¤®à¥‡à¤‚ 1â€“2 à¤¬à¤¾à¤°</span></span></label>
-                        <label class="radio-option"><input type="radio" name="waking" value="3"><span class="radio-circle"></span><span class="radio-label">Three or more times a week <span class="hindi-option">à¤¸à¤ªà¥à¤¤à¤¾à¤¹ à¤®à¥‡à¤‚ 3 à¤¯à¤¾ à¤…à¤§à¤¿à¤• à¤¬à¤¾à¤°</span></span></label>
+                        <label class="radio-option"><input type="radio" name="waking" value="0"><span class="radio-circle"></span><span class="radio-label">Not during the past month <span class="hindi-option">पिछले 1 महीने में नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="waking" value="1"><span class="radio-circle"></span><span class="radio-label">Less than once a week <span class="hindi-option">सप्ताह में 1 बार से कम</span></span></label>
+                        <label class="radio-option"><input type="radio" name="waking" value="2"><span class="radio-circle"></span><span class="radio-label">Once or twice a week <span class="hindi-option">सप्ताह में 1–2 बार</span></span></label>
+                        <label class="radio-option"><input type="radio" name="waking" value="3"><span class="radio-circle"></span><span class="radio-label">Three or more times a week <span class="hindi-option">सप्ताह में 3 या अधिक बार</span></span></label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="field-label">How would you rate your overall sleep quality? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">à¤†à¤ª à¤…à¤ªà¤¨à¥€ à¤•à¥à¤² à¤¨à¥€à¤‚à¤¦ à¤•à¥€ à¤—à¥à¤£à¤µà¤¤à¥à¤¤à¤¾ à¤•à¥‹ à¤•à¥ˆà¤¸à¥‡ à¤†à¤‚à¤•à¥‡à¤‚à¤—à¥‡?</div>
+                    <div class="field-hint" style="margin-bottom: 12px;">आप अपनी कुल नींद की गुणवत्ता को कैसे आंकेंगे?</div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="quality" value="0"><span class="radio-circle"></span><span class="radio-label">Very Good <span class="hindi-option">à¤¬à¤¹à¥à¤¤ à¤…à¤šà¥à¤›à¥€</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="1"><span class="radio-circle"></span><span class="radio-label">Fairly Good <span class="hindi-option">à¤…à¤šà¥à¤›à¥€</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="2"><span class="radio-circle"></span><span class="radio-label">Fairly Bad <span class="hindi-option">à¤–à¤°à¤¾à¤¬</span></span></label>
-                        <label class="radio-option"><input type="radio" name="quality" value="3"><span class="radio-circle"></span><span class="radio-label">Very Bad <span class="hindi-option">à¤¬à¤¹à¥à¤¤ à¤–à¤°à¤¾à¤¬</span></span></label>
+                        <label class="radio-option"><input type="radio" name="quality" value="0"><span class="radio-circle"></span><span class="radio-label">Very Good <span class="hindi-option">बहुत अच्छी</span></span></label>
+                        <label class="radio-option"><input type="radio" name="quality" value="1"><span class="radio-circle"></span><span class="radio-label">Fairly Good <span class="hindi-option">अच्छी</span></span></label>
+                        <label class="radio-option"><input type="radio" name="quality" value="2"><span class="radio-circle"></span><span class="radio-label">Fairly Bad <span class="hindi-option">खराब</span></span></label>
+                        <label class="radio-option"><input type="radio" name="quality" value="3"><span class="radio-circle"></span><span class="radio-label">Very Bad <span class="hindi-option">बहुत खराब</span></span></label>
                     </div>
                 </div>
                 <div class="btn-row">
@@ -385,7 +385,7 @@
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
         <div class="score-card">
             <h2>Your Sleep Quality Score</h2>
-            <div class="hindi-sub">à¤†à¤ªà¤•à¤¾ à¤¨à¥€à¤‚à¤¦ à¤—à¥à¤£à¤µà¤¤à¥à¤¤à¤¾ à¤¸à¥à¤•à¥‹à¤°</div>
+            <div class="hindi-sub">आपका नींद गुणवत्ता स्कोर</div>
 
             <div class="global-score-circle" id="scoreCircle">
                 <div class="global-score-num" id="scoreNum">0</div>
@@ -398,8 +398,8 @@
 
             <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
                 Based on the Pittsburgh Sleep Quality Index (PSQI) adapted scoring method.<br>
-                à¤ªà¤¿à¤Ÿà¥à¤¸à¤¬à¤°à¥à¤— à¤¸à¥à¤²à¥€à¤ª à¤•à¥à¤µà¤¾à¤²à¤¿à¤Ÿà¥€ à¤‡à¤‚à¤¡à¥‡à¤•à¥à¤¸ (PSQI) à¤…à¤¨à¥à¤•à¥‚à¤²à¤¿à¤¤ à¤¸à¥à¤•à¥‹à¤°à¤¿à¤‚à¤— à¤µà¤¿à¤§à¤¿ à¤ªà¤° à¤†à¤§à¤¾à¤°à¤¿à¤¤à¥¤<br>
-                <strong>0â€“3</strong> Healthy Sleep &nbsp;|&nbsp; <strong>4â€“6</strong> Needs Attention &nbsp;|&nbsp; <strong>7â€“15</strong> Poor Sleep Quality
+                पिट्सबर्ग स्लीप क्वालिटी इंडेक्स (PSQI) अनुकूलित स्कोरिंग विधि पर आधारित।<br>
+                <strong>0–3</strong> Healthy Sleep &nbsp;|&nbsp; <strong>4–6</strong> Needs Attention &nbsp;|&nbsp; <strong>7–15</strong> Poor Sleep Quality
             </div>
 
             <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
@@ -499,12 +499,12 @@
 
                 hh.forEach(el => {
                     const v = parseInt(el.value);
-                    if (el.value && (isNaN(v) || v < 1 || v > 12)) { showError(el, 'Hour: 1â€“12'); valid = false; }
+                    if (el.value && (isNaN(v) || v < 1 || v > 12)) { showError(el, 'Hour: 1–12'); valid = false; }
                 });
 
                 mm.forEach(el => {
                     const v = parseInt(el.value);
-                    if (el.value && (isNaN(v) || v < 0 || v > 59)) { showError(el, 'Minute: 0â€“59'); valid = false; }
+                    if (el.value && (isNaN(v) || v < 0 || v > 59)) { showError(el, 'Minute: 0–59'); valid = false; }
                 });
             }
 
@@ -638,9 +638,9 @@
         }
 
         function getInterpretation(score) {
-            if (score <= 3) return { text: 'Healthy Sleep', class: 'good', hindi: 'à¤¸à¥à¤µà¤¸à¥à¤¥ à¤¨à¥€à¤‚à¤¦' };
-            if (score <= 6) return { text: 'Needs Attention', class: 'mild', hindi: 'à¤§à¥à¤¯à¤¾à¤¨ à¤¦à¥‡à¤¨à¥‡ à¤•à¥€ à¤†à¤µà¤¶à¥à¤¯à¤•à¤¤à¤¾' };
-            return { text: 'Poor Sleep Quality', class: 'severe', hindi: 'à¤–à¤°à¤¾à¤¬ à¤¨à¥€à¤‚à¤¦ à¤•à¥€ à¤—à¥à¤£à¤µà¤¤à¥à¤¤à¤¾' };
+            if (score <= 3) return { text: 'Healthy Sleep', class: 'good', hindi: 'स्वस्थ नींद' };
+            if (score <= 6) return { text: 'Needs Attention', class: 'mild', hindi: 'ध्यान देने की आवश्यकता' };
+            return { text: 'Poor Sleep Quality', class: 'severe', hindi: 'खराब नींद की गुणवत्ता' };
         }
 
         function submitForm() {
@@ -659,7 +659,7 @@
             // Update interpretation
             const interpEl = document.getElementById('scoreInterp');
             interpEl.className = 'score-interpretation ' + interp.class;
-            interpEl.textContent = interp.text + ' â€” ' + interp.hindi;
+            interpEl.textContent = interp.text + ' — ' + interp.hindi;
 
             // Update components list
             const list = document.getElementById('componentsList');
