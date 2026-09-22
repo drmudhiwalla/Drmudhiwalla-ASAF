@@ -260,6 +260,7 @@
                     <div class="hindi-title">(तनाव मूल्यांकन)</div>
                     <p>The following questions ask about your feelings and thoughts during the last month. In each case, please indicate how often you have felt or thought in a certain way.</p>
                     <p class="hindi-desc">निम्नलिखित प्रश्न पिछले 1 महीने के दौरान आपकी भावनाओं और विचारों के बारे में पूछते हैं। कृपया बताएं कि पिछले 1 महीने में आप कितनी बार किसी निश्चित तरीके से महसूस करते हैं या सोचते हैं।</p>
+                    <p style="font-size: 12px; color: #94a3b8; margin-top: 12px; line-height: 1.6;">Questions 2 & 3 are reverse scored (higher confidence = lower stress).<br>प्रश्न 2 और 3 उल्टे स्कोर वाले हैं (अधिक आत्मविश्वास = कम तनाव)।</p>
                 </div>
                 <div class="btn-row" style="justify-content: flex-end;">
                     <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
@@ -293,8 +294,8 @@
             <!-- Section 3: Stress Questions -->
             <div class="form-section" id="section-2">
                 <div class="field-group">
-                    <div class="field-label">In the last month, how often have you been upset because of something that happened unexpectedly? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, अप्रत्याशित रूप से कुछ घटित होने के कारण आप कितनी बार परेशान हुए हैं?</div>
+                    <div class="field-label">In the last month, how often have you felt that you were UNABLE to control the important things in your life? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आप अपने जीवन की महत्वपूर्ण चीजों को नियंत्रित करने में असमर्थ महसूस करते हैं?</div>
                     <div class="radio-group">
                         <label class="radio-option"><input type="radio" name="stress-q1" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
                         <label class="radio-option"><input type="radio" name="stress-q1" value="1"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
@@ -304,8 +305,8 @@
                     </div>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">In the last month, how often have you felt that you were unable to control the important things in your life? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आपके जीवन की महत्वपूर्ण बातों को नियंत्रित करने में असमर्थ महसूस करने की कितनी बार?</div>
+                    <div class="field-label">In the last month, how often have you felt CONFIDENT about your ability to handle personal problems? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आप अपनी व्यक्तिगत समस्याओं से निपटने की अपनी क्षमता के बारे में कितनी बार आत्मविश्वास महसूस करते हैं?</div>
                     <div class="radio-group">
                         <label class="radio-option"><input type="radio" name="stress-q2" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
                         <label class="radio-option"><input type="radio" name="stress-q2" value="1"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
@@ -315,8 +316,8 @@
                     </div>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">In the last month, how often have you felt nervous and stressed? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आप कितनी बार घबराया हुआ और तनावग्रस्त महसूस करते हैं?</div>
+                    <div class="field-label">In the last month, how often have you felt that things were going your way? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आपको कितनी बार लगा कि चीजें आपके अनुसार हो रही हैं?</div>
                     <div class="radio-group">
                         <label class="radio-option"><input type="radio" name="stress-q3" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
                         <label class="radio-option"><input type="radio" name="stress-q3" value="1"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
@@ -326,14 +327,14 @@
                     </div>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">In the last month, how often have you felt confident about your ability to handle your personal problems? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आप अपनी व्यक्तिगत समस्याओं को संभालने की क्षमता के बारे में कितनी बार आत्मविश्वास महसूस करते हैं?</div>
+                    <div class="field-label">In the last month, how often have you felt difficulties were piling up so high that you could not overcome them? <span class="required">*</span></div>
+                    <div class="field-hint" style="margin-bottom: 12px;">पिछले 1 महीने में, आपको कितनी बार ऐसा लगा कि कठिनाइयाँ इतनी बढ़ गई हैं कि आप उन पर काबू नहीं पा सकते?</div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="stress-q4" value="4"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
-                        <label class="radio-option"><input type="radio" name="stress-q4" value="3"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="1"><span class="radio-circle"></span><span class="radio-label">Almost Never <span class="hindi-option">लगभग कभी नहीं</span></span></label>
                         <label class="radio-option"><input type="radio" name="stress-q4" value="2"><span class="radio-circle"></span><span class="radio-label">Sometimes <span class="hindi-option">कभी-कभी</span></span></label>
-                        <label class="radio-option"><input type="radio" name="stress-q4" value="1"><span class="radio-circle"></span><span class="radio-label">Fairly Often <span class="hindi-option">काफी अक्सर</span></span></label>
-                        <label class="radio-option"><input type="radio" name="stress-q4" value="0"><span class="radio-circle"></span><span class="radio-label">Very Often <span class="hindi-option">बहुत अक्सर</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="3"><span class="radio-circle"></span><span class="radio-label">Fairly Often <span class="hindi-option">काफी अक्सर</span></span></label>
+                        <label class="radio-option"><input type="radio" name="stress-q4" value="4"><span class="radio-circle"></span><span class="radio-label">Very Often <span class="hindi-option">बहुत अक्सर</span></span></label>
                     </div>
                 </div>
                 <div class="btn-row">
@@ -365,6 +366,7 @@
             <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
                 Based on the Perceived Stress Scale (PSS-4) scoring method.<br>
                 परसिव्ड स्ट्रेस स्केल (PSS-4) स्कोरिंग विधि पर आधारित।<br>
+                Questions 2 & 3 are reverse scored. प्रश्न 2 और 3 उल्टे स्कोर वाले हैं।<br>
                 <strong>0–4</strong> Low Stress &nbsp;|&nbsp; <strong>5–8</strong> Moderate Stress &nbsp;|&nbsp; <strong>9–12</strong> High Stress &nbsp;|&nbsp; <strong>13–16</strong> Very High Stress
             </div>
 
@@ -490,29 +492,29 @@
             let total = 0;
             const components = [];
 
-            // Q1: upset unexpectedly (0-4)
+            // Q1: UNABLE to control important things (direct scored)
             const q1 = document.querySelector('input[name="stress-q1"]:checked');
             const q1Val = q1 ? parseInt(q1.value) : 0;
             total += q1Val;
-            components.push({ name: 'Unexpected Upset', score: q1Val, max: 4 });
+            components.push({ name: 'Inability to Control', score: q1Val, max: 4 });
 
-            // Q2: unable to control important things (0-4)
+            // Q2: CONFIDENT about handling problems (reverse scored)
             const q2 = document.querySelector('input[name="stress-q2"]:checked');
-            const q2Val = q2 ? parseInt(q2.value) : 0;
+            const q2Val = q2 ? (4 - parseInt(q2.value)) : 4;
             total += q2Val;
-            components.push({ name: 'Lack of Control', score: q2Val, max: 4 });
+            components.push({ name: 'Confidence (Reverse Scored)', score: q2Val, max: 4 });
 
-            // Q3: nervous and stressed (0-4)
+            // Q3: Things going your way (reverse scored)
             const q3 = document.querySelector('input[name="stress-q3"]:checked');
-            const q3Val = q3 ? parseInt(q3.value) : 0;
+            const q3Val = q3 ? (4 - parseInt(q3.value)) : 4;
             total += q3Val;
-            components.push({ name: 'Nervousness & Stress', score: q3Val, max: 4 });
+            components.push({ name: 'Things Going Your Way (Reverse Scored)', score: q3Val, max: 4 });
 
-            // Q4: confident (reverse scored, 4-0)
+            // Q4: Difficulties piling up (direct scored)
             const q4 = document.querySelector('input[name="stress-q4"]:checked');
             const q4Val = q4 ? parseInt(q4.value) : 0;
             total += q4Val;
-            components.push({ name: 'Confidence (Reverse Scored)', score: q4Val, max: 4 });
+            components.push({ name: 'Overwhelming Difficulties', score: q4Val, max: 4 });
 
             return { global: total, components: components };
         }

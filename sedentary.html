@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sedentary Level Assessment - DrMudhiwalla</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://drmudhiwalla.com/sedentary.html">
     <meta property="og:title" content="Sedentary Level Assessment - DrMudhiwalla HealthTech">
-    <meta property="og:description" content="Assess your daily sitting behaviour and sedentary patterns. Free bilingual questionnaire based on the IPAQ sedentary behaviour module.">
+    <meta property="og:description" content="Assess your physical activity and sedentary behaviour. Free bilingual IPAQ-based questionnaire.">
     <meta property="og:image" content="https://drmudhiwalla.com/222.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="DrMudhiwalla HealthTech">
     <meta property="og:locale" content="en_IN">
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sedentary Level Assessment - DrMudhiwalla HealthTech">
-    <meta name="twitter:description" content="Assess your daily sitting behaviour and sedentary patterns. Free bilingual questionnaire based on the IPAQ sedentary behaviour module.">
-    <meta name="twitter:image" content="https://drmudhiwalla.com/222.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,14 +33,16 @@
         .logo-subtitle { font-size: 0.8rem; color: #35AEF4; margin-top: -5px; }
         .pvt-ltd { font-size: 0.55rem; }
 
+        .back-home-btn {
+            position: fixed; top: 20px; right: 20px; z-index: 10;
+            background: #35AEF4; color: #fff; padding: 10px 20px; border-radius: 50px;
+            text-decoration: none; font-size: 13px; font-weight: 600;
+            box-shadow: 0 2px 8px rgba(53,174,244,0.3); transition: all 0.2s;
+        }
+        .back-home-btn:hover { background: #0ea5e9; transform: translateY(-1px); }
+
         .form-wrapper { width: 100vw; height: 100vh; display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 80px 20px 80px; }
         .form-container { width: 100%; max-width: 680px; background: #fff; border-radius: 20px; box-shadow: 0 4px 30px rgba(100,120,160,0.1); padding: 40px 44px; position: relative; flex-shrink: 0; }
-
-        .scroll-indicator { position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%); width: 100%; max-width: 680px; height: 60px; pointer-events: none; z-index: 6; opacity: 0; transition: opacity 0.3s; }
-        .scroll-indicator.visible { opacity: 1; }
-        .scroll-indicator::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(248,250,252,0) 0%, rgba(248,250,252,0.85) 50%, rgba(248,250,252,1) 100%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: 0 0 20px 20px; }
-        .scroll-indicator::after { content: 'Scroll down'; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #94a3b8; white-space: nowrap; animation: scrollBounce 1.5s ease-in-out infinite; }
-        @keyframes scrollBounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(4px); } }
 
         .progress-bar { display: flex; gap: 6px; margin-bottom: 32px; }
         .progress-step { flex: 1; height: 4px; background: #e2e8f0; border-radius: 4px; transition: background 0.3s; }
@@ -66,21 +62,20 @@
         .intro-section .hindi-desc { font-size: 13px; color: #94a3b8; line-height: 1.7; }
 
         .field-group { margin-bottom: 28px; }
-        .field-label { font-size: 16px; font-weight: 600; color: #0f172a; margin-bottom: 4px; }
-        .field-label .hindi { font-weight: 400; color: #64748b; font-size: 14px; }
+        .field-label { font-size: 16px; font-weight: 600; color: #0f172a; margin-bottom: 4px; line-height: 1.5; }
+        .field-label .hindi { font-weight: 400; color: #64748b; font-size: 14px; display: block; margin-top: 2px; }
         .field-label .required { color: #ef4444; margin-left: 2px; }
-        .field-hint { font-size: 12px; color: #94a3b8; margin-bottom: 8px; }
+        .field-hint { font-size: 12px; color: #94a3b8; margin-bottom: 8px; line-height: 1.6; }
 
         .text-input { width: 100%; padding: 12px 16px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 15px; font-family: 'Poppins', sans-serif; color: #0f172a; background: #f8fafc; outline: none; transition: border-color 0.2s; }
         .text-input:focus { border-color: #35AEF4; background: #fff; }
         .text-input::placeholder { color: #94a3b8; }
 
-        .time-input-group { display: flex; align-items: center; gap: 8px; }
+        .time-input-group { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+        .time-input-group label { font-size: 12px; color: #94a3b8; margin-right: 4px; }
         .time-input { width: 60px; padding: 12px; text-align: center; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 15px; font-family: 'Poppins', sans-serif; color: #0f172a; background: #f8fafc; outline: none; }
         .time-input:focus { border-color: #35AEF4; background: #fff; }
         .time-separator { font-size: 18px; font-weight: 600; color: #64748b; }
-        .ampm-select { padding: 12px 16px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 14px; font-family: 'Poppins', sans-serif; color: #0f172a; background: #f8fafc; outline: none; cursor: pointer; }
-        .ampm-select:focus { border-color: #35AEF4; }
 
         .radio-group { display: flex; flex-direction: column; gap: 10px; }
         .radio-option { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid #e2e8f0; border-radius: 10px; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
@@ -108,12 +103,25 @@
         .error-msg { color: #ef4444; font-size: 12px; margin-top: 6px; display: none; }
         .error-msg.show { display: block; }
 
+        .skip-row { display: none; margin-top: 8px; }
+        .skip-row.visible { display: block; }
+        .skip-link { font-size: 13px; color: #35AEF4; cursor: pointer; text-decoration: underline; background: none; border: none; font-family: 'Poppins', sans-serif; padding: 6px 0; }
+        .skip-link:hover { color: #0ea5e9; }
+        .time-group { display: none; }
+        .time-group.visible { display: block; }
+
         .footer { position: fixed; bottom: 0; left: 0; width: 100%; padding: 1rem 20px; color: rgba(53,174,244,0.6); background: rgba(248,250,252,0.9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-family: 'Poppins', sans-serif; display: flex; justify-content: space-between; align-items: flex-end; z-index: 5; }
         .footer-icons { display: flex; gap: 1rem; margin-bottom: 0.4rem; }
         .social-icon { color: rgba(53,174,244,0.7); transition: color 0.2s, transform 0.2s; display: inline-flex; }
         .social-icon svg { width: 22px; height: 22px; }
         .social-icon:hover { color: #35AEF4; transform: translateY(-2px); }
         .footer-text { font-size: 0.7rem; margin: 0; opacity: 0.8; text-align: right; }
+
+        .scroll-indicator { position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%); width: 100%; max-width: 680px; height: 60px; pointer-events: none; z-index: 6; opacity: 0; transition: opacity 0.3s; }
+        .scroll-indicator.visible { opacity: 1; }
+        .scroll-indicator::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(248,250,252,0) 0%, rgba(248,250,252,0.85) 50%, rgba(248,250,252,1) 100%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: 0 0 20px 20px; }
+        .scroll-indicator::after { content: 'Scroll down'; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #94a3b8; white-space: nowrap; animation: scrollBounce 1.5s ease-in-out infinite; }
+        @keyframes scrollBounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(4px); } }
 
         /* Score Card Overlay */
         .score-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 100; align-items: center; justify-content: center; }
@@ -124,22 +132,20 @@
         .score-card .hindi-sub { font-size: 16px; color: #64748b; margin-bottom: 28px; }
 
         .global-score-circle { width: 140px; height: 140px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 24px; }
-        .global-score-circle.good { background: #dcfce7; border: 3px solid #22c55e; }
-        .global-score-circle.mild { background: #fef9c3; border: 3px solid #eab308; }
-        .global-score-circle.moderate { background: #ffedd5; border: 3px solid #f97316; }
-        .global-score-circle.severe { background: #fee2e2; border: 3px solid #ef4444; }
-        .global-score-num { font-size: 42px; font-weight: 800; line-height: 1; }
-        .global-score-num.good { color: #16a34a; }
-        .global-score-num.mild { color: #ca8a04; }
-        .global-score-num.moderate { color: #ea580c; }
-        .global-score-num.severe { color: #dc2626; }
-        .global-score-max { font-size: 13px; color: #94a3b8; font-weight: 500; }
+        .global-score-circle.low { background: #fee2e2; border: 3px solid #ef4444; }
+        .global-score-circle.moderate { background: #fef9c3; border: 3px solid #eab308; }
+        .global-score-circle.high { background: #dcfce7; border: 3px solid #22c55e; }
 
-        .score-interpretation { font-size: 15px; font-weight: 600; margin-bottom: 28px; padding: 10px 20px; border-radius: 10px; display: inline-block; }
-        .score-interpretation.good { background: #dcfce7; color: #16a34a; }
-        .score-interpretation.mild { background: #fef9c3; color: #ca8a04; }
-        .score-interpretation.moderate { background: #ffedd5; color: #ea580c; }
-        .score-interpretation.severe { background: #fee2e2; color: #dc2626; }
+        .category-label { font-size: 22px; font-weight: 800; line-height: 1.2; }
+        .category-label.low { color: #dc2626; }
+        .category-label.moderate { color: #ca8a04; }
+        .category-label.high { color: #16a34a; }
+        .global-score-max { font-size: 12px; color: #94a3b8; font-weight: 500; margin-top: 2px; }
+
+        .score-interpretation { font-size: 15px; font-weight: 600; margin-bottom: 28px; padding: 10px 20px; border-radius: 10px; display: inline-block; line-height: 1.5; }
+        .score-interpretation.low { background: #fee2e2; color: #dc2626; }
+        .score-interpretation.moderate { background: #fef9c3; color: #ca8a04; }
+        .score-interpretation.high { background: #dcfce7; color: #16a34a; }
 
         .components-list { text-align: left; margin-bottom: 28px; }
         .component-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
@@ -147,8 +153,19 @@
         .component-name { font-size: 14px; color: #475569; }
         .component-score { font-size: 14px; font-weight: 600; color: #0f172a; }
 
+        .criteria-box { text-align: left; margin-bottom: 28px; background: #f8fafc; border-radius: 12px; padding: 16px 20px; }
+        .criteria-box h3 { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 10px; }
+        .criteria-box ul { list-style: none; padding: 0; }
+        .criteria-box li { font-size: 12px; color: #64748b; line-height: 1.7; padding-left: 16px; position: relative; }
+        .criteria-box li::before { content: ''; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; border-radius: 50%; }
+        .criteria-box li.low::before { background: #ef4444; }
+        .criteria-box li.moderate::before { background: #eab308; }
+        .criteria-box li.high::before { background: #22c55e; }
+
         .score-btn { padding: 12px 36px; border-radius: 50px; font-size: 15px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; border: none; background: #35AEF4; color: #fff; transition: background 0.2s; }
         .score-btn:hover { background: #0ea5e9; }
+
+        .disclaimer { font-size: 11px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6; }
 
         @media (max-width: 768px) {
             html, body { overflow-y: auto; }
@@ -166,7 +183,6 @@
             .field-hint { font-size: 11px; }
             .text-input { padding: 10px 14px; font-size: 14px; }
             .time-input { width: 50px; padding: 10px; font-size: 14px; }
-            .ampm-select { padding: 10px 12px; font-size: 13px; }
             .radio-option { padding: 10px 14px; gap: 10px; }
             .radio-label { font-size: 14px; }
             .radio-label .hindi-option { font-size: 12px; }
@@ -176,16 +192,18 @@
             .score-card h2 { font-size: 20px; }
             .score-card .hindi-sub { font-size: 14px; margin-bottom: 20px; }
             .global-score-circle { width: 110px; height: 110px; margin-bottom: 18px; }
-            .global-score-num { font-size: 34px; }
-            .global-score-max { font-size: 12px; }
+            .category-label { font-size: 18px; }
+            .global-score-max { font-size: 11px; }
             .score-interpretation { font-size: 13px; padding: 8px 16px; margin-bottom: 20px; }
             .components-list { margin-bottom: 20px; }
             .component-name { font-size: 12px; }
             .component-score { font-size: 12px; }
+            .criteria-box li { font-size: 11px; }
             .score-btn { padding: 10px 28px; font-size: 14px; }
             .text-logo { top: 12px; left: 12px; }
             .logo-title { font-size: 1.2rem; }
             .logo-subtitle { font-size: 0.65rem; }
+            .back-home-btn { top: 12px; right: 12px; padding: 8px 16px; font-size: 12px; }
             .scroll-indicator { bottom: 60px; height: 50px; }
             .scroll-indicator::after { font-size: 11px; bottom: 8px; }
             .footer { position: relative; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.5rem 10px; }
@@ -201,38 +219,13 @@
             .field-label { font-size: 13px; }
             .text-input { padding: 9px 12px; font-size: 13px; }
             .time-input { width: 44px; padding: 9px; font-size: 13px; }
-            .ampm-select { padding: 9px 10px; font-size: 12px; }
             .radio-label { font-size: 13px; }
             .btn { padding: 9px 20px; font-size: 13px; }
             .score-card { padding: 20px 14px; }
             .global-score-circle { width: 90px; height: 90px; }
-            .global-score-num { font-size: 28px; }
+            .category-label { font-size: 16px; }
             .logo-title { font-size: 1rem; }
             .logo-subtitle { font-size: 0.55rem; }
-        }
-
-        .back-home-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-            background: #35AEF4;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(53,174,244,0.3);
-            transition: all 0.2s;
-        }
-        .back-home-btn:hover { background: #0ea5e9; transform: translateY(-1px); }
-
-        @media (max-width: 768px) {
-            .text-logo { top: 12px; left: 12px; }
-            .logo-title { font-size: 1.2rem; }
-            .logo-subtitle { font-size: 0.65rem; }
-            .back-home-btn { top: 12px; right: 12px; padding: 8px 16px; font-size: 12px; }
         }
     </style>
 </head>
@@ -249,24 +242,25 @@
                 <div class="progress-step active" data-step="0"></div>
                 <div class="progress-step" data-step="1"></div>
                 <div class="progress-step" data-step="2"></div>
+                <div class="progress-step" data-step="3"></div>
             </div>
-            <div class="page-indicator">Page <span id="currentPage">1</span> of 3</div>
+            <div class="page-indicator">Page <span id="currentPage">1</span> of 4</div>
 
-            <!-- Section 1: Intro -->
+            <!-- Section 0: Intro -->
             <div class="form-section active" id="section-0">
                 <div class="intro-section">
-                    <div class="intro-icon">&#x1F4CB;</div>
+                    <div class="intro-icon">&#x1F3C3;</div>
                     <h2>Sedentary Level Assessment</h2>
-                    <div class="hindi-title">(बैठने के स्तर का आकलन)</div>
-                    <p>This questionnaire helps assess your daily sitting behaviour and sedentary patterns. Please answer honestly based on your typical daily routine over the past week.</p>
-                    <p class="hindi-desc">यह प्रश्नावली आपकी दैनिक बैठने की आदत और स्थिर जीवन शैली के पैटर्न का आकलन करने में मदद करती है। कृपया पिछले सप्ताह के अपने सामान्य दैनिक दिनचर्या के आधार पर ईमानदारी से उत्तर दें।</p>
+                    <div class="hindi-title">(शारीरिक गतिविधि और बैठने का स्तर)</div>
+                    <p>This questionnaire asks about the time you spent being physically active during the last 7 days. Please answer for each question the total time on all days. The assessment categorises your activity level as Low, Moderate, or High.</p>
+                    <p class="hindi-desc">यह प्रश्नावली पिछले 7 दिनों में आपकी शारीरिक गतिविधि के समय के बारे में पूछती है। कृपया प्रत्येक प्रश्न का कुल समय सभी दिनों के लिए बताएं। यह आकलन आपकी गतिविधि के स्तर को Low, Moderate, या High में वर्गीकृत करता है।</p>
                 </div>
                 <div class="btn-row" style="justify-content: flex-end;">
                     <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
                 </div>
             </div>
 
-            <!-- Section 2: Basic Info -->
+            <!-- Section 1: Basic Info -->
             <div class="form-section" id="section-1">
                 <div class="field-group">
                     <div class="field-label">Name <span class="hindi">आपका नाम</span> <span class="required">*</span></div>
@@ -290,51 +284,103 @@
                 </div>
             </div>
 
-            <!-- Section 3: Sedentary Questions -->
+            <!-- Section 2: Vigorous & Moderate Activity -->
             <div class="form-section" id="section-2">
+                <!-- Q1: Vigorous Activity Days -->
                 <div class="field-group">
-                    <div class="field-label">On a typical day, how many hours do you spend sitting while commuting? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आमतौर पर एक दिन में आप यात्रा के दौरान कितने घंटे बैठे रहते हैं?</div>
-                    <div class="radio-group" id="commute-group">
-                        <label class="radio-option"><input type="radio" name="commute" value="0"><span class="radio-circle"></span><span class="radio-label">Less than 30 minutes <span class="hindi-option">30 मिनट से कम</span></span></label>
-                        <label class="radio-option"><input type="radio" name="commute" value="1"><span class="radio-circle"></span><span class="radio-label">30 minutes – 1 hour <span class="hindi-option">30 मिनट – 1 घंटा</span></span></label>
-                        <label class="radio-option"><input type="radio" name="commute" value="2"><span class="radio-circle"></span><span class="radio-label">1 – 2 hours <span class="hindi-option">1 – 2 घंटे</span></span></label>
-                        <label class="radio-option"><input type="radio" name="commute" value="3"><span class="radio-circle"></span><span class="radio-label">2 – 4 hours <span class="hindi-option">2 – 4 घंटे</span></span></label>
-                        <label class="radio-option"><input type="radio" name="commute" value="4"><span class="radio-circle"></span><span class="radio-label">More than 4 hours <span class="hindi-option">4 घंटे से अधिक</span></span></label>
+                    <div class="field-label">Q1. Over the last 7 days, during how many days did you do <strong>vigorous</strong> physical activities like heavy lifting, digging, aerobics, or fast bicycling? <span class="required">*</span></div>
+                    <div class="field-hint">पिछले 7 दिनों में, कितने दिनों तक आपने भारी उठाना, खुदाई, एरोबिक्स, या तेज़ साइकिल चलाने जैसी ज़ोरदार शारीरिक गतिविधियाँ कीं?</div>
+                    <div class="time-input-group">
+                        <input type="number" inputmode="numeric" class="time-input" id="q-vigorous-days" min="0" max="7" placeholder="0">
+                        <span class="time-separator">days</span>
+                    </div>
+                    <div class="skip-row" id="vigorous-skip">
+                        <button class="skip-link" type="button" onclick="skipVigorousTime()">&#x2716; Skip this question</button>
                     </div>
                 </div>
-                <div class="field-group">
-                    <div class="field-label">How many hours per day do you spend sitting at work? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आप प्रतिदिन काम के दौरान कितने घंटे बैठे रहते हैं?</div>
-                    <div class="radio-group" id="work-sit-group">
-                        <label class="radio-option"><input type="radio" name="work-sit" value="0"><span class="radio-circle"></span><span class="radio-label">Less than 1 hour <span class="hindi-option">1 घंटा से कम</span></span></label>
-                        <label class="radio-option"><input type="radio" name="work-sit" value="1"><span class="radio-circle"></span><span class="radio-label">1 – 4 hours <span class="hindi-option">1 – 4 घंटे</span></span></label>
-                        <label class="radio-option"><input type="radio" name="work-sit" value="2"><span class="radio-circle"></span><span class="radio-label">4 – 8 hours <span class="hindi-option">4 – 8 घंटे</span></span></label>
-                        <label class="radio-option"><input type="radio" name="work-sit" value="3"><span class="radio-circle"></span><span class="radio-label">More than 8 hours <span class="hindi-option">8 घंटे से अधिक</span></span></label>
+
+                <!-- Q2: Vigorous Activity Time (hidden when days=0) -->
+                <div class="field-group time-group" id="vigorous-time-group">
+                    <div class="field-label">Q2. How much time did you usually spend doing <strong>vigorous</strong> physical activities on one of those days? <span class="required">*</span></div>
+                    <div class="field-hint">उन दिनों में से एक दिन आप आमतौर पर कितना समय ज़ोरदार शारीरिक गतिविधियों में बिताते हैं?</div>
+                    <div class="time-input-group">
+                        <input type="number" inputmode="numeric" class="time-input" id="q-vigorous-hours" min="0" max="23" placeholder="0">
+                        <span class="time-separator">hr</span>
+                        <input type="number" inputmode="numeric" class="time-input" id="q-vigorous-mins" min="0" max="59" placeholder="0">
+                        <span class="time-separator">min</span>
                     </div>
                 </div>
+
+                <!-- Q3: Moderate Activity Days -->
                 <div class="field-group">
-                    <div class="field-label">How many hours of leisure screen time (TV, phone, computer) do you have daily? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आप प्रतिदिन कितने घंटे स्क्रीन समय (टीवी, फ़ोन, कंप्यूटर) बिताते हैं?</div>
-                    <div class="radio-group" id="screen-group">
-                        <label class="radio-option"><input type="radio" name="screen" value="0"><span class="radio-circle"></span><span class="radio-label">None <span class="hindi-option">कोई नहीं</span></span></label>
-                        <label class="radio-option"><input type="radio" name="screen" value="1"><span class="radio-circle"></span><span class="radio-label">Less than 1 hour <span class="hindi-option">1 घंटा से कम</span></span></label>
-                        <label class="radio-option"><input type="radio" name="screen" value="2"><span class="radio-circle"></span><span class="radio-label">1 – 2 hours <span class="hindi-option">1 – 2 घंटे</span></span></label>
-                        <label class="radio-option"><input type="radio" name="screen" value="3"><span class="radio-circle"></span><span class="radio-label">2 – 4 hours <span class="hindi-option">2 – 4 घंटे</span></span></label>
-                        <label class="radio-option"><input type="radio" name="screen" value="4"><span class="radio-circle"></span><span class="radio-label">More than 4 hours <span class="hindi-option">4 घंटे से अधिक</span></span></label>
+                    <div class="field-label">Q3. Over the last 7 days, during how many days did you do <strong>moderate</strong> physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? <span class="required">*</span></div>
+                    <div class="field-hint">पिछले 7 दिनों में, कितने दिनों तक आपने हल्का सामान उठाना, सामान्य गति से साइकिल चलाना, या डबल्स टेनिस जैसी मध्यम शारीरिक गतिविधियाँ कीं?</div>
+                    <div class="time-input-group">
+                        <input type="number" inputmode="numeric" class="time-input" id="q-moderate-days" min="0" max="7" placeholder="0">
+                        <span class="time-separator">days</span>
+                    </div>
+                    <div class="skip-row" id="moderate-skip">
+                        <button class="skip-link" type="button" onclick="skipModerateTime()">&#x2716; Skip this question</button>
                     </div>
                 </div>
-                <div class="field-group">
-                    <div class="field-label">How often do you take breaks from sitting every hour? <span class="required">*</span></div>
-                    <div class="field-hint" style="margin-bottom: 12px;">आप हर घंटे बैठने से कितनी बार उठते हैं?</div>
-                    <div class="radio-group" id="breaks-group">
-                        <label class="radio-option"><input type="radio" name="breaks" value="4"><span class="radio-circle"></span><span class="radio-label">Always <span class="hindi-option">हमेशा</span></span></label>
-                        <label class="radio-option"><input type="radio" name="breaks" value="3"><span class="radio-circle"></span><span class="radio-label">Often <span class="hindi-option">अक्सर</span></span></label>
-                        <label class="radio-option"><input type="radio" name="breaks" value="2"><span class="radio-circle"></span><span class="radio-label">Sometimes <span class="hindi-option">कभी-कभी</span></span></label>
-                        <label class="radio-option"><input type="radio" name="breaks" value="1"><span class="radio-circle"></span><span class="radio-label">Rarely <span class="hindi-option">शायद ही कभी</span></span></label>
-                        <label class="radio-option"><input type="radio" name="breaks" value="0"><span class="radio-circle"></span><span class="radio-label">Never <span class="hindi-option">कभी नहीं</span></span></label>
+
+                <!-- Q4: Moderate Activity Time (hidden when days=0) -->
+                <div class="field-group time-group" id="moderate-time-group">
+                    <div class="field-label">Q4. How much time did you usually spend doing <strong>moderate</strong> physical activities on one of those days? <span class="required">*</span></div>
+                    <div class="field-hint">उन दिनों में से एक दिन आप आमतौर पर कितना समय मध्यम शारीरिक गतिविधियों में बिताते हैं?</div>
+                    <div class="time-input-group">
+                        <input type="number" inputmode="numeric" class="time-input" id="q-moderate-hours" min="0" max="23" placeholder="0">
+                        <span class="time-separator">hr</span>
+                        <input type="number" inputmode="numeric" class="time-input" id="q-moderate-mins" min="0" max="59" placeholder="0">
+                        <span class="time-separator">min</span>
                     </div>
                 </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
+                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Section 3: Walking & Sitting -->
+            <div class="form-section" id="section-3">
+                <!-- Q5: Walking Days -->
+                <div class="field-group">
+                    <div class="field-label">Q5. Over the last 7 days, during how many days did you <strong>walk</strong> for at least 10 minutes at a time? <span class="required">*</span></div>
+                    <div class="field-hint">पिछले 7 दिनों में, कितने दिनों तक आपने एक बार में कम से कम 10 मिनट तक चलना (पैदल) चला?</div>
+                    <div class="time-input-group">
+                        <input type="number" inputmode="numeric" class="time-input" id="q-walk-days" min="0" max="7" placeholder="0">
+                        <span class="time-separator">days</span>
+                    </div>
+                    <div class="skip-row" id="walk-skip">
+                        <button class="skip-link" type="button" onclick="skipWalkTime()">&#x2716; Skip this question</button>
+                    </div>
+                </div>
+
+                <!-- Q6: Walking Time (hidden when days=0) -->
+                <div class="field-group time-group" id="walk-time-group">
+                    <div class="field-label">Q6. How much time did you usually spend <strong>walking</strong> on one of those days? <span class="required">*</span></div>
+                    <div class="field-hint">उन दिनों में से एक दिन आप आमतौर पर कितना समय चलने में बिताते हैं?</div>
+                    <div class="time-input-group">
+                        <input type="number" inputmode="numeric" class="time-input" id="q-walk-hours" min="0" max="23" placeholder="0">
+                        <span class="time-separator">hr</span>
+                        <input type="number" inputmode="numeric" class="time-input" id="q-walk-mins" min="0" max="59" placeholder="0">
+                        <span class="time-separator">min</span>
+                    </div>
+                </div>
+
+                <!-- Q7: Sitting Time -->
+                <div class="field-group">
+                    <div class="field-label">Q7. During the last 7 days, how much time did you spend <strong>sitting</strong> on a weekday? <span class="required">*</span></div>
+                    <div class="field-hint">पिछले 7 दिनों में, एक कार्यदिवस (weekday) में आप कितना समय बैठे रहे?</div>
+                    <div class="time-input-group">
+                        <input type="number" inputmode="numeric" class="time-input" id="q-sit-hours" min="0" max="23" placeholder="0">
+                        <span class="time-separator">hr</span>
+                        <input type="number" inputmode="numeric" class="time-input" id="q-sit-mins" min="0" max="59" placeholder="0">
+                        <span class="time-separator">min</span>
+                    </div>
+                </div>
+
                 <div class="btn-row">
                     <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
                     <button class="btn btn-submit" onclick="submitForm()">Submit</button>
@@ -349,22 +395,31 @@
     <div class="score-overlay" id="scoreOverlay">
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
         <div class="score-card">
-            <h2>Your Sedentary Level Score</h2>
-            <div class="hindi-sub">आपका बैठने के स्तर का स्कोर</div>
+            <h2>Your Physical Activity Level</h2>
+            <div class="hindi-sub">आपकी शारीरिक गतिविधि का स्तर</div>
 
             <div class="global-score-circle" id="scoreCircle">
-                <div class="global-score-num" id="scoreNum">0</div>
-                <div class="global-score-max">/ 15</div>
+                <div class="category-label" id="scoreLabel">—</div>
+                <div class="global-score-max">Category</div>
             </div>
 
             <div class="score-interpretation" id="scoreInterp"></div>
 
             <div class="components-list" id="componentsList"></div>
 
-            <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                Based on the International Physical Activity Questionnaire (IPAQ) sedentary behaviour module.<br>
-                अंतर्राष्ट्रीय शारीरिक गतिविधि प्रश्नावली (IPAQ) स्थिर व्यवहार मॉड्यूल पर आधारित।<br>
-                <strong>0–4</strong> Highly Sedentary &nbsp;|&nbsp; <strong>5–7</strong> Sedentary &nbsp;|&nbsp; <strong>8–10</strong> Moderately Active &nbsp;|&nbsp; <strong>11–15</strong> Active
+            <div class="criteria-box">
+                <h3>IPAQ Classification Criteria / वर्गीकरण मानदंड</h3>
+                <ul>
+                    <li class="low"><strong>Low (Inactive)</strong> &mdash; Does not meet criteria for categories 2 or 3</li>
+                    <li class="moderate"><strong>Moderately Active</strong> &mdash; 3+ days vigorous (20+ min/day) OR 5+ days moderate/walking (30+ min/day) OR 5+ days any combination achieving 600+ MET-min/week</li>
+                    <li class="high"><strong>Highly Active</strong> &mdash; 3+ days vigorous (20+ min/day, totalling 1500+ MET-min/week) OR 7+ days any activity (3000+ MET-min/week)</li>
+                </ul>
+            </div>
+
+            <div class="disclaimer">
+                Based on the International Physical Activity Questionnaire (IPAQ) Short Form.<br>
+                अंतर्राष्ट्रीय शारीरिक गतिविधि प्रश्नावली (IPAQ) शॉर्ट फॉर्म पर आधारित।<br>
+                For informational purposes only. Not a medical diagnosis.
             </div>
 
             <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
@@ -389,7 +444,7 @@
 
     <script>
         let currentSection = 0;
-        const totalSections = 3;
+        const totalSections = 4;
 
         function updateUI() {
             document.querySelectorAll('.form-section').forEach((s, i) => {
@@ -406,6 +461,7 @@
         function clearErrors(section) {
             section.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
             section.querySelectorAll('.error-msg').forEach(el => el.remove());
+            section.querySelectorAll('.radio-group.error').forEach(el => el.classList.remove('error'));
         }
 
         function showError(input, msg) {
@@ -434,6 +490,55 @@
             }
         }
 
+        function isTimeGroupVisible(id) {
+            return document.getElementById(id).classList.contains('visible');
+        }
+
+        function toggleTimeGroup(daysInputId, timeGroupId, skipId) {
+            var days = parseInt(document.getElementById(daysInputId).value) || 0;
+            var timeGroup = document.getElementById(timeGroupId);
+            var skipRow = document.getElementById(skipId);
+            if (days === 0) {
+                timeGroup.classList.remove('visible');
+                skipRow.classList.add('visible');
+            } else {
+                timeGroup.classList.add('visible');
+                skipRow.classList.remove('visible');
+            }
+        }
+
+        // Track skipped questions (time not provided = activity not done that duration)
+        var skippedVigorous = false;
+        var skippedModerate = false;
+        var skippedWalk = false;
+
+        function skipVigorousTime() {
+            document.getElementById('vigorous-time-group').classList.remove('visible');
+            document.getElementById('vigorous-skip').classList.remove('visible');
+            document.getElementById('q-vigorous-days').value = '0';
+            document.getElementById('q-vigorous-hours').value = '';
+            document.getElementById('q-vigorous-mins').value = '';
+            skippedVigorous = true;
+        }
+
+        function skipModerateTime() {
+            document.getElementById('moderate-time-group').classList.remove('visible');
+            document.getElementById('moderate-skip').classList.remove('visible');
+            document.getElementById('q-moderate-days').value = '0';
+            document.getElementById('q-moderate-hours').value = '';
+            document.getElementById('q-moderate-mins').value = '';
+            skippedModerate = true;
+        }
+
+        function skipWalkTime() {
+            document.getElementById('walk-time-group').classList.remove('visible');
+            document.getElementById('walk-skip').classList.remove('visible');
+            document.getElementById('q-walk-days').value = '0';
+            document.getElementById('q-walk-hours').value = '';
+            document.getElementById('q-walk-mins').value = '';
+            skippedWalk = true;
+        }
+
         function validateSection(index) {
             const section = document.getElementById('section-' + index);
             clearErrors(section);
@@ -442,34 +547,44 @@
             if (index === 1) {
                 const name = document.getElementById('q-name');
                 if (!name.value.trim()) { showError(name, 'Please enter your name'); valid = false; }
-
                 const age = document.getElementById('q-age');
                 if (!age.value.trim()) { showError(age, 'Please enter your age'); valid = false; }
-
                 if (!document.querySelector('input[name="gender"]:checked')) {
-                    const genderGroup = document.getElementById('gender-group');
-                    showGroupError(genderGroup, 'Please select your gender');
+                    showGroupError(document.getElementById('gender-group'), 'Please select your gender');
                     valid = false;
                 }
             }
 
             if (index === 2) {
-                if (!document.querySelector('input[name="commute"]:checked')) {
-                    showGroupError(document.getElementById('commute-group'), 'Please select your commuting sitting time');
-                    valid = false;
+                var vigorousDays = document.getElementById('q-vigorous-days');
+                if (!vigorousDays.value.trim()) { showError(vigorousDays, 'Please enter days (0 if none)'); valid = false; }
+                if (isTimeGroupVisible('vigorous-time-group')) {
+                    var vigorousHours = document.getElementById('q-vigorous-hours');
+                    var vigorousMins = document.getElementById('q-vigorous-mins');
+                    if (!vigorousHours.value.trim() && !vigorousMins.value.trim()) { showError(vigorousHours, 'Please enter time (hours or minutes)'); valid = false; }
                 }
-                if (!document.querySelector('input[name="work-sit"]:checked')) {
-                    showGroupError(document.getElementById('work-sit-group'), 'Please select your work sitting time');
-                    valid = false;
+
+                var moderateDays = document.getElementById('q-moderate-days');
+                if (!moderateDays.value.trim()) { showError(moderateDays, 'Please enter days (0 if none)'); valid = false; }
+                if (isTimeGroupVisible('moderate-time-group')) {
+                    var moderateHours = document.getElementById('q-moderate-hours');
+                    var moderateMins = document.getElementById('q-moderate-mins');
+                    if (!moderateHours.value.trim() && !moderateMins.value.trim()) { showError(moderateHours, 'Please enter time (hours or minutes)'); valid = false; }
                 }
-                if (!document.querySelector('input[name="screen"]:checked')) {
-                    showGroupError(document.getElementById('screen-group'), 'Please select your leisure screen time');
-                    valid = false;
+            }
+
+            if (index === 3) {
+                var walkDays = document.getElementById('q-walk-days');
+                if (!walkDays.value.trim()) { showError(walkDays, 'Please enter days (0 if none)'); valid = false; }
+                if (isTimeGroupVisible('walk-time-group')) {
+                    var walkHours = document.getElementById('q-walk-hours');
+                    var walkMins = document.getElementById('q-walk-mins');
+                    if (!walkHours.value.trim() && !walkMins.value.trim()) { showError(walkHours, 'Please enter time (hours or minutes)'); valid = false; }
                 }
-                if (!document.querySelector('input[name="breaks"]:checked')) {
-                    showGroupError(document.getElementById('breaks-group'), 'Please select how often you take breaks');
-                    valid = false;
-                }
+
+                var sitHours = document.getElementById('q-sit-hours');
+                var sitMins = document.getElementById('q-sit-mins');
+                if (!sitHours.value.trim() && !sitMins.value.trim()) { showError(sitHours, 'Please enter sitting time (hours or minutes)'); valid = false; }
             }
 
             return valid;
@@ -491,66 +606,123 @@
         }
 
         function calculateScore() {
-            const commuteVal = document.querySelector('input[name="commute"]:checked');
-            const workSitVal = document.querySelector('input[name="work-sit"]:checked');
-            const screenVal = document.querySelector('input[name="screen"]:checked');
-            const breaksVal = document.querySelector('input[name="breaks"]:checked');
+            // Vigorous: MET = 8.0
+            var vDays = parseInt(document.getElementById('q-vigorous-days').value) || 0;
+            var vHours = parseInt(document.getElementById('q-vigorous-hours').value) || 0;
+            var vMins = parseInt(document.getElementById('q-vigorous-mins').value) || 0;
+            var vMinutes = vHours * 60 + vMins;
+            var vigorousMET = 8.0 * vMinutes * vDays;
 
-            const s1 = commuteVal ? parseInt(commuteVal.value) : 0;
-            const s2 = workSitVal ? parseInt(workSitVal.value) : 0;
-            const s3 = screenVal ? parseInt(screenVal.value) : 0;
-            const s4 = breaksVal ? parseInt(breaksVal.value) : 0;
+            // Moderate: MET = 4.0
+            var mDays = parseInt(document.getElementById('q-moderate-days').value) || 0;
+            var mHours = parseInt(document.getElementById('q-moderate-hours').value) || 0;
+            var mMins = parseInt(document.getElementById('q-moderate-mins').value) || 0;
+            var mMinutes = mHours * 60 + mMins;
+            var moderateMET = 4.0 * mMinutes * mDays;
 
-            const globalScore = s1 + s2 + s3 + s4;
+            // Walking: MET = 3.3
+            var wDays = parseInt(document.getElementById('q-walk-days').value) || 0;
+            var wHours = parseInt(document.getElementById('q-walk-hours').value) || 0;
+            var wMins = parseInt(document.getElementById('q-walk-mins').value) || 0;
+            var wMinutes = wHours * 60 + wMins;
+            var walkingMET = 3.3 * wMinutes * wDays;
+
+            // Sitting (for display only)
+            var sHours = parseInt(document.getElementById('q-sit-hours').value) || 0;
+            var sMins = parseInt(document.getElementById('q-sit-mins').value) || 0;
+            var sittingMins = sHours * 60 + sMins;
+
+            var totalMET = vigorousMET + moderateMET + walkingMET;
+            var totalActiveDays = vDays + mDays + wDays;
+
+            // IPAQ official classification
+            var category, categoryClass;
+            // Category 3: High — any one of:
+            //   1) Vigorous-intensity activity on at least 3 days accumulating at least 1500 MET-min/week
+            //   2) 7 or more days of any combination achieving at least 3000 MET-min/week
+            var isHigh = ((vDays >= 3) && (vigorousMET >= 1500)) ||
+                         ((totalActiveDays >= 7) && (totalMET >= 3000));
+
+            // Category 2: Moderate — any one of:
+            //   1) 3 or more days of vigorous activity of at least 20 minutes per day
+            //   2) 5 or more days of moderate-intensity activity or walking of at least 30 minutes per day
+            //   3) 5 or more days of any combination achieving at least 600 MET-min/week
+            var isModerate = ((vDays >= 3) && (vMinutes >= 20)) ||
+                             ((mDays >= 5) && (mMinutes >= 30)) ||
+                             ((wDays >= 5) && (wMinutes >= 30)) ||
+                             ((totalActiveDays >= 5) && (totalMET >= 600));
+
+            if (isHigh) {
+                category = 'High';
+                categoryClass = 'high';
+            } else if (isModerate) {
+                category = 'Moderate';
+                categoryClass = 'moderate';
+            } else {
+                category = 'Low';
+                categoryClass = 'low';
+            }
 
             return {
-                global: globalScore,
+                category: category,
+                categoryClass: categoryClass,
+                totalMET: Math.round(totalMET),
+                vigorousMET: Math.round(vigorousMET),
+                moderateMET: Math.round(moderateMET),
+                walkingMET: Math.round(walkingMET),
                 components: [
-                    { name: 'Commuting Sitting Time', score: s1, max: 4 },
-                    { name: 'Work Sitting Time', score: s2, max: 3 },
-                    { name: 'Leisure Screen Time', score: s3, max: 4 },
-                    { name: 'Break Frequency (Active)', score: s4, max: 4 }
+                    { name: 'Vigorous Activity (MET-min/wk)', score: Math.round(vigorousMET), detail: vDays + ' days, ' + vMinutes + ' min/day' },
+                    { name: 'Moderate Activity (MET-min/wk)', score: Math.round(moderateMET), detail: mDays + ' days, ' + mMinutes + ' min/day' },
+                    { name: 'Walking (MET-min/wk)', score: Math.round(walkingMET), detail: wDays + ' days, ' + wMinutes + ' min/day' },
+                    { name: 'Total MET-min/week', score: Math.round(totalMET), detail: '' },
+                    { name: 'Sitting Time (weekdays)', score: sHours + 'h ' + sMins + 'm', detail: '' }
                 ]
             };
         }
 
-        function getInterpretation(score) {
-            if (score <= 4) return { text: 'Highly Sedentary', class: 'severe', hindi: 'अत्यधिक स्थिर' };
-            if (score <= 7) return { text: 'Sedentary', class: 'moderate', hindi: 'स्थिर' };
-            if (score <= 10) return { text: 'Moderately Active', class: 'mild', hindi: 'मध्यम रूप से सक्रिय' };
-            return { text: 'Active', class: 'good', hindi: 'सक्रिय' };
-        }
-
         function submitForm() {
             if (!validateSection(currentSection)) return;
-            const result = calculateScore();
-            const interp = getInterpretation(result.global);
+            var result = calculateScore();
 
-            const circle = document.getElementById('scoreCircle');
-            circle.className = 'global-score-circle ' + interp.class;
+            var circle = document.getElementById('scoreCircle');
+            circle.className = 'global-score-circle ' + result.categoryClass;
 
-            const num = document.getElementById('scoreNum');
-            num.className = 'global-score-num ' + interp.class;
-            num.textContent = result.global;
+            var label = document.getElementById('scoreLabel');
+            label.className = 'category-label ' + result.categoryClass;
+            label.textContent = result.category;
 
-            const interpEl = document.getElementById('scoreInterp');
-            interpEl.className = 'score-interpretation ' + interp.class;
-            interpEl.textContent = interp.text + ' — ' + interp.hindi;
+            var interpEl = document.getElementById('scoreInterp');
+            interpEl.className = 'score-interpretation ' + result.categoryClass;
+            if (result.category === 'Low') {
+                interpEl.textContent = 'Inactive — निष्क्रिय';
+            } else if (result.category === 'Moderate') {
+                interpEl.textContent = 'Moderately Active — मध्यम रूप से सक्रिय';
+            } else {
+                interpEl.textContent = 'Highly Active — अत्यधिक सक्रिय';
+            }
 
-            const list = document.getElementById('componentsList');
-            list.innerHTML = result.components.map(c =>
-                `<div class="component-row">
-                    <span class="component-name">${c.name}</span>
-                    <span class="component-score">${c.score} / ${c.max}</span>
-                </div>`
-            ).join('');
+            var list = document.getElementById('componentsList');
+            list.innerHTML = result.components.map(function(c) {
+                return '<div class="component-row">' +
+                    '<span class="component-name">' + c.name + (c.detail ? ' <span style="color:#94a3b8;font-size:11px;">(' + c.detail + ')</span>' : '') + '</span>' +
+                    '<span class="component-score">' + c.score + (typeof c.score === 'number' ? ' MET' : '') + '</span>' +
+                '</div>';
+            }).join('');
 
             document.getElementById('scoreOverlay').classList.add('active');
 
             var downloadBtn = document.getElementById('downloadBtn');
             downloadBtn.style.display = 'inline-block';
             downloadBtn.onclick = function() {
-                downloadPDF('Sedentary Assessment', 'Name: ' + document.getElementById('q-name').value + '\nAge: ' + document.getElementById('q-age').value + '\nScore: ' + result.global + ' / 15\nInterpretation: ' + interp.text);
+                downloadPDF('Sedentary Assessment',
+                    'Name: ' + document.getElementById('q-name').value +
+                    '\nAge: ' + document.getElementById('q-age').value +
+                    '\nCategory: ' + result.category +
+                    '\nTotal MET-min/week: ' + result.totalMET +
+                    '\nVigorous MET: ' + result.vigorousMET +
+                    '\nModerate MET: ' + result.moderateMET +
+                    '\nWalking MET: ' + result.walkingMET
+                );
             };
         }
 
@@ -575,6 +747,17 @@
                     if (err) err.classList.remove('show');
                 }
             });
+        });
+
+        // Toggle time groups when days inputs change
+        document.getElementById('q-vigorous-days').addEventListener('input', function() {
+            toggleTimeGroup('q-vigorous-days', 'vigorous-time-group', 'vigorous-skip');
+        });
+        document.getElementById('q-moderate-days').addEventListener('input', function() {
+            toggleTimeGroup('q-moderate-days', 'moderate-time-group', 'moderate-skip');
+        });
+        document.getElementById('q-walk-days').addEventListener('input', function() {
+            toggleTimeGroup('q-walk-days', 'walk-time-group', 'walk-skip');
         });
 
         const wrapper = document.querySelector('.form-wrapper');
@@ -631,9 +814,8 @@ function downloadPDF(title, resultText) {
     doc.setTextColor(150, 150, 150);
     doc.text('Generated on: ' + new Date().toLocaleDateString('en-IN'), 105, 280, { align: 'center' });
     doc.text('drmudhiwalla.com', 105, 287, { align: 'center' });
-    doc.save(title.toLowerCase().replace(/\s+/g, '-') + '-result.pdf');
+    doc.save('sedentary-assessment-result.pdf');
 }
 </script>
 </body>
 </html>
-

@@ -641,16 +641,11 @@ body {
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
-        padding: 70px 20px 30px;
+        padding: 0;
         align-items: stretch;
-        gap: 24px;
+        gap: 0;
         height: auto;
-        min-height: 100vh;
-    }
-
-    html, body {
-        overflow-y: auto;
-        overflow-x: hidden;
+        min-height: auto;
     }
 
     .hero-content {
@@ -659,33 +654,33 @@ body {
     }
 
     .hero-heading {
-        font-size: clamp(28px, 6vw, 40px);
+        font-size: clamp(34px, 7vw, 48px);
     }
 
     .hero-accent {
-        font-size: clamp(28px, 6vw, 40px);
+        font-size: clamp(34px, 7vw, 48px);
     }
 
     .hero-label {
-        font-size: clamp(13px, 3vw, 16px);
+        font-size: clamp(16px, 3.5vw, 20px);
     }
 
     .hero-subtitle {
-        font-size: clamp(13px, 3vw, 16px);
+        font-size: clamp(16px, 3.5vw, 20px);
     }
 
     .hero-detail-label {
-        font-size: clamp(11px, 2.5vw, 13px);
+        font-size: clamp(14px, 3vw, 17px);
     }
 
     .hero-detail-bold,
     .hero-detail-sub {
-        font-size: clamp(13px, 3vw, 16px);
+        font-size: clamp(16px, 3.5vw, 20px);
     }
 
     .hero-btn {
-        font-size: clamp(13px, 3vw, 15px);
-        padding: clamp(10px, 2.5vw, 14px) clamp(20px, 5vw, 32px);
+        font-size: clamp(16px, 3.5vw, 19px);
+        padding: clamp(12px, 3vw, 16px) clamp(24px, 5vw, 36px);
     }
 
     .hero-card {
@@ -728,27 +723,27 @@ body {
 
 /* Mobile */
 @media (max-width: 480px) {
-    .hero {
-        padding: 60px 16px 24px;
-        gap: 20px;
+    .hero-content {
+        padding: 70px 16px 32px;
+        text-align: center;
     }
 
     .hero-heading {
-        font-size: clamp(24px, 7vw, 32px);
+        font-size: clamp(30px, 8vw, 38px);
     }
 
     .hero-accent {
-        font-size: clamp(24px, 7vw, 32px);
+        font-size: clamp(30px, 8vw, 38px);
     }
 
     .hero-label {
-        font-size: clamp(12px, 3.5vw, 15px);
-        margin-bottom: 8px;
+        font-size: clamp(14px, 4vw, 18px);
+        margin-bottom: 4px;
     }
 
     .hero-subtitle {
-        font-size: clamp(12px, 3.5vw, 15px);
-        margin-bottom: 16px;
+        font-size: clamp(14px, 4vw, 18px);
+        margin-bottom: 12px;
     }
 
     .hero-detail {
@@ -756,18 +751,18 @@ body {
     }
 
     .hero-detail-label {
-        font-size: clamp(10px, 2.8vw, 12px);
+        font-size: clamp(12px, 3.2vw, 15px);
         margin-bottom: 2px;
     }
 
     .hero-detail-bold,
     .hero-detail-sub {
-        font-size: clamp(12px, 3.5vw, 15px);
+        font-size: clamp(15px, 4vw, 19px);
     }
 
     .hero-btn {
-        font-size: clamp(12px, 3.5vw, 14px);
-        padding: 12px 24px;
+        font-size: clamp(15px, 4vw, 17px);
+        padding: 14px 28px;
     }
 
     .text-logo {
@@ -787,60 +782,64 @@ body {
         font-size: 0.45rem;
     }
 
+    .hero-card {
+        padding: 24px 18px;
+    }
+
     .card-header {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
     }
 
     .card-title {
-        font-size: clamp(13px, 3.5vw, 16px);
+        font-size: clamp(15px, 4vw, 19px);
         white-space: nowrap;
     }
 
     .card-location {
-        font-size: clamp(12px, 3vw, 14px);
+        font-size: clamp(14px, 3.5vw, 17px);
     }
 
     .bp-section {
-        padding: 12px;
-        margin-bottom: 10px;
+        padding: 14px;
+        margin-bottom: 14px;
     }
 
     .bp-value {
-        font-size: clamp(24px, 6vw, 32px);
+        font-size: clamp(28px, 7vw, 36px);
     }
 
     .bp-label {
-        font-size: clamp(12px, 3.5vw, 15px);
+        font-size: clamp(14px, 4vw, 18px);
     }
 
     .bp-badge {
-        font-size: clamp(10px, 2.6vw, 12px);
-        padding: 3px 8px;
+        font-size: clamp(11px, 3vw, 14px);
+        padding: 4px 10px;
     }
 
     .bp-badge small {
-        font-size: clamp(8px, 2.2vw, 10px);
+        font-size: clamp(9px, 2.5vw, 12px);
     }
 
     .lifestyle-section {
-        padding: 12px;
+        padding: 14px;
     }
 
     .lifestyle-title {
-        font-size: clamp(13px, 3.5vw, 16px);
+        font-size: clamp(15px, 4vw, 19px);
     }
 
     .lifestyle-item-label {
-        font-size: clamp(12px, 3.2vw, 14px);
+        font-size: clamp(14px, 3.5vw, 17px);
     }
 
     .lifestyle-badge {
-        font-size: clamp(10px, 2.4vw, 12px);
+        font-size: clamp(11px, 2.8vw, 14px);
     }
 
     .card-link {
-        font-size: clamp(13px, 3.5vw, 16px);
-        padding: 12px 0;
+        font-size: clamp(15px, 4vw, 19px);
+        padding: 14px 0;
     }
 
     .site-footer {
@@ -859,45 +858,45 @@ body {
 
     .footer-legal {
         text-align: left;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 }
 
 @media (max-width: 360px) {
-    .hero {
-        padding: 50px 12px 20px;
-        gap: 16px;
+    .hero-content {
+        padding: 60px 12px 24px;
+        text-align: center;
     }
 
     .hero-heading {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     .hero-accent {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     .hero-label {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .hero-subtitle {
-        font-size: 12px;
-        margin-bottom: 12px;
+        font-size: 14px;
+        margin-bottom: 10px;
     }
 
     .hero-detail-label {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .hero-detail-bold,
     .hero-detail-sub {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .hero-btn {
-        padding: 10px 20px;
-        font-size: 13px;
+        padding: 12px 22px;
+        font-size: 15px;
     }
 
     .text-logo {
@@ -948,30 +947,27 @@ body {
     top: 24px;
     right: 24px;
     z-index: 300;
-    background: #35AEF4;
+    background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    box-shadow: 0 4px 16px rgba(53, 174, 244, 0.3);
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
 }
 .menu-btn:hover {
-    background: #0284c7;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 24px rgba(53, 174, 244, 0.4);
+    background: rgba(53, 174, 244, 0.1);
 }
 .menu-btn-text {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #fff;
+    color: #35AEF4;
 }
 .menu-btn-icon {
-    color: #fff;
+    color: #35AEF4;
 }
 
 /* Menu Overlay */
@@ -1221,69 +1217,65 @@ body {
 
 /* Small phones (320px - 374px) */
 @media only screen and (max-width: 374px) {
-    .hero {
-        padding: 60px 16px 20px;
-        gap: 16px;
-        min-height: auto;
-    }
-
     .hero-content {
+        padding: 70px 16px 24px;
         text-align: center;
     }
 
     .hero-heading {
-        font-size: 24px;
+        font-size: 30px;
         line-height: 1.15;
     }
 
     .hero-accent {
-        font-size: 24px;
-        margin-bottom: 12px;
-    }
-
-    .hero-label {
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        margin-bottom: 8px;
-    }
-
-    .hero-subtitle {
-        font-size: 11px;
-        min-height: 1.8em;
-        height: 1.8em;
+        font-size: 30px;
         margin-bottom: 14px;
     }
 
+    .hero-label {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+        min-height: 1.8em;
+        height: auto;
+        margin-bottom: 18px;
+    }
+
     .hero-detail {
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     .hero-detail-label {
-        font-size: 8px;
+        font-size: 11px;
         margin-bottom: 6px;
     }
 
     .hero-detail-bold {
-        font-size: 11px;
-        margin-bottom: 2px;
+        font-size: 13px;
+        margin-bottom: 3px;
     }
 
     .hero-detail-sub {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .hero-btn {
         width: 100%;
         text-align: center;
-        padding: 13px 16px;
-        font-size: 12px;
-        margin-top: 8px;
+        padding: 15px 18px;
+        font-size: 14px;
+        margin-top: 10px;
     }
 
     .hero-card {
-        padding: 14px;
-        border-radius: 14px;
-        margin-bottom: 24px;
+        padding: 22px 16px;
+        border-radius: 20px;
+        margin: 0 12px;
+        max-width: calc(100% - 24px);
     }
 
     .card-header {
@@ -1445,38 +1437,33 @@ body {
 
 /* Standard phones (375px - 480px) */
 @media only screen and (min-width: 375px) and (max-width: 480px) {
-    .hero {
-        padding: 65px 20px 24px;
-        gap: 20px;
-        min-height: auto;
-    }
-
     .hero-content {
+        padding: 70px 20px 28px;
         text-align: center;
     }
 
     .hero-heading {
-        font-size: 28px;
+        font-size: 32px;
         line-height: 1.15;
     }
 
     .hero-accent {
-        font-size: 28px;
-        margin-bottom: 14px;
+        font-size: 32px;
+        margin-bottom: 16px;
     }
 
     .hero-label {
-        font-size: 11px;
-        margin-bottom: 10px;
+        font-size: 14px;
+        margin-bottom: 12px;
     }
 
     .hero-subtitle {
-        font-size: 12px;
-        margin-bottom: 18px;
+        font-size: 14px;
+        margin-bottom: 22px;
     }
 
     .hero-detail {
-        margin-bottom: 18px;
+        margin-bottom: 22px;
     }
 
     .hero-detail-label {
@@ -1484,25 +1471,27 @@ body {
     }
 
     .hero-detail-bold {
-        font-size: 12px;
-        margin-bottom: 3px;
+        font-size: 14px;
+        margin-bottom: 4px;
     }
 
     .hero-detail-sub {
-        font-size: 11px;
+        font-size: 13px;
     }
 
     .hero-btn {
         width: 100%;
         text-align: center;
-        padding: 14px 22px;
-        font-size: 13px;
-        margin-top: 10px;
+        padding: 15px 24px;
+        font-size: 15px;
+        margin-top: 12px;
     }
 
     .hero-card {
-        padding: 16px;
-        margin-bottom: 24px;
+        padding: 26px 18px;
+        border-radius: 22px;
+        margin: 0 14px;
+        max-width: calc(100% - 28px);
     }
 
     .card-header {
@@ -1568,6 +1557,108 @@ body {
 
 /* Touch-friendly targets for all mobile */
 @media only screen and (max-width: 768px) {
+    /* ===== FULL-SCREEN SWIPEABLE SECTIONS ===== */
+    html {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+        height: 100vh;
+    }
+
+    body {
+        scroll-snap-type: y mandatory;
+    }
+
+    /* Screen 1: Hero text content */
+    .hero-content {
+        min-height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 28px 60px;
+        gap: 0;
+    }
+
+    .hero-label {
+        margin-bottom: 16px;
+    }
+
+    .hero-heading {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .hero-accent {
+        margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 36px;
+        min-height: 1.8em;
+        height: auto;
+    }
+
+    .hero-detail {
+        margin-bottom: 40px;
+    }
+
+    .hero-btn {
+        margin-top: 16px;
+    }
+
+    /* Screen 2: Screening card */
+    .hero-card {
+        min-height: auto;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 32px 24px;
+        border-radius: 24px;
+        margin: 0 16px;
+        max-width: calc(100% - 32px);
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+        box-shadow: 0 8px 40px rgba(100, 120, 160, 0.2);
+        border: 2px solid rgba(53, 174, 244, 0.4);
+    }
+
+    .hero-card .bp-section,
+    .hero-card .lifestyle-section,
+    .hero-card .card-header {
+        width: 100%;
+        text-align: left;
+    }
+
+    .hero-card .card-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Screen 3: Footer */
+    .site-footer {
+        min-height: auto;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 0;
+        border-radius: 0;
+    }
+
+    .footer-arrow {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0;
+    }
+
+    /* ===== END FULL-SCREEN SECTIONS ===== */
+
     a, button {
         min-height: 44px;
         min-width: 44px;
@@ -1622,8 +1713,8 @@ body {
         padding-bottom: calc(1rem + env(safe-area-inset-bottom));
     }
 
-    .hero {
-        padding-top: max(70px, env(safe-area-inset-top));
+    .hero-content {
+        padding-top: max(80px, calc(env(safe-area-inset-top) + 20px));
     }
 
     /* Disable hover effects on touch */
@@ -1656,17 +1747,17 @@ body {
 
     /* Small menu button */
     .menu-btn {
-        padding: 3px 6px;
+        padding: 6px 8px;
         top: 16px;
         right: 12px;
     }
     .menu-btn-text {
-        font-size: 0.52rem;
+        font-size: 0.65rem;
         letter-spacing: 0.02em;
     }
     .menu-btn-icon {
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
     }
 
     /* Align logo */
@@ -1689,18 +1780,18 @@ body {
 
     /* Card spacing from footer */
     .hero-card {
-        margin-bottom: 24px;
+        margin-bottom: 0;
     }
 
     /* Compact footer */
     .site-footer {
-        padding: 1.5rem 4vw 1rem;
-        margin-top: -20px;
+        padding: 2.5rem 20px 1.5rem;
+        margin-top: 0;
     }
 
     .footer-arrow {
-        margin-top: -20px;
-        margin-bottom: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
     }
 
     .footer-arrow svg {
@@ -1709,50 +1800,44 @@ body {
     }
 
     .footer-columns {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .footer-heading {
-        font-size: 0.72rem;
-        margin-bottom: 0.4rem;
-        letter-spacing: 0.01em;
-    }
-
-    .footer-links li {
-        margin-bottom: 0.2rem;
-    }
-
-    .footer-links a {
-        font-size: 0.65rem;
-        line-height: 1.5;
-    }
-
-    .footer-legal {
-        font-size: 0.55rem;
-        margin-top: 0.6rem;
-    }
-
-    /* ===== FOOTER ACCORDION ===== */
-    .footer-columns {
         grid-template-columns: 1fr;
         gap: 0;
-    }
-
-    .footer-col {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .footer-heading {
         font-size: 0.9rem;
         margin-bottom: 0;
-        padding: 14px 0;
+        padding: 16px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
         text-decoration: none;
         user-select: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.6rem;
+    }
+
+    .footer-links a {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+
+    .footer-legal {
+        font-size: 0.7rem;
+        margin-top: 1.2rem;
+    }
+
+    .footer-corporate-inline {
+        font-size: 0.75rem;
+        line-height: 1.8;
+    }
+
+    /* ===== FOOTER ACCORDION ===== */
+    .footer-col {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .footer-plus {
@@ -1784,20 +1869,6 @@ body {
     .footer-links a {
         font-size: 0.75rem;
         padding: 4px 0;
-    }
-}
-
-    /* Extra spacing between hero sections */
-    .hero-content {
-        margin-bottom: 8px;
-    }
-
-    .hero-detail {
-        margin-bottom: 16px;
-    }
-
-    .hero-btn {
-        margin-top: 8px;
     }
 }
 
