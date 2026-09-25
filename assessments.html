@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Assessment Tests - DrMudhiwalla</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Choose from our free health self-assessment tests: BMI, BRI, Blood Pressure, Stress, Sleep and Physical Activity. Pick one and get your result instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drmudhiwalla.com/assessments.html">
+    <meta property="og:title" content="Self Assessment Tests - DrMudhiwalla HealthTech">
+    <meta property="og:description" content="Free health self-assessment tests. Choose BMI, BRI, Blood Pressure, Stress, Sleep or Activity level.">
+    <meta property="og:image" content="https://drmudhiwalla.com/222.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+            background-image:
+                linear-gradient(rgba(53,174,244,0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(53,174,244,0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .text-logo { position: fixed; top: 20px; left: 20px; z-index: 10; text-decoration: none; }
+        .logo-title { font-size: 1.5rem; font-weight: bold; color: #35AEF4; }
+        .logo-subtitle { font-size: 0.8rem; font-weight: 400; color: #35AEF4; margin-top: -5px; }
+        .pvt-ltd { font-size: 0.55rem; }
+
+        .back-link {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            text-decoration: none;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 8px 16px;
+            box-shadow: 0 4px 16px rgba(100, 120, 160, 0.1);
+            transition: color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .back-link:hover { color: #35AEF4; border-color: #35AEF4; transform: translateY(-1px); }
+
+        .page-wrap { max-width: 1160px; margin: 0 auto; padding: 90px 24px 80px; }
+
+        .page-header { text-align: center; margin-bottom: 48px; }
+        .page-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: #35AEF4;
+            padding: 6px 14px;
+            border: 1px solid rgba(53,174,244,0.4);
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+        .page-header h1 { font-size: clamp(26px, 3.2vw, 42px); font-weight: 800; color: #0f172a; line-height: 1.2; margin-bottom: 10px; }
+        .page-header p { font-size: 15px; color: #64748b; max-width: 620px; margin: 0 auto; line-height: 1.7; }
+        .page-header .hindi { font-size: 13px; color: #94a3b8; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+
+        .test-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 18px;
+            padding: 26px 24px 22px;
+            box-shadow: 0 4px 24px rgba(100, 120, 160, 0.08);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        .test-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(53,174,244,0.55);
+            box-shadow: 0 16px 40px rgba(53, 174, 244, 0.14);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: rgba(53,174,244,0.1);
+            border-radius: 14px;
+            margin-bottom: 18px;
+        }
+        .card-tag {
+            align-self: flex-start;
+            font-size: 11px;
+            font-weight: 600;
+            color: #0284c7;
+            background: rgba(53,174,244,0.12);
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+        .test-card h2 { font-size: 19px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+        .test-card .hindi-title { font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 10px; }
+        .test-card .card-desc { font-size: 13.5px; color: #64748b; line-height: 1.65; margin-bottom: 20px; flex: 1; }
+
+        .card-start {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            background: #35AEF4;
+            padding: 11px 20px;
+            border-radius: 50px;
+            align-self: flex-start;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .test-card:hover .card-start { background: #0284c7; transform: translateX(2px); }
+        .card-arrow { transition: transform 0.2s; }
+        .test-card:hover .card-arrow { transform: translateX(3px); }
+
+        .page-footer-note { text-align: center; margin-top: 44px; font-size: 12.5px; color: #94a3b8; line-height: 1.7; }
+
+        @media (max-width: 768px) {
+            .back-link { top: 22px; right: 16px; padding: 7px 12px; font-size: 13px; }
+            .page-wrap { padding: 100px 16px 60px; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .text-logo { top: 16px; left: 16px; }
+            .page-wrap { padding-top: 96px; }
+            .page-header h1 { font-size: 24px; }
+            .page-header p { font-size: 13.5px; }
+            .test-card { padding: 22px 18px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="text-logo" style="text-decoration: none;">
+        <div class="logo-title">DrMudhiwalla</div>
+        <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
+    </a>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+    <div class="page-wrap">
+        <header class="page-header">
+            <span class="page-eyebrow">FREE &amp; PRIVATE</span>
+            <h1>Self Assessment Tests</h1>
+            <p>Choose a test below and get your result instantly. No account, no sign-up &mdash; just pick one and start.</p>
+            <p class="hindi">नीचे कोई भी टेस्ट चुनें और तुरंत अपना रिज़ल्ट पाएं। कोई अकाउंट नहीं, बस चुनें और शुरू करें।</p>
+        </header>
+
+        <div class="cards-grid">
+
+            <a class="test-card" href="bri.html">
+                <div class="card-icon">&#x1F4CF;</div>
+                <span class="card-tag">Body Shape</span>
+                <h2>BRI Calculator</h2>
+                <div class="hindi-title">बॉडी राउंडनेस इंडेक्स</div>
+                <p class="card-desc">Body Roundness Index from height and waist circumference to estimate central obesity risk.</p>
+                <span class="card-start">Start Test <span class="card-arrow">&rarr;</span></span>
+            </a>
+
+            <a class="test-card" href="bp-category.html">
+                <div class="card-icon">&#x1FA7A;</div>
+                <span class="card-tag">Blood Pressure</span>
+                <h2>Know Your BP Category</h2>
+                <div class="hindi-title">ब्लड प्रेशर श्रेणी</div>
+                <p class="card-desc">Enter your readings and find your blood pressure category based on AHA/ACC 2017 guidelines.</p>
+                <span class="card-start">Start Test <span class="card-arrow">&rarr;</span></span>
+            </a>
+
+            <a class="test-card" href="stress.html">
+                <div class="card-icon">&#x1F311;</div>
+                <span class="card-tag">Mental Health</span>
+                <h2>Stress Assessment</h2>
+                <div class="hindi-title">तनाव मूल्यांकन</div>
+                <p class="card-desc">A short questionnaire about your feelings during the last month to gauge your stress level.</p>
+                <span class="card-start">Start Test <span class="card-arrow">&rarr;</span></span>
+            </a>
+
+            <a class="test-card" href="ghq.html">
+                <div class="card-icon">&#x1F9E0;</div>
+                <span class="card-tag">Mental Health</span>
+                <h2>GHQ-12 Assessment</h2>
+                <div class="hindi-title">सामान्य स्वास्थ्य प्रश्नावली</div>
+                <p class="card-desc">The 12-item General Health Questionnaire to screen how your health has been over the past two weeks.</p>
+                <span class="card-start">Start Test <span class="card-arrow">&rarr;</span></span>
+            </a>
+
+            <a class="test-card" href="sleep.html">
+                <div class="card-icon">&#x1F319;</div>
+                <span class="card-tag">Sleep</span>
+                <h2>Sleep Quality Assessment</h2>
+                <div class="hindi-title">नींद की गुणवत्ता</div>
+                <p class="card-desc">PSQI-style questions about your sleep habits during the past month to score your sleep quality.</p>
+                <span class="card-start">Start Test <span class="card-arrow">&rarr;</span></span>
+            </a>
+
+            <a class="test-card" href="sedentary.html">
+                <div class="card-icon">&#x1F3C3;</div>
+                <span class="card-tag">Activity</span>
+                <h2>Sedentary Level Assessment</h2>
+                <div class="hindi-title">शारीरिक गतिविधि स्तर</div>
+                <p class="card-desc">Estimate your physical activity over the last 7 days and see if it is low, moderate or high.</p>
+                <span class="card-start">Start Test <span class="card-arrow">&rarr;</span></span>
+            </a>
+
+        </div>
+
+        <p class="page-footer-note">These tools are for self-assessment only and are not a medical diagnosis.<br>
+            Please share results with your doctor for professional advice.</p>
+    </div>
+</body>
+</html>

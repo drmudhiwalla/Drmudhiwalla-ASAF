@@ -35,16 +35,133 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="landing">
+    <canvas id="bgDots" aria-hidden="true"></canvas>
     <a href="index.html" class="text-logo fade-in-down" style="text-decoration: none;">
         <div class="logo-title">DrMudhiwalla</div>
         <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
     </a>
 
     <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu">
-        <span class="menu-btn-text">Menu</span>
-        <svg class="menu-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="menu-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
+
+    <nav class="desktop-nav" aria-label="Primary">
+        <div class="nav-item has-dropdown">
+            <button type="button" class="nav-link" aria-expanded="false" aria-haspopup="true">Models</button>
+            <div class="nav-dropdown" role="menu">
+                <a href="bank-model.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Bank model</span>
+                        <span class="nav-drop-desc">Free health screening at your bank branch, no extra visit</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="gym-model.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">GYM model</span>
+                        <span class="nav-drop-desc">Member screening for gyms and fitness centres</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </div>
+        <div class="nav-item has-dropdown">
+            <button type="button" class="nav-link" aria-expanded="false" aria-haspopup="true">Assessments</button>
+            <div class="nav-dropdown" role="menu">
+                <a href="assessments.html" role="menuitem" style="border-bottom: 1px solid #eef2f7;">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title" style="color: #0284c7;">View All Tests</span>
+                        <span class="nav-drop-desc">Choose from every assessment tool</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="sleep.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Sleep Assessment</span>
+                        <span class="nav-drop-desc">PSQI-style score for your sleep quality</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="stress.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Stress Assessment</span>
+                        <span class="nav-drop-desc">Quick PSS-4 check of your stress level</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="sedentary.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Sedentary Assessment</span>
+                        <span class="nav-drop-desc">See how much sitting is in your day</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="ghq.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">GHQ-12 Assessment</span>
+                        <span class="nav-drop-desc">General Health Questionnaire for the last 2 weeks</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="bri.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">BRI Calculator</span>
+                        <span class="nav-drop-desc">Measure body roundness from height and waist</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="bp-category.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">BP Category</span>
+                        <span class="nav-drop-desc">Find your blood pressure category in seconds</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </div>
+        <div class="nav-item has-dropdown">
+            <button type="button" class="nav-link" aria-expanded="false" aria-haspopup="true">About us</button>
+            <div class="nav-dropdown" role="menu">
+                <a href="about-founder.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">DrMudhiwalla</span>
+                        <span class="nav-drop-desc">Story of the founder behind the mission</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="our-approach.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Our Approach</span>
+                        <span class="nav-drop-desc">How we bring screening to everyday places</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="#" onclick="document.getElementById('contactModal').classList.add('active'); return false;" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Contact</span>
+                        <span class="nav-drop-desc">Reach us on WhatsApp, email or LinkedIn</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="careers.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Careers</span>
+                        <span class="nav-drop-desc">Open roles at DrMudhiwalla HealthTech</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="early-backers.html" role="menuitem">
+                    <span class="nav-drop-text">
+                        <span class="nav-drop-title">Early Backers</span>
+                        <span class="nav-drop-desc">The people who believed in us first</span>
+                    </span>
+                    <span class="nav-drop-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </div>
+        <a href="#" class="nav-link" onclick="document.getElementById('contactModal').classList.add('active'); return false;">Contact us</a>
+    </nav>
 
     <div class="menu-overlay" id="menuOverlay">
         <div class="menu-panel">
@@ -56,16 +173,16 @@
             <nav class="menu-nav">
                 <a href="index.html" class="menu-link">Home</a>
                 <a href="bank-model.html" class="menu-link">Bank Model</a>
-                <a href="https://screening.drmudhiwalla.com" target="_blank" rel="noopener" class="menu-link">Gym MVP</a>
+                <a href="gym-model.html" class="menu-link">Gym Model</a>
                 <a href="about-founder.html" class="menu-link">About Us</a>
                 <div class="menu-divider"></div>
                 <p class="menu-section-title">Health Tools</p>
-                <a href="bmi.html" class="menu-link">BMI Calculator</a>
-                <a href="bp-category.html" class="menu-link">BP Category</a>
-                <a href="bri.html" class="menu-link">BRI Calculator</a>
                 <a href="sleep.html" class="menu-link">Sleep Assessment</a>
                 <a href="stress.html" class="menu-link">Stress Assessment</a>
                 <a href="sedentary.html" class="menu-link">Sedentary Assessment</a>
+                <a href="ghq.html" class="menu-link">GHQ-12 Assessment</a>
+                <a href="bri.html" class="menu-link">BRI Calculator</a>
+                <a href="bp-category.html" class="menu-link">BP Category</a>
                 <div class="menu-divider"></div>
                 <p class="menu-section-title">Legal</p>
                 <a href="privacy-policy.html" class="menu-link">Privacy Policy</a>
@@ -93,69 +210,58 @@
             <p class="hero-label">BUILDING</p>
             <h1 class="hero-heading">Health Screening<br> Infrastructure</h1>
             <p class="hero-accent">in Everyday Places</p>
-            <p class="hero-subtitle" id="typewriter"></p>
 
             <div class="hero-detail">
-                <p class="hero-detail-label">STARTING WITH BANKS</p>
                 <p class="hero-detail-bold">Screening at your bank branch</p>
-                <p class="hero-detail-sub">No extra visit to a health centre</p>
             </div>
 
-            <a href="bank-model.html" class="hero-btn">See our Bank Model &rarr;</a>
+            <div class="hero-actions">
+                <a href="bank-model.html" class="hero-btn">See our Bank Model &rarr;</a>
+                <a href="assessments.html" class="hero-btn hero-btn-secondary">Self Assessment Tests &rarr;</a>
+            </div>
+
+            <div class="hero-scroll-hint" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
         </div>
 
-        <div class="hero-card fade-in-up" style="animation-delay: 0.4s;">
-            <div class="card-header">
-                <div class="card-header-left">
-                    <span class="card-dot"></span>
-                    <div class="card-header-text">
-                        <span class="card-title">Screening in Progress</span>
-                        <span class="card-location">Bank Branch, Delhi</span>
+        <div class="hero-visual fade-in-up" style="animation-delay: 0.4s;">
+            <img src="yuyu.jpeg" alt="Health screening in progress at a bank branch" class="hero-visual-img">
+
+            <div class="float-stack">
+                <div class="float-pill">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h7l-1 8 9-12h-7l2-8z"/></svg>
+                    5-min scan
+                </div>
+
+                <div class="float-card bp-float">
+                    <div class="float-card-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22">
+                            <path fill="#ef4444" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <div class="float-card-info">
+                        <span class="float-card-label">Blood Pressure</span>
+                        <span class="float-card-value">122 / 83 <small>mmHg</small></span>
+                    </div>
+                    <span class="float-chip chip-warn">Stage 1</span>
+                </div>
+
+                <div class="float-card report-float">
+                    <span class="report-check">
+                        <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </span>
+                    <div class="report-info">
+                        <span class="report-title">Report Ready</span>
+                        <span class="report-sub">Shared on WhatsApp</span>
                     </div>
                 </div>
-                <span class="card-customer">Customer No. #041</span>
             </div>
+        </div>
 
-            <div class="card-section bp-section">
-                <div class="bp-icon">
-                    <svg viewBox="0 0 24 24" width="20" height="20">
-                        <path fill="#ef4444" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                        <polyline fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="3.5,12.2 6,12.2 7.2,8.8 8.3,15.4 9.6,10.2 11,12 12.5,12 13.8,6.6 15.1,17.4 16.5,12 17.8,12 20.5,12.2"/>
-                    </svg>
-                </div>
-                <div class="bp-info">
-                    <span class="bp-label">Blood Pressure</span>
-                    <span class="bp-value">122 / 83<span class="bp-unit">mmHg</span></span>
-                </div>
-                <div class="bp-badge">Stage 1<br><small>Hypertension</small></div>
-            </div>
-
-            <div class="card-section lifestyle-section">
-                <div class="lifestyle-header">
-                    <span class="lifestyle-icon">&#x1F9D8;</span>
-                    <span class="lifestyle-title">Lifestyle</span>
-                </div>
-                <div class="lifestyle-row">
-                    <span class="lifestyle-item-icon">&#x1F319;</span>
-                    <span class="lifestyle-item-label">Sleep</span>
-                    <span class="lifestyle-badge badge-orange">Needs Care</span>
-                </div>
-                <div class="lifestyle-row">
-                    <span class="lifestyle-item-icon">&#x1F9E0;</span>
-                    <span class="lifestyle-item-label">Stress</span>
-                    <span class="lifestyle-badge badge-orange">Moderate</span>
-                </div>
-                <div class="lifestyle-row">
-                    <span class="lifestyle-item-icon">&#x1F3C3;</span>
-                    <span class="lifestyle-item-label">Activity</span>
-                    <span class="lifestyle-badge badge-red">Low</span>
-                </div>
-            </div>
-
-            <a href="sleep.html" class="card-link">
-                <span class="card-link-text">Check Sleep Score</span>
-                <span class="card-link-arrow">&rarr;</span>
-            </a>
+        <div class="hero-actions hero-actions-mobile">
+            <a href="bank-model.html" class="hero-btn">See our Bank Model &rarr;</a>
+            <a href="assessments.html" class="hero-btn hero-btn-secondary">Self Assessment Tests &rarr;</a>
         </div>
     </section>
 
@@ -166,12 +272,18 @@
             </svg>
         </div>
         <div class="footer-container">
-            <div class="footer-columns">
-                <div class="footer-col footer-col-corporate reveal">
-                    <p class="footer-corporate-inline">Address: B-180, Majlis Park, North Delhi 110033</p>
-                    <p class="footer-corporate-inline">CIN: U86201DL2025PTC451980</p>
-                    <p class="footer-corporate-inline">GST: 07AALCD8789M1ZL</p>
+            <div class="footer-main">
+                <div class="footer-brand-area">
+                    <a href="index.html" class="footer-logo-block">
+                        <div class="logo-title">DrMudhiwalla</div>
+                        <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
+                    </a>
+                    <div class="footer-corporate">
+                        <p class="footer-corporate-inline">CIN: U86201DL2025PTC451980</p>
+                        <p class="footer-corporate-inline">GST: 07AALCD8789M1ZL</p>
+                    </div>
                 </div>
+                <div class="footer-columns">
                 <div class="footer-col reveal">
                     <h3 class="footer-heading" onclick="toggleFooterCol(this)">About Us<span class="footer-plus">+</span></h3>
                     <ul class="footer-links">
@@ -179,6 +291,7 @@
                         <li><a href="our-approach.html">Our Approach</a></li>
                         <li><a href="#" onclick="document.getElementById('contactModal').classList.add('active'); return false;">Contact</a></li>
                         <li><a href="careers.html">Careers</a></li>
+                        <li><a href="early-backers.html">Early Backers</a></li>
                     </ul>
                 </div>
                 <div class="footer-col reveal">
@@ -186,7 +299,7 @@
                     <ul class="footer-links">
                         <li><a href="bank-model.html">Banks</a></li>
                         <li><a href="corporates.html">Corporates & MSMEs</a></li>
-                        <li><a href="https://screening.drmudhiwalla.com" target="_blank" rel="noopener">Gyms</a></li>
+                        <li><a href="gym-model.html">Gyms</a></li>
                         <li><a href="community-screening.html">Community Screening</a></li>
                     </ul>
                 </div>
@@ -200,13 +313,12 @@
                 </div>
 
             </div>
-            <div class="footer-bottom">
-                <p class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-conditions.html">Terms & Conditions</a> &nbsp;|&nbsp; <a href="medical-disclaimer.html">Medical Disclaimer</a></p>
             </div>
+            <p class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-conditions.html">Terms & Conditions</a> &nbsp;|&nbsp; <a href="medical-disclaimer.html">Medical Disclaimer</a></p>
         </div>
     </footer>
 
-    <div class="contact-modal" id="contactModal">
+    <div class="contact-modal" id="contactModal" style="display:none;">
         <div class="contact-modal-card">
             <button class="contact-modal-close" onclick="document.getElementById('contactModal').classList.remove('active')">&times;</button>
             <h3>Contact Us</h3>
@@ -225,16 +337,8 @@
         </div>
     </div>
 
-    <!-- Share Button -->
-    <button class="share-fab" onclick="openShareModal()" aria-label="Share">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-        </svg>
-    </button>
-
     <!-- Share Modal -->
-    <div class="share-modal" id="shareModal">
+    <div class="share-modal" id="shareModal" style="display:none;">
         <div class="share-modal-card">
             <button class="share-modal-close" onclick="closeShareModal()">&times;</button>
             <h3>Share This Page</h3>
@@ -271,15 +375,21 @@
     <script>
         const logo = document.querySelector('.text-logo');
         const menuBtn = document.querySelector('.menu-btn');
+        const desktopNav = document.querySelector('.desktop-nav');
         window.addEventListener('scroll', () => {
-            const opacity = window.scrollY > 100 ? '0' : '1';
+            const scrolled = window.scrollY > 100;
+            const opacity = scrolled ? '0' : '1';
             logo.style.opacity = opacity;
             logo.style.transition = 'opacity 0.3s';
-            logo.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+            logo.style.pointerEvents = scrolled ? 'none' : 'auto';
             if (menuBtn) {
                 menuBtn.style.opacity = opacity;
                 menuBtn.style.transition = 'opacity 0.3s';
-                menuBtn.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+                menuBtn.style.pointerEvents = scrolled ? 'none' : 'auto';
+            }
+            if (desktopNav) {
+                desktopNav.style.opacity = opacity;
+                desktopNav.style.visibility = scrolled ? 'hidden' : 'visible';
             }
         });
 
@@ -289,32 +399,6 @@
                 el.style.animation = 'none';
             });
         });
-
-        const text = "Bringing screening where people already are";
-        const el = document.getElementById('typewriter');
-        let i = 0, deleting = false;
-
-        function typeLoop() {
-            if (!deleting) {
-                el.textContent = text.substring(0, i + 1);
-                i++;
-                if (i === text.length) {
-                    setTimeout(() => { deleting = true; typeLoop(); }, 1500);
-                    return;
-                }
-                setTimeout(typeLoop, 50);
-            } else {
-                el.textContent = text.substring(0, i - 1);
-                i--;
-                if (i === 0) {
-                    deleting = false;
-                    setTimeout(typeLoop, 4000);
-                    return;
-                }
-                setTimeout(typeLoop, 25);
-            }
-        }
-        typeLoop();
 
         document.getElementById('contactModal').addEventListener('click', function(e) {
             if (e.target === this) this.classList.remove('active');
@@ -329,6 +413,41 @@
         }
         document.getElementById('menuOverlay').addEventListener('click', function(e) {
             if (e.target === this) toggleMenu();
+        });
+
+        document.querySelectorAll('.desktop-nav .has-dropdown > .nav-link').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var item = btn.parentElement;
+                var wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.desktop-nav .nav-item.open').forEach(function(el) {
+                    el.classList.remove('open');
+                    var b = el.querySelector('.nav-link');
+                    if (b) b.setAttribute('aria-expanded', 'false');
+                });
+                if (!wasOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.desktop-nav')) {
+                document.querySelectorAll('.desktop-nav .nav-item.open').forEach(function(el) {
+                    el.classList.remove('open');
+                    var b = el.querySelector('.nav-link');
+                    if (b) b.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.desktop-nav .nav-item.open').forEach(function(el) {
+                    el.classList.remove('open');
+                    var b = el.querySelector('.nav-link');
+                    if (b) b.setAttribute('aria-expanded', 'false');
+                });
+            }
         });
 
         function openShareModal() {
@@ -363,6 +482,78 @@
             const col = heading.parentElement;
             col.classList.toggle('open');
         }
+
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('cta-in');
+                } else {
+                    entry.target.classList.remove('cta-in');
+                }
+            });
+        }, { threshold: 0.25 });
+        document.querySelectorAll('.hero-actions .hero-btn, .hero-actions-mobile .hero-btn')
+            .forEach(el => ctaObserver.observe(el));
+
+        (function () {
+            const canvas = document.getElementById('bgDots');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w = 0, h = 0;
+            const dpr = window.devicePixelRatio || 1;
+            const spacing = 30;
+            let dots = [];
+            const mouse = { x: -9999, y: -9999 };
+            let rafId = null;
+
+            function resize() {
+                w = window.innerWidth;
+                h = window.innerHeight;
+                canvas.width = w * dpr;
+                canvas.height = h * dpr;
+                canvas.style.width = w + 'px';
+                canvas.style.height = h + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                dots = [];
+                for (let x = spacing / 2; x < w; x += spacing) {
+                    for (let y = spacing / 2; y < h; y += spacing) {
+                        dots.push({ x: x, y: y });
+                    }
+                }
+            }
+
+            function render() {
+                ctx.clearRect(0, 0, w, h);
+                const radius = 150;
+                for (let i = 0; i < dots.length; i++) {
+                    const d = dots[i];
+                    const dx = d.x - mouse.x;
+                    const dy = d.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const glow = Math.max(0, 1 - dist / radius);
+                    const alpha = 0.10 + glow * glow * 0.15;
+                    ctx.fillStyle = 'rgba(30, 41, 59, ' + alpha.toFixed(3) + ')';
+                    ctx.beginPath();
+                    ctx.arc(d.x, d.y, 1.1 + glow * 0.8, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                rafId = null;
+            }
+
+            window.addEventListener('resize', function () {
+                resize();
+                render();
+            });
+            window.addEventListener('mousemove', function (e) {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(render);
+                }
+            });
+            resize();
+            render();
+        })();
     </script>
 
     <style>
@@ -393,17 +584,13 @@
             top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0,0,0,0.5);
             backdrop-filter: blur(8px);
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
         }
         .share-modal.active {
-            opacity: 1;
-            pointer-events: auto;
+            display: flex !important;
         }
         .share-modal-card {
             background: #fff;

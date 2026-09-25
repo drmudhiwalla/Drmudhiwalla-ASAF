@@ -235,6 +235,7 @@
             .back-home-btn { top: 12px; right: 12px; padding: 8px 16px; font-size: 12px; }
         }
     </style>
+<link rel="stylesheet" href="report.css">
 </head>
 <body>
     <a href="index.html" class="text-logo" style="text-decoration: none;">
@@ -383,31 +384,8 @@
     <!-- Score Card Overlay -->
     <div class="score-overlay" id="scoreOverlay">
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
-        <div class="score-card">
-            <h2>Your Sleep Quality Score</h2>
-            <div class="hindi-sub">आपका नींद गुणवत्ता स्कोर</div>
-
-            <div class="global-score-circle" id="scoreCircle">
-                <div class="global-score-num" id="scoreNum">0</div>
-                <div class="global-score-max">/ 15</div>
-            </div>
-
-            <div class="score-interpretation" id="scoreInterp"></div>
-
-            <div class="components-list" id="componentsList"></div>
-
-            <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                Based on the Pittsburgh Sleep Quality Index (PSQI) adapted scoring method.<br>
-                पिट्सबर्ग स्लीप क्वालिटी इंडेक्स (PSQI) अनुकूलित स्कोरिंग विधि पर आधारित।<br>
-                <strong>0–3</strong> Healthy Sleep &nbsp;|&nbsp; <strong>4–6</strong> Needs Attention &nbsp;|&nbsp; <strong>7–15</strong> Poor Sleep Quality
-            </div>
-
-            <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
-            <a id="downloadBtn" style="display:none; margin-top:20px; padding:12px 28px; background:#35AEF4; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; font-family:'Poppins',sans-serif; cursor:pointer;" href="#" download>Download Result</a>
-        </div>
-    </div>
-
-    <footer class="footer">
+        <div id="reportCard" style="width:100%; max-width:780px; max-height:94vh; overflow-y:auto; border-radius:20px; -webkit-overflow-scrolling:touch;"></div>
+    </div><footer class="footer">
         <div class="footer-icons">
             <a href="https://wa.me/919707010270" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -644,43 +622,44 @@
         }
 
         function submitForm() {
-            if (!validateSection(currentSection)) return;
-            const result = calculateScore();
-            const interp = getInterpretation(result.global);
+    if (!validateSection(currentSection)) return;
+    const result = calculateScore();
+    const interp = getInterpretation(result.global);
+    const name = document.getElementById('q-name').value.trim();
+    const age = document.getElementById('q-age').value.trim();
+    const color = { good: 'green', mild: 'amber', severe: 'red' }[interp.class] || 'amber';
 
-            // Update score circle
-            const circle = document.getElementById('scoreCircle');
-            circle.className = 'global-score-circle ' + interp.class;
+    const reco = {
+        good: ['Maintain a fixed sleep and wake schedule', 'Keep your bedroom cool, dark and quiet', 'Re-screen if your sleep pattern changes'],
+        mild: ['Go to bed and wake at the same time daily', 'Limit screens and caffeine 1-2 hours before bed', 'Wind down with reading or light stretching', 'Track your sleep for 2 weeks and recheck'],
+        severe: ['Consider speaking to a doctor about your sleep', 'Build a consistent, relaxing bedtime routine', 'Avoid long daytime naps and late-day caffeine', 'Get 30 minutes of daylight activity daily']
+    }[interp.class] || [];
 
-            const num = document.getElementById('scoreNum');
-            num.className = 'global-score-num ' + interp.class;
-            num.textContent = result.global;
-
-            // Update interpretation
-            const interpEl = document.getElementById('scoreInterp');
-            interpEl.className = 'score-interpretation ' + interp.class;
-            interpEl.textContent = interp.text + ' — ' + interp.hindi;
-
-            // Update components list
-            const list = document.getElementById('componentsList');
-            list.innerHTML = result.components.map(c =>
-                `<div class="component-row">
-                    <span class="component-name">${c.name}</span>
-                    <span class="component-score">${c.score} / ${c.max}</span>
-                </div>`
-            ).join('');
-
-            // Show overlay
-            document.getElementById('scoreOverlay').classList.add('active');
-
-            var downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.style.display = 'inline-block';
-            downloadBtn.onclick = function() {
-                downloadPDF('Sleep Quality Assessment', 'Name: ' + document.getElementById('q-name').value + '\nAge: ' + document.getElementById('q-age').value + '\nScore: ' + result.global + ' / 15\nInterpretation: ' + interp.text);
-            };
+    openAssessmentReport({
+        report: 'Sleep Quality Assessment',
+        kicker: 'Sleep Quality',
+        title: 'Sleep Quality Assessment',
+        backUrl: 'index.html',
+        sub: [name, age ? 'Age ' + age : ''].filter(Boolean).join(' - '),
+        chip: interp.text,
+        chipColor: color,
+        frac: Math.max(0.05, Math.min(1, result.global / 15)),
+        scoreText: String(result.global),
+        scoreUnit: '/ 15',
+        cap: 'Sleep Score',
+        categories: [
+            { text: 'Healthy Sleep', color: 'green' },
+            { text: 'Needs Attention', color: 'amber' },
+            { text: 'Poor Sleep Quality', color: 'red' }
+        ],
+        reco: reco,
+        pdf: {
+            title: 'Sleep Quality Assessment',
+            text: 'Name: ' + name + '\nAge: ' + age + '\nScore: ' + result.global + ' / 15\nInterpretation: ' + interp.text
         }
-
-        function closeScoreCard() {
+    });
+}
+function closeScoreCard() {
             document.getElementById('scoreOverlay').classList.remove('active');
         }
 
@@ -753,7 +732,9 @@ if (logo) {
     });
 }
 </script>
+<script src="report-card.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 function downloadPDF(title, resultText) {
     const { jsPDF } = window.jspdf;

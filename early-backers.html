@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Backers - DrMudhiwalla</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drmudhiwalla.com/early-backers.html">
+    <meta property="og:title" content="Early Backers - DrMudhiwalla HealthTech">
+    <meta property="og:description" content="In our earliest days, a few people stood by us. This is our small way of saying thank you.">
+    <meta property="og:image" content="https://drmudhiwalla.com/222.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="DrMudhiwalla HealthTech">
+    <meta property="og:locale" content="en_IN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Early Backers - DrMudhiwalla HealthTech">
+    <meta name="twitter:image" content="https://drmudhiwalla.com/222.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+            background-image: url('ppp.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                linear-gradient(rgba(53,174,244,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(53,174,244,0.06) 1px, transparent 1px),
+                rgba(255,255,255,0.6);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 0;
+        }
+        .text-logo { position: fixed; top: 20px; left: 20px; z-index: 200; text-decoration: none; }
+        .logo-title { font-size: 1.5rem; font-weight: bold; color: #35AEF4; }
+        .logo-subtitle { font-size: 0.8rem; color: #35AEF4; margin-top: -5px; }
+        .pvt-ltd { font-size: 0.55rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 100px 24px 60px; position: relative; z-index: 1; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: #35AEF4; text-decoration: none; font-size: 14px; font-weight: 500; margin-bottom: 32px; transition: gap 0.2s; }
+        .back-link:hover { gap: 10px; }
+
+        .glass {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(100,120,160,0.15);
+        }
+
+        .page-header { text-align: center; margin-bottom: 48px; }
+        .page-header h1 {
+            font-size: clamp(24px, 3vw, 38px);
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+        .page-header h1 span { color: #35AEF4; }
+        .page-header .subtitle {
+            font-size: clamp(14px, 1.5vw, 18px);
+            color: #475569;
+            font-weight: 400;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .intro-block { padding: 28px 32px; margin-bottom: 40px; border-left: 4px solid #35AEF4; font-size: 15px; color: #334155; line-height: 1.8; }
+        .intro-block p { margin-bottom: 16px; }
+        .intro-block p:last-child { margin-bottom: 0; }
+
+        .members-section { margin-bottom: 32px; }
+        .section-label { font-size: 13px; font-weight: 600; color: #35AEF4; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 1px solid rgba(53,174,244,0.3); display: inline-block; }
+
+        .members-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .member-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease;
+        }
+        .member-item:hover { transform: scale(1.05); }
+
+        .member-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border: 3px solid #35AEF4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #35AEF4;
+            margin-bottom: -24px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        /* Center-zoom crops: image positioned so the face fills the 140px circle */
+        .member-avatar.li-shot img {
+            position: absolute;
+            width: 597.3px;
+            height: auto;
+            max-width: none;
+            left: -228.7px;
+            top: -85.6px;
+        }
+        .member-avatar.santosh-shot img {
+            position: absolute;
+            width: 170.1px;
+            height: auto;
+            max-width: none;
+            left: -6.1px;
+            top: -4px;
+        }
+        .member-avatar.avinash-shot img {
+            position: absolute;
+            width: 264.8px;
+            height: auto;
+            max-width: none;
+            left: -50.75px;
+            top: -43.75px;
+        }
+        .member-item:hover .member-avatar {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(53,174,244,0.3);
+        }
+
+        .member-card {
+            padding: 28px 20px 16px;
+            text-align: center;
+            width: 100%;
+        }
+        .member-card .name { font-size: 15px; font-weight: 600; color: #0f172a; margin-bottom: 2px; }
+        .member-card .role { font-size: 12px; color: #94a3b8; }
+
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #0a66c2;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 8px;
+            background: #f0f9ff;
+            border: 1px solid #e0f2fe;
+            transition: background 0.2s;
+            white-space: nowrap;
+            margin-top: 4px;
+        }
+        .linkedin-link:hover { background: #e0f2fe; }
+        .linkedin-link svg { width: 14px; height: 14px; }
+        .web-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #35AEF4;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 8px;
+            background: #f0f9ff;
+            border: 1px solid #e0f2fe;
+            transition: background 0.2s;
+            white-space: nowrap;
+            margin-top: 4px;
+        }
+        .web-link:hover { background: #e0f2fe; }
+        .web-link svg { width: 14px; height: 14px; }
+
+        @media (max-width: 768px) {
+            .container { padding: 80px 16px 40px; }
+            .page-header h1 { font-size: 24px; }
+            .members-row { grid-template-columns: 1fr 1fr; }
+            .text-logo { top: 12px; left: 12px; }
+            .logo-title { font-size: 1.2rem; }
+            .logo-subtitle { font-size: 0.65rem; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .zoom {
+            opacity: 0;
+            transform: scale(0.7);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .zoom.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .contact-modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .contact-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .contact-modal-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            width: 360px;
+            max-width: 90vw;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        .contact-modal.active .contact-modal-card {
+            transform: translateY(0);
+        }
+        .contact-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+        .contact-modal-close:hover { color: #0f172a; }
+        .contact-modal-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .contact-modal-card p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+        .contact-modal-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        .contact-modal-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .contact-modal-icon:hover { transform: scale(1.1); }
+        .contact-modal-icon svg { width: 24px; height: 24px; }
+        .contact-modal-icon.whatsapp { background: #25d366; }
+        .contact-modal-icon.email { background: #35AEF4; }
+        .contact-modal-icon.linkedin { background: #0a66c2; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="text-logo" style="text-decoration: none;">
+        <div class="logo-title">DrMudhiwalla</div>
+        <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
+    </a>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+        <div class="page-header">
+            <h1>Our <span>Early Backers</span></h1>
+        </div>
+
+        <div class="intro-block glass reveal">
+            <p>In our earliest days, when there was little to show but plenty to believe in, a few people stood by us. Some with their time, some with their money, some offered introductions, and some with honest, critical feedback that made us better.</p>
+            <p>This section is our small way of saying thank you. To each one.</p>
+        </div>
+
+        <div class="members-section">
+            <div class="section-label reveal">With Gratitude</div>
+
+            <div class="members-row">
+                <div class="member-item zoom">
+                    <div class="member-avatar">
+                        <img src="earlybackers/parents.jpeg" alt="Our Parents">
+                    </div>
+                    <div class="member-card glass">
+                        <div class="name">Parents</div>
+                        <div class="role">Early Backers</div>
+                    </div>
+                </div>
+                <div class="member-item zoom">
+                    <div class="member-avatar santosh-shot">
+                        <img src="earlybackers/santosh.jpeg" alt="Santosh">
+                    </div>
+                    <div class="member-card glass">
+                        <div class="name">Santosh</div>
+                        <a href="https://www.linkedin.com/in/tiltsan/" target="_blank" rel="noopener" class="linkedin-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="members-row">
+                <div class="member-item zoom">
+                    <div class="member-avatar li-shot">
+                        <img src="earlybackers/Ankit.png" alt="Ankit">
+                    </div>
+                    <div class="member-card glass">
+                        <div class="name">Ankit</div>
+                        <a href="https://www.linkedin.com/in/ankit-sharma-86675037/" target="_blank" rel="noopener" class="linkedin-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="member-item zoom">
+                    <div class="member-avatar avinash-shot">
+                        <img src="earlybackers/avinash.jpeg" alt="Avinash">
+                    </div>
+                    <div class="member-card glass">
+                        <div class="name">Avinash</div>
+                        <a href="https://www.linkedin.com/in/avinash-b-baa76693/" target="_blank" rel="noopener" class="linkedin-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="member-item zoom">
+                    <div class="member-avatar">
+                        <img src="earlybackers/shubhendu.jpeg" alt="Shubhendu Mallick">
+                    </div>
+                    <div class="member-card glass">
+                        <div class="name">Shubhendu Mallick</div>
+                        <a href="https://snakehelpline.com/" target="_blank" rel="noopener" class="web-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const logo = document.querySelector('.text-logo');
+        if (logo) {
+            window.addEventListener('scroll', () => {
+                logo.style.opacity = window.scrollY > 100 ? '0' : '1';
+                logo.style.transition = 'opacity 0.3s';
+                logo.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal, .zoom').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

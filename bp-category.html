@@ -231,6 +231,7 @@
             .back-home-btn { top: 12px; right: 12px; padding: 8px 16px; font-size: 12px; }
         }
     </style>
+<link rel="stylesheet" href="report.css">
 </head>
 <body>
     <a href="index.html" class="text-logo" style="text-decoration: none;">
@@ -313,32 +314,8 @@
     <!-- Score Card Overlay -->
     <div class="score-overlay" id="scoreOverlay">
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
-        <div class="score-card">
-            <h2>Your BP Category</h2>
-            <div class="hindi-sub">आपकी ब्लड प्रेशर श्रेणी</div>
-
-            <div class="global-score-circle" id="scoreCircle">
-                <div class="global-score-num" id="scoreBp">--/--</div>
-                <div class="global-score-max">mmHg</div>
-            </div>
-
-            <div class="score-interpretation" id="scoreInterp"></div>
-
-            <div class="score-description" id="scoreDesc"></div>
-
-            <div class="score-recommendation" id="scoreRecommendation"></div>
-
-            <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                Based on the AHA/ACC 2017 Blood Pressure Guidelines.<br>
-                AHA/ACC 2017 ब्लड प्रेशर दिशानिर्देशों पर आधारित।
-            </div>
-
-            <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
-            <a id="downloadBtn" style="display:none; margin-top:20px; padding:12px 28px; background:#35AEF4; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; font-family:'Poppins',sans-serif; cursor:pointer;" href="#" download>Download Result</a>
-        </div>
-    </div>
-
-    <footer class="footer">
+        <div id="reportCard" style="width:100%; max-width:780px; max-height:94vh; overflow-y:auto; border-radius:20px; -webkit-overflow-scrolling:touch;"></div>
+    </div><footer class="footer">
         <div class="footer-icons">
             <a href="https://wa.me/919707010270" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -521,44 +498,45 @@
         }
 
         function submitForm() {
-            if (!validateSection(currentSection)) return;
+    if (!validateSection(currentSection)) return;
 
-            const name = document.getElementById('q-name').value.trim();
-            const sys = parseInt(document.getElementById('q-systolic').value);
-            const dia = parseInt(document.getElementById('q-diastolic').value);
+    const name = document.getElementById('q-name').value.trim();
+    const age = document.getElementById('q-age').value.trim();
+    const genderEl = document.querySelector('input[name="gender"]:checked');
+    const gender = genderEl ? (genderEl.value.charAt(0).toUpperCase() + genderEl.value.slice(1)) : '';
+    const sys = parseInt(document.getElementById('q-systolic').value);
+    const dia = parseInt(document.getElementById('q-diastolic').value);
 
-            const result = classifyBP(sys, dia);
+    const result = classifyBP(sys, dia);
+    const color = { crisis: 'red', stage2: 'red', stage1: 'orange', elevated: 'amber', normal: 'green' }[result.cssClass] || 'amber';
 
-            // Update score circle
-            const circle = document.getElementById('scoreCircle');
-            circle.className = 'global-score-circle ' + result.cssClass;
-
-            const bpText = document.getElementById('scoreBp');
-            bpText.className = 'global-score-num ' + result.cssClass;
-            bpText.textContent = sys + ' / ' + dia;
-
-            // Interpretation
-            const interpEl = document.getElementById('scoreInterp');
-            interpEl.className = 'score-interpretation ' + result.cssClass;
-            interpEl.textContent = result.category + ' — ' + result.hindi;
-
-            // Description
-            document.getElementById('scoreDesc').textContent = result.description + ' ' + result.hindiDesc;
-
-            // Recommendation
-            document.getElementById('scoreRecommendation').textContent = result.recommendation;
-
-            // Show overlay
-            document.getElementById('scoreOverlay').classList.add('active');
-
-            var downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.style.display = 'inline-block';
-            downloadBtn.onclick = function() {
-                downloadPDF('BP Category', 'Name: ' + name + '\nBP: ' + sys + '/' + dia + ' mmHg\nCategory: ' + result.category + '\n' + result.description);
-            };
+    openAssessmentReport({
+        report: 'BP Category Assessment',
+        kicker: 'Blood Pressure',
+        title: 'Blood Pressure Category',
+        backUrl: 'index.html',
+        sub: [name, age ? 'Age ' + age : '', gender].filter(Boolean).join(' - '),
+        chip: result.category,
+        chipColor: color,
+        frac: Math.max(0.05, Math.min(1, (sys - 90) / 120)),
+        scoreText: sys + ' / ' + dia,
+        scoreUnit: 'mmHg',
+        cap: 'Blood Pressure',
+        categories: [
+            { text: 'Normal', color: 'green' },
+            { text: 'Elevated', color: 'amber' },
+            { text: 'High Blood Pressure Stage 1', color: 'orange' },
+            { text: 'High Blood Pressure Stage 2', color: 'red' },
+            { text: 'Hypertensive Crisis', color: 'red' }
+        ],
+        reco: [result.recommendation],
+        pdf: {
+            title: 'BP Category Assessment',
+            text: 'Name: ' + name + '\nBP: ' + sys + '/' + dia + ' mmHg\nCategory: ' + result.category + '\n' + result.description
         }
-
-        function closeScoreCard() {
+    });
+}
+function closeScoreCard() {
             document.getElementById('scoreOverlay').classList.remove('active');
         }
 
@@ -607,7 +585,9 @@ if (logo) {
     });
 }
 </script>
+<script src="report-card.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 function downloadPDF(title, resultText) {
     const { jsPDF } = window.jspdf;

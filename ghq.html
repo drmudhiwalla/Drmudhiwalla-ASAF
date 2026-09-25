@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRI Calculator - DrMudhiwalla</title>
+    <title>GHQ-12 Assessment - DrMudhiwalla</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://drmudhiwalla.com/bri.html">
-    <meta property="og:title" content="BRI Calculator - DrMudhiwalla HealthTech">
-    <meta property="og:description" content="Calculate your Body Roundness Index (BRI) to estimate visceral fat levels. Free bilingual tool using height, waist, and hip measurements.">
+    <meta property="og:url" content="https://drmudhiwalla.com/ghq.html">
+    <meta property="og:title" content="GHQ-12 Assessment - DrMudhiwalla HealthTech">
+    <meta property="og:description" content="Take the free General Health Questionnaire (GHQ-12). Screen recent psychological distress in minutes and get your score with guidance.">
     <meta property="og:image" content="https://drmudhiwalla.com/222.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -17,8 +17,8 @@
     <meta property="og:locale" content="en_IN">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BRI Calculator - DrMudhiwalla HealthTech">
-    <meta name="twitter:description" content="Calculate your Body Roundness Index (BRI) to estimate visceral fat levels. Free bilingual tool using height, waist, and hip measurements.">
+    <meta name="twitter:title" content="GHQ-12 Assessment - DrMudhiwalla HealthTech">
+    <meta name="twitter:description" content="Take the free General Health Questionnaire (GHQ-12). Screen recent psychological distress in minutes.">
     <meta name="twitter:image" content="https://drmudhiwalla.com/222.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -63,7 +63,6 @@
         .intro-section h2 { font-size: 26px; font-weight: 700; color: #0f172a; line-height: 1.3; margin-bottom: 8px; }
         .intro-section .hindi-title { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 20px; }
         .intro-section p { font-size: 14px; color: #64748b; line-height: 1.7; margin-bottom: 8px; }
-        .intro-section .hindi-desc { font-size: 13px; color: #94a3b8; line-height: 1.7; }
 
         .field-group { margin-bottom: 28px; }
         .field-label { font-size: 16px; font-weight: 600; color: #0f172a; margin-bottom: 4px; }
@@ -84,7 +83,6 @@
         .radio-option input[type="radio"]:checked + .radio-circle::after { content: ''; width: 10px; height: 10px; background: #35AEF4; border-radius: 50%; }
         .radio-option input[type="radio"]:checked ~ .radio-label { color: #0f172a; font-weight: 500; }
         .radio-label { font-size: 15px; color: #475569; }
-        .radio-label .hindi-option { color: #94a3b8; font-size: 13px; }
 
         .btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 36px; gap: 12px; }
         .btn { padding: 12px 32px; border-radius: 50px; font-size: 15px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; border: none; transition: background 0.2s, transform 0.1s; }
@@ -108,42 +106,10 @@
         .social-icon:hover { color: #35AEF4; transform: translateY(-2px); }
         .footer-text { font-size: 0.7rem; margin: 0; opacity: 0.8; text-align: right; }
 
+        /* Score Card Overlay */
         .score-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 100; align-items: center; justify-content: center; }
         .score-overlay.active { display: flex; }
         .score-overlay-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(248,250,252,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .score-card { position: relative; z-index: 1; width: 100%; max-width: 560px; background: #fff; border-radius: 24px; box-shadow: 0 8px 50px rgba(0,0,0,0.12); padding: 44px 40px; text-align: center; max-height: 90vh; overflow-y: auto; }
-        .score-card h2 { font-size: 24px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
-        .score-card .hindi-sub { font-size: 16px; color: #64748b; margin-bottom: 28px; }
-
-        .global-score-circle { width: 140px; height: 140px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 24px; }
-        .global-score-circle.very-low { background: #dbeafe; border: 3px solid #3b82f6; }
-        .global-score-circle.low { background: #dcfce7; border: 3px solid #22c55e; }
-        .global-score-circle.normal { background: #f0fdf4; border: 3px solid #16a34a; }
-        .global-score-circle.high { background: #fef9c3; border: 3px solid #eab308; }
-        .global-score-circle.very-high { background: #fee2e2; border: 3px solid #ef4444; }
-        .global-score-num { font-size: 42px; font-weight: 800; line-height: 1; }
-        .global-score-num.very-low { color: #3b82f6; }
-        .global-score-num.low { color: #16a34a; }
-        .global-score-num.normal { color: #15803d; }
-        .global-score-num.high { color: #ca8a04; }
-        .global-score-num.very-high { color: #dc2626; }
-        .global-score-max { font-size: 13px; color: #94a3b8; font-weight: 500; }
-
-        .score-interpretation { font-size: 15px; font-weight: 600; margin-bottom: 28px; padding: 10px 20px; border-radius: 10px; display: inline-block; }
-        .score-interpretation.very-low { background: #dbeafe; color: #2563eb; }
-        .score-interpretation.low { background: #dcfce7; color: #16a34a; }
-        .score-interpretation.normal { background: #f0fdf4; color: #15803d; }
-        .score-interpretation.high { background: #fef9c3; color: #ca8a04; }
-        .score-interpretation.very-high { background: #fee2e2; color: #dc2626; }
-
-        .components-list { text-align: left; margin-bottom: 28px; }
-        .component-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
-        .component-row:last-child { border-bottom: none; }
-        .component-name { font-size: 14px; color: #475569; }
-        .component-score { font-size: 14px; font-weight: 600; color: #0f172a; }
-
-        .score-btn { padding: 12px 36px; border-radius: 50px; font-size: 15px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; border: none; background: #35AEF4; color: #fff; transition: background 0.2s; }
-        .score-btn:hover { background: #0ea5e9; }
 
         @media (max-width: 768px) {
             html, body { overflow-y: auto; }
@@ -155,27 +121,14 @@
             .intro-section h2 { font-size: 20px; }
             .intro-section .hindi-title { font-size: 16px; margin-bottom: 12px; }
             .intro-section p { font-size: 13px; }
-            .intro-section .hindi-desc { font-size: 12px; }
             .field-label { font-size: 14px; margin-bottom: 4px; }
             .field-label .hindi { font-size: 12px; }
             .field-hint { font-size: 11px; }
             .text-input { padding: 10px 14px; font-size: 14px; }
             .radio-option { padding: 10px 14px; gap: 10px; }
             .radio-label { font-size: 14px; }
-            .radio-label .hindi-option { font-size: 12px; }
             .btn { padding: 10px 24px; font-size: 14px; }
             .btn-row { margin-top: 24px; }
-            .score-card { padding: 24px 18px; border-radius: 18px; max-height: 95vh; }
-            .score-card h2 { font-size: 20px; }
-            .score-card .hindi-sub { font-size: 14px; margin-bottom: 20px; }
-            .global-score-circle { width: 110px; height: 110px; margin-bottom: 18px; }
-            .global-score-num { font-size: 34px; }
-            .global-score-max { font-size: 12px; }
-            .score-interpretation { font-size: 13px; padding: 8px 16px; margin-bottom: 20px; }
-            .components-list { margin-bottom: 20px; }
-            .component-name { font-size: 12px; }
-            .component-score { font-size: 12px; }
-            .score-btn { padding: 10px 28px; font-size: 14px; }
             .text-logo { top: 12px; left: 12px; }
             .logo-title { font-size: 1.2rem; }
             .logo-subtitle { font-size: 0.65rem; }
@@ -190,14 +143,10 @@
         @media (max-width: 360px) {
             .form-container { padding: 20px 16px; }
             .intro-section h2 { font-size: 18px; }
-            .intro-section .hindi-title { font-size: 14px; }
             .field-label { font-size: 13px; }
             .text-input { padding: 9px 12px; font-size: 13px; }
             .radio-label { font-size: 13px; }
             .btn { padding: 9px 20px; font-size: 13px; }
-            .score-card { padding: 20px 14px; }
-            .global-score-circle { width: 90px; height: 90px; }
-            .global-score-num { font-size: 28px; }
             .logo-title { font-size: 1rem; }
             .logo-subtitle { font-size: 0.55rem; }
         }
@@ -240,34 +189,142 @@
             <div class="progress-bar">
                 <div class="progress-step active" data-step="0"></div>
                 <div class="progress-step" data-step="1"></div>
+                <div class="progress-step" data-step="2"></div>
+                <div class="progress-step" data-step="3"></div>
             </div>
-            <div class="page-indicator">Page <span id="currentPage">1</span> of 2</div>
+            <div class="page-indicator">Page <span id="currentPage">1</span> of 4</div>
 
             <!-- Section 1: Intro -->
             <div class="form-section active" id="section-0">
                 <div class="intro-section">
-                    <div class="intro-icon">&#x1F4CF;</div>
-                    <h2>BRI Calculator</h2>
-                    <div class="hindi-title">(बॉडी राउंडनेस इंडेक्स)</div>
-                    <p>Body Roundness Index (BRI) is a measure that estimates the proportion of visceral adipose tissue based on height and waist circumference. A higher BRI indicates greater central obesity and associated health risks.</p>
-                    <p class="hindi-desc">बॉडी राउंडनेस इंडेक्स (BRI) एक माप है जो कमर की परिधि और ऊँचाई के आधार पर विसरल (आंतरिक) वसा के अनुपात का अनुमान लगाता है। अधिक BRI अधिक केंद्रीय मोटापा और संबंधित स्वास्थ्य जोखिम दर्शाता है।</p>
+                    <div class="intro-icon">&#x1F9E0;</div>
+                    <h2>GHQ-12 Assessment</h2>
+                    <div class="hindi-title">(General Health Questionnaire)</div>
+                    <p>We would like to know if you have had any medical complaints and how your health has been in general over the past two weeks.</p>
+                    <p style="font-size: 12px; color: #94a3b8; margin-top: 12px; line-height: 1.6;">12 questions &middot; Yes / No answers &middot; Scores from 0 to 12.<br>Answer every question for the past two weeks. Your score is calculated automatically.</p>
                 </div>
                 <div class="btn-row" style="justify-content: flex-end;">
                     <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
                 </div>
             </div>
 
-            <!-- Section 2: Measurements -->
+            <!-- Section 2: Basic Info -->
             <div class="form-section" id="section-1">
                 <div class="field-group">
-                    <div class="field-label">Height <span class="hindi">लंबाई (सेंटीमीटर)</span> <span class="required">*</span></div>
-                    <div class="field-hint">Enter height in centimeters (e.g., 170)</div>
-                    <input type="number" inputmode="numeric" class="text-input" id="q-height" placeholder="Height in cm" required>
+                    <div class="field-label">Name <span class="required">*</span></div>
+                    <input type="text" class="text-input" id="q-name" placeholder="Your answer" required>
                 </div>
                 <div class="field-group">
-                    <div class="field-label">Waist Circumference <span class="hindi">कमर की परिधि (सेंटीमीटर)</span> <span class="required">*</span></div>
-                    <div class="field-hint">Measure at the narrowest point, typically at the level of the navel</div>
-                    <input type="number" inputmode="numeric" class="text-input" id="q-waist" placeholder="Waist in cm" required>
+                    <div class="field-label">Age <span class="required">*</span></div>
+                    <input type="number" inputmode="numeric" class="text-input" id="q-age" placeholder="Your answer" required>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Gender <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="gender" value="male"><span class="radio-circle"></span><span class="radio-label">Male</span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="female"><span class="radio-circle"></span><span class="radio-label">Female</span></label>
+                        <label class="radio-option"><input type="radio" name="gender" value="other"><span class="radio-circle"></span><span class="radio-label">Other</span></label>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
+                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Section 3: GHQ Questions 1-6 -->
+            <div class="form-section" id="section-2">
+                <div class="field-group">
+                    <div class="field-label">1. Have you recently been able to concentrate on whatever you're doing? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-1" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-1" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">2. Have you recently lost much sleep over worry? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-2" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-2" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">3. Have you recently felt that you are playing a useful part in things? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-3" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-3" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">4. Have you recently felt capable of making decisions about things? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-4" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-4" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">5. Have you recently felt constantly under strain? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-5" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-5" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">6. Have you recently felt you could overcome your difficulties? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-6" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-6" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
+                    <button class="btn btn-next" onclick="nextSection()">Next &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Section 4: GHQ Questions 7-12 -->
+            <div class="form-section" id="section-3">
+                <div class="field-group">
+                    <div class="field-label">7. Have you recently been able to enjoy your normal day-to-day activities? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-7" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-7" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">8. Have you recently been able to face up to your problems? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-8" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-8" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">9. Have you recently been feeling unhappy and depressed? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-9" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-9" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">10. Have you recently been losing confidence in yourself? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-10" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-10" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">11. Have you recently been thinking of yourself as a worthless person? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-11" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-11" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">12. Have you recently been feeling reasonably happy, all things considered? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="ghq-12" value="yes"><span class="radio-circle"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="ghq-12" value="no"><span class="radio-circle"></span><span class="radio-label">No</span></label>
+                    </div>
                 </div>
                 <div class="btn-row">
                     <button class="btn btn-back" onclick="prevSection()">&larr; Back</button>
@@ -300,7 +357,7 @@
 
     <script>
         let currentSection = 0;
-        const totalSections = 2;
+        const totalSections = 4;
 
         function updateUI() {
             document.querySelectorAll('.form-section').forEach((s, i) => {
@@ -312,11 +369,13 @@
                 if (i === currentSection) s.classList.add('active');
             });
             document.getElementById('currentPage').textContent = currentSection + 1;
+            checkScroll();
         }
 
         function clearErrors(section) {
             section.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
             section.querySelectorAll('.error-msg').forEach(el => el.remove());
+            section.querySelectorAll('.radio-group.error').forEach(el => el.classList.remove('error'));
         }
 
         function showError(input, msg) {
@@ -332,20 +391,47 @@
             }
         }
 
+        function validateRadioGroup(qName) {
+            if (document.querySelector('input[name="' + qName + '"]:checked')) return true;
+            const radioGroup = document.querySelector('input[name="' + qName + '"]').closest('.radio-group');
+            let errEl = radioGroup.parentElement.querySelector('.error-msg');
+            if (!errEl) {
+                errEl = document.createElement('div');
+                errEl.className = 'error-msg show';
+                errEl.textContent = 'Please answer this question';
+                radioGroup.parentElement.appendChild(errEl);
+            } else {
+                errEl.classList.add('show');
+            }
+            radioGroup.classList.add('error');
+            return false;
+        }
+
         function validateSection(index) {
             const section = document.getElementById('section-' + index);
             clearErrors(section);
             let valid = true;
 
             if (index === 1) {
-                const height = document.getElementById('q-height');
-                const waist = document.getElementById('q-waist');
+                const name = document.getElementById('q-name');
+                if (!name.value.trim()) { showError(name, 'Please enter your name'); valid = false; }
 
-                if (!height.value.trim()) { showError(height, 'Please enter your height'); valid = false; }
-                else if (parseFloat(height.value) <= 0) { showError(height, 'Height must be positive'); valid = false; }
+                const age = document.getElementById('q-age');
+                if (!age.value.trim()) { showError(age, 'Please enter your age'); valid = false; }
 
-                if (!waist.value.trim()) { showError(waist, 'Please enter your waist circumference'); valid = false; }
-                else if (parseFloat(waist.value) <= 0) { showError(waist, 'Waist must be positive'); valid = false; }
+                if (!validateRadioGroup('gender')) valid = false;
+            }
+
+            if (index === 2) {
+                for (let i = 1; i <= 6; i++) {
+                    if (!validateRadioGroup('ghq-' + i)) valid = false;
+                }
+            }
+
+            if (index === 3) {
+                for (let i = 7; i <= 12; i++) {
+                    if (!validateRadioGroup('ghq-' + i)) valid = false;
+                }
             }
 
             return valid;
@@ -366,62 +452,45 @@
             }
         }
 
-        function calculateBRI() {
-            const height = parseFloat(document.getElementById('q-height').value);
-            const waist = parseFloat(document.getElementById('q-waist').value);
-
-            const whtr = waist / height;
-            const eccentricity = Math.sqrt(1 - Math.pow(whtr / Math.PI, 2));
-
-            const bri = 364.2 - 365.5 * eccentricity;
-            return Math.round(bri * 10) / 10;
-        }
-
-        function getBRICategory(bri) {
-            if (bri < 3.4) return { text: 'Very Low', class: 'very-low', hindi: 'बहुत कम', desc: 'Indicates thin/ectomorphic body composition. You may have low body fat and a lean physique.' };
-            if (bri <= 6.9) return { text: 'Low', class: 'low', hindi: 'कम', desc: 'Below average body roundness. Generally associated with lower visceral fat levels.' };
-            if (bri <= 11.0) return { text: 'Normal', class: 'normal', hindi: 'सामान्य', desc: 'Healthy body roundness level. Associated with optimal visceral fat distribution and lower health risks.' };
-            if (bri <= 16.0) return { text: 'High', class: 'high', hindi: 'उच्च', desc: 'Elevated body roundness indicating increased visceral fat. Consider lifestyle modifications.' };
-            return { text: 'Very High', class: 'very-high', hindi: 'बहुत उच्च', desc: 'Very high body roundness indicating significant visceral adiposity. Consult a healthcare professional.' };
+        function calculateScore() {
+            const shaded = { 'ghq-1': true, 'ghq-3': true, 'ghq-4': true, 'ghq-6': true, 'ghq-7': true, 'ghq-8': true, 'ghq-12': true };
+            let total = 0;
+            for (let i = 1; i <= 12; i++) {
+                const name = 'ghq-' + i;
+                const el = document.querySelector('input[name="' + name + '"]:checked');
+                if (!el) continue;
+                const yes = el.value === 'yes';
+                if (shaded[name]) {
+                    if (!yes) total++;
+                } else {
+                    if (yes) total++;
+                }
+            }
+            return total;
         }
 
         function submitForm() {
     if (!validateSection(currentSection)) return;
-    const bri = calculateBRI();
-    const category = getBRICategory(bri);
-    const height = parseFloat(document.getElementById('q-height').value);
-    const waist = parseFloat(document.getElementById('q-waist').value);
-
-    const color = { 'Very Low': 'cyan', Low: 'blue', Normal: 'green', High: 'amber', 'Very High': 'red' }[category.text] || 'amber';
-    const reco = {
-        'Very Low': ['Maintain a balanced, nutrient-dense diet to support a healthy weight', 'Include resistance training to build lean muscle mass', 'Get routine health check-ups to track progress'],
-        Low: ['Keep your current healthy weight and activity levels', 'Stay active with 30 minutes of moderate exercise most days', 'Monitor waist circumference periodically'],
-        Normal: ['Your routine is working well - continue it', 'Stay active with 150+ minutes of exercise each week', 'Re-screen every 6-12 months to track changes'],
-        High: ['Increase moderate physical activity to 150+ minutes per week', 'Reduce refined carbs; add more fibre and protein to meals', 'Track waist circumference monthly and aim for a gradual reduction', 'Book a follow-up screening in 3-6 months'],
-        'Very High': ['Consult a doctor or dietitian for a personalised plan', 'Start low-impact activity like walking or swimming for 30 min/day', 'Limit sugary drinks and ultra-processed foods', 'Schedule a follow-up health check within 3 months']
-    }[category.text] || [];
+    const total = calculateScore();
+    const name = document.getElementById('q-name').value.trim();
+    const age = document.getElementById('q-age').value.trim();
+    const genderEl = document.querySelector('input[name="gender"]:checked');
+    const gender = genderEl ? (genderEl.value.charAt(0).toUpperCase() + genderEl.value.slice(1)) : '';
 
     openAssessmentReport({
-        report: 'BRI Assessment',
-        kicker: 'Body Roundness Index',
-        title: 'BRI Assessment',
+        report: 'GHQ Assessment',
+        kicker: 'General Health Questionnaire',
+        title: 'GHQ-12 Assessment',
         backUrl: 'index.html',
-        chip: category.text,
-        chipColor: color,
-        frac: Math.max(0.05, Math.min(1, bri / 16)),
-        scoreText: String(bri),
-        cap: 'Body Roundness Index',
-        categories: [
-            { text: 'Very Low', color: 'cyan' },
-            { text: 'Low', color: 'blue' },
-            { text: 'Normal', color: 'green' },
-            { text: 'High', color: 'amber' },
-            { text: 'Very High', color: 'red' }
-        ],
-        reco: reco,
+        sub: [name, age ? 'Age ' + age : '', gender].filter(Boolean).join(' - '),
+        frac: Math.max(0.05, Math.min(1, total / 12)),
+        scoreText: String(total),
+        scoreUnit: '/ 12',
+        cap: 'GHQ-12 Score',
+        note: 'Scoring: for questions 1, 3, 4, 6, 7, 8 and 12 a "No" scores 1 point; for questions 2, 5, 9, 10 and 11 a "Yes" scores 1 point. Scores run from 0 to 12 - higher scores suggest greater psychological distress over the past two weeks. This is a screening aid, not a diagnosis.',
         pdf: {
-            title: 'BRI Assessment',
-            text: 'Height: ' + height + ' cm\nWaist: ' + waist + ' cm\nBRI: ' + bri + '\nCategory: ' + category.text
+            title: 'GHQ-12 Assessment',
+            text: 'Name: ' + name + '\nAge: ' + age + '\nGender: ' + gender + '\nScore: ' + total + ' / 12\n\nScoring rule:\nQuestions 1, 3, 4, 6, 7, 8, 12 (shaded): No = 1, Yes = 0\nQuestions 2, 5, 9, 10, 11 (unshaded): Yes = 1, No = 0\nHigher scores suggest greater psychological distress over the past two weeks.'
         }
     });
 }
@@ -434,6 +503,17 @@ function closeScoreCard() {
                 input.classList.remove('field-error');
                 const err = input.parentElement.querySelector('.error-msg');
                 if (err) err.classList.remove('show');
+            });
+        });
+
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                const group = radio.closest('.radio-group');
+                if (group) {
+                    group.classList.remove('error');
+                    const err = group.parentElement.querySelector('.error-msg');
+                    if (err) err.classList.remove('show');
+                }
             });
         });
 
@@ -471,27 +551,43 @@ function downloadPDF(title, resultText) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(22);
+    doc.setFontSize(20);
     doc.setTextColor(53, 174, 244);
-    doc.text('DrMudhiwalla HealthTech', 105, 25, { align: 'center' });
+    doc.text('DrMudhiwalla HealthTech', 105, 22, { align: 'center' });
     doc.setFontSize(10);
     doc.setTextColor(100, 100, 100);
-    doc.text('Health Screening in Everyday Places', 105, 32, { align: 'center' });
+    doc.text('Health Screening in Everyday Places', 105, 29, { align: 'center' });
     doc.setDrawColor(53, 174, 244);
     doc.setLineWidth(0.5);
-    doc.line(20, 38, 190, 38);
+    doc.line(20, 34, 190, 34);
+
+    let y = 48;
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(16);
     doc.setTextColor(15, 23, 42);
-    doc.text(title, 105, 52, { align: 'center' });
+    doc.text(title, 20, y, { align: 'left' });
+    y += 9;
+    doc.setFontSize(9);
+    doc.setTextColor(150, 150, 150);
+    doc.text('Generated on: ' + new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }), 20, y);
+    y += 7;
+    doc.setDrawColor(226, 232, 240);
+    doc.setLineWidth(0.3);
+    doc.line(20, y, 190, y);
+    y += 10;
+
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(11);
     doc.setTextColor(50, 50, 50);
-    const lines = doc.splitTextToSize(resultText, 160);
-    doc.text(lines, 105, 65, { align: 'center' });
+    const lines = doc.splitTextToSize(resultText, 170);
+    for (let i = 0; i < lines.length; i++) {
+        if (y > 272) { doc.addPage(); y = 20; }
+        doc.text(lines[i], 20, y);
+        y += 7;
+    }
+
     doc.setFontSize(9);
     doc.setTextColor(150, 150, 150);
-    doc.text('Generated on: ' + new Date().toLocaleDateString('en-IN'), 105, 280, { align: 'center' });
     doc.text('drmudhiwalla.com', 105, 287, { align: 'center' });
     doc.save(title.toLowerCase().replace(/\s+/g, '-') + '-result.pdf');
 }

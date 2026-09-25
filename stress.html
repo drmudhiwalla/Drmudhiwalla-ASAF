@@ -235,6 +235,7 @@
             .back-home-btn { top: 12px; right: 12px; padding: 8px 16px; font-size: 12px; }
         }
     </style>
+<link rel="stylesheet" href="report.css">
 </head>
 <body>
     <a href="index.html" class="text-logo" style="text-decoration: none;">
@@ -350,32 +351,8 @@
     <!-- Score Card Overlay -->
     <div class="score-overlay" id="scoreOverlay">
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
-        <div class="score-card">
-            <h2>Your Stress Score</h2>
-            <div class="hindi-sub">आपका तनाव स्कोर</div>
-
-            <div class="global-score-circle" id="scoreCircle">
-                <div class="global-score-num" id="scoreNum">0</div>
-                <div class="global-score-max">/ 16</div>
-            </div>
-
-            <div class="score-interpretation" id="scoreInterp"></div>
-
-            <div class="components-list" id="componentsList"></div>
-
-            <div style="font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">
-                Based on the Perceived Stress Scale (PSS-4) scoring method.<br>
-                परसिव्ड स्ट्रेस स्केल (PSS-4) स्कोरिंग विधि पर आधारित।<br>
-                Questions 2 & 3 are reverse scored. प्रश्न 2 और 3 उल्टे स्कोर वाले हैं।<br>
-                <strong>0–4</strong> Low Stress &nbsp;|&nbsp; <strong>5–8</strong> Moderate Stress &nbsp;|&nbsp; <strong>9–12</strong> High Stress &nbsp;|&nbsp; <strong>13–16</strong> Very High Stress
-            </div>
-
-            <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
-            <a id="downloadBtn" style="display:none; margin-top:20px; padding:12px 28px; background:#35AEF4; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; font-family:'Poppins',sans-serif; cursor:pointer;" href="#" download>Download Result</a>
-        </div>
-    </div>
-
-    <footer class="footer">
+        <div id="reportCard" style="width:100%; max-width:780px; max-height:94vh; overflow-y:auto; border-radius:20px; -webkit-overflow-scrolling:touch;"></div>
+    </div><footer class="footer">
         <div class="footer-icons">
             <a href="https://wa.me/919707010270" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -527,43 +504,48 @@
         }
 
         function submitForm() {
-            if (!validateSection(currentSection)) return;
-            const result = calculateScore();
-            const interp = getInterpretation(result.global);
+    if (!validateSection(currentSection)) return;
+    const result = calculateScore();
+    const interp = getInterpretation(result.global);
+    const name = document.getElementById('q-name').value.trim();
+    const age = document.getElementById('q-age').value.trim();
+    const genderEl = document.querySelector('input[name="gender"]:checked');
+    const gender = genderEl ? (genderEl.value.charAt(0).toUpperCase() + genderEl.value.slice(1)) : '';
+    const color = { good: 'green', mild: 'amber', moderate: 'orange', severe: 'red' }[interp.class] || 'amber';
 
-            // Update score circle
-            const circle = document.getElementById('scoreCircle');
-            circle.className = 'global-score-circle ' + interp.class;
+    const reco = {
+        good: ['Your stress levels are well balanced - keep it that way', 'Keep regular sleep, exercise and downtime', 'Recheck your stress levels periodically'],
+        mild: ['Set aside daily time for relaxation or deep breathing', 'Stay active - a 30-minute walk helps lower stress', 'Talk to someone you trust about what feels heavy'],
+        moderate: ['Practise daily relaxation such as breathing or meditation', 'Reduce avoidable commitments and set clear boundaries', 'Prioritise 7-8 hours of sleep each night', 'If stress persists, speak to a counsellor or doctor'],
+        severe: ['Consider speaking to a counsellor or doctor soon', 'Create a simple daily routine with built-in rest breaks', 'Avoid caffeine and alcohol while stressed', 'Reach out to family or trusted friends']
+    }[interp.class] || [];
 
-            const num = document.getElementById('scoreNum');
-            num.className = 'global-score-num ' + interp.class;
-            num.textContent = result.global;
-
-            // Update interpretation
-            const interpEl = document.getElementById('scoreInterp');
-            interpEl.className = 'score-interpretation ' + interp.class;
-            interpEl.textContent = interp.text + ' — ' + interp.hindi;
-
-            // Update components list
-            const list = document.getElementById('componentsList');
-            list.innerHTML = result.components.map(c =>
-                `<div class="component-row">
-                    <span class="component-name">${c.name}</span>
-                    <span class="component-score">${c.score} / ${c.max}</span>
-                </div>`
-            ).join('');
-
-            // Show overlay
-            document.getElementById('scoreOverlay').classList.add('active');
-
-            var downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.style.display = 'inline-block';
-            downloadBtn.onclick = function() {
-                downloadPDF('Stress Assessment', 'Name: ' + document.getElementById('q-name').value + '\nAge: ' + document.getElementById('q-age').value + '\nScore: ' + result.global + ' / 16\nInterpretation: ' + interp.text);
-            };
+    openAssessmentReport({
+        report: 'Stress Assessment',
+        kicker: 'Perceived Stress',
+        title: 'Stress Assessment',
+        backUrl: 'index.html',
+        sub: [name, age ? 'Age ' + age : '', gender].filter(Boolean).join(' - '),
+        chip: interp.text,
+        chipColor: color,
+        frac: Math.max(0.05, Math.min(1, result.global / 16)),
+        scoreText: String(result.global),
+        scoreUnit: '/ 16',
+        cap: 'Perceived Stress Scale',
+        categories: [
+            { text: 'Low Stress', color: 'green' },
+            { text: 'Moderate Stress', color: 'amber' },
+            { text: 'High Stress', color: 'orange' },
+            { text: 'Very High Stress', color: 'red' }
+        ],
+        reco: reco,
+pdf: {
+            title: 'Stress Assessment',
+            text: 'Name: ' + name + '\nAge: ' + age + '\nGender: ' + gender + '\nScore: ' + result.global + ' / 16\nInterpretation: ' + interp.text + ' (' + interp.hindi + ')\n\nCategory Overview:\n' + ['Low Stress', 'Moderate Stress', 'High Stress', 'Very High Stress'].join(' | ') + '\n\nKey Recommendations:\n' + reco.map(function (r, i) { return (i + 1) + '. ' + r; }).join('\n')
         }
-
-        function closeScoreCard() {
+    });
+}
+function closeScoreCard() {
             document.getElementById('scoreOverlay').classList.remove('active');
         }
 
@@ -636,33 +618,51 @@ if (logo) {
     });
 }
 </script>
+<script src="report-card.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 function downloadPDF(title, resultText) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(22);
+    doc.setFontSize(20);
     doc.setTextColor(53, 174, 244);
-    doc.text('DrMudhiwalla HealthTech', 105, 25, { align: 'center' });
+    doc.text('DrMudhiwalla HealthTech', 105, 22, { align: 'center' });
     doc.setFontSize(10);
     doc.setTextColor(100, 100, 100);
-    doc.text('Health Screening in Everyday Places', 105, 32, { align: 'center' });
+    doc.text('Health Screening in Everyday Places', 105, 29, { align: 'center' });
     doc.setDrawColor(53, 174, 244);
     doc.setLineWidth(0.5);
-    doc.line(20, 38, 190, 38);
+    doc.line(20, 34, 190, 34);
+
+    let y = 48;
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(16);
     doc.setTextColor(15, 23, 42);
-    doc.text(title, 105, 52, { align: 'center' });
+    doc.text(title, 20, y, { align: 'left' });
+    y += 9;
+    doc.setFontSize(9);
+    doc.setTextColor(150, 150, 150);
+    doc.text('Generated on: ' + new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }), 20, y);
+    y += 7;
+    doc.setDrawColor(226, 232, 240);
+    doc.setLineWidth(0.3);
+    doc.line(20, y, 190, y);
+    y += 10;
+
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(11);
     doc.setTextColor(50, 50, 50);
-    const lines = doc.splitTextToSize(resultText, 160);
-    doc.text(lines, 105, 65, { align: 'center' });
+    const lines = doc.splitTextToSize(resultText, 170);
+    for (let i = 0; i < lines.length; i++) {
+        if (y > 272) { doc.addPage(); y = 20; }
+        doc.text(lines[i], 20, y);
+        y += 7;
+    }
+
     doc.setFontSize(9);
     doc.setTextColor(150, 150, 150);
-    doc.text('Generated on: ' + new Date().toLocaleDateString('en-IN'), 105, 280, { align: 'center' });
     doc.text('drmudhiwalla.com', 105, 287, { align: 'center' });
     doc.save(title.toLowerCase().replace(/\s+/g, '-') + '-result.pdf');
 }

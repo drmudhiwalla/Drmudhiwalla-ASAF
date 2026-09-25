@@ -228,6 +228,7 @@
             .logo-subtitle { font-size: 0.55rem; }
         }
     </style>
+<link rel="stylesheet" href="report.css">
 </head>
 <body>
     <a href="index.html" class="text-logo" style="text-decoration: none;">
@@ -394,40 +395,8 @@
     <!-- Score Card Overlay -->
     <div class="score-overlay" id="scoreOverlay">
         <div class="score-overlay-bg" onclick="closeScoreCard()"></div>
-        <div class="score-card">
-            <h2>Your Physical Activity Level</h2>
-            <div class="hindi-sub">आपकी शारीरिक गतिविधि का स्तर</div>
-
-            <div class="global-score-circle" id="scoreCircle">
-                <div class="category-label" id="scoreLabel">—</div>
-                <div class="global-score-max">Category</div>
-            </div>
-
-            <div class="score-interpretation" id="scoreInterp"></div>
-
-            <div class="components-list" id="componentsList"></div>
-
-            <div class="criteria-box">
-                <h3>IPAQ Classification Criteria / वर्गीकरण मानदंड</h3>
-                <ul>
-                    <li class="low"><strong>Low (Inactive)</strong> &mdash; Does not meet criteria for categories 2 or 3</li>
-                    <li class="moderate"><strong>Moderately Active</strong> &mdash; 3+ days vigorous (20+ min/day) OR 5+ days moderate/walking (30+ min/day) OR 5+ days any combination achieving 600+ MET-min/week</li>
-                    <li class="high"><strong>Highly Active</strong> &mdash; 3+ days vigorous (20+ min/day, totalling 1500+ MET-min/week) OR 7+ days any activity (3000+ MET-min/week)</li>
-                </ul>
-            </div>
-
-            <div class="disclaimer">
-                Based on the International Physical Activity Questionnaire (IPAQ) Short Form.<br>
-                अंतर्राष्ट्रीय शारीरिक गतिविधि प्रश्नावली (IPAQ) शॉर्ट फॉर्म पर आधारित।<br>
-                For informational purposes only. Not a medical diagnosis.
-            </div>
-
-            <button class="score-btn" onclick="window.location.href='index.html'">Back to Home</button>
-            <a id="downloadBtn" style="display:none; margin-top:20px; padding:12px 28px; background:#35AEF4; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; font-family:'Poppins',sans-serif; cursor:pointer;" href="#" download>Download Result</a>
-        </div>
-    </div>
-
-    <footer class="footer">
+        <div id="reportCard" style="width:100%; max-width:780px; max-height:94vh; overflow-y:auto; border-radius:20px; -webkit-overflow-scrolling:touch;"></div>
+    </div><footer class="footer">
         <div class="footer-icons">
             <a href="https://wa.me/919707010270" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -681,52 +650,48 @@
         }
 
         function submitForm() {
-            if (!validateSection(currentSection)) return;
-            var result = calculateScore();
+    if (!validateSection(currentSection)) return;
+    const result = calculateScore();
+    const name = document.getElementById('q-name').value.trim();
+    const age = document.getElementById('q-age').value.trim();
+    const genderEl = document.querySelector('input[name="gender"]:checked');
+    const gender = genderEl ? (genderEl.value.charAt(0).toUpperCase() + genderEl.value.slice(1)) : '';
 
-            var circle = document.getElementById('scoreCircle');
-            circle.className = 'global-score-circle ' + result.categoryClass;
+    const color = result.category === 'Low' ? 'red' : result.category === 'Moderate' ? 'amber' : 'green';
+    const frac = result.category === 'Low' ? 0.9 : result.category === 'Moderate' ? 0.55 : 0.2;
+    const title = result.category === 'Low' ? 'Inactive' : result.category === 'Moderate' ? 'Moderately Active' : 'Highly Active';
 
-            var label = document.getElementById('scoreLabel');
-            label.className = 'category-label ' + result.categoryClass;
-            label.textContent = result.category;
+    const reco = {
+        Low: ['Start with 10-15 minute walks on 3 days a week', 'Gradually build up to 30 minutes on most days', 'Break up long sitting with light stretches each hour', 'Reassess your activity levels in a few weeks'],
+        Moderate: ['Move more - add 10-minute brisk walks to your day', 'Try 2-3 sessions of vigorous activity each week', 'Stand or stretch every 30-45 minutes while working'],
+        High: ['Your activity level is excellent - maintain it', 'Keep at least 150 minutes of vigorous activity weekly', 'Take short movement breaks during long sitting']
+    }[result.category] || [];
 
-            var interpEl = document.getElementById('scoreInterp');
-            interpEl.className = 'score-interpretation ' + result.categoryClass;
-            if (result.category === 'Low') {
-                interpEl.textContent = 'Inactive — निष्क्रिय';
-            } else if (result.category === 'Moderate') {
-                interpEl.textContent = 'Moderately Active — मध्यम रूप से सक्रिय';
-            } else {
-                interpEl.textContent = 'Highly Active — अत्यधिक सक्रिय';
-            }
-
-            var list = document.getElementById('componentsList');
-            list.innerHTML = result.components.map(function(c) {
-                return '<div class="component-row">' +
-                    '<span class="component-name">' + c.name + (c.detail ? ' <span style="color:#94a3b8;font-size:11px;">(' + c.detail + ')</span>' : '') + '</span>' +
-                    '<span class="component-score">' + c.score + (typeof c.score === 'number' ? ' MET' : '') + '</span>' +
-                '</div>';
-            }).join('');
-
-            document.getElementById('scoreOverlay').classList.add('active');
-
-            var downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.style.display = 'inline-block';
-            downloadBtn.onclick = function() {
-                downloadPDF('Sedentary Assessment',
-                    'Name: ' + document.getElementById('q-name').value +
-                    '\nAge: ' + document.getElementById('q-age').value +
-                    '\nCategory: ' + result.category +
-                    '\nTotal MET-min/week: ' + result.totalMET +
-                    '\nVigorous MET: ' + result.vigorousMET +
-                    '\nModerate MET: ' + result.moderateMET +
-                    '\nWalking MET: ' + result.walkingMET
-                );
-            };
+    openAssessmentReport({
+        report: 'Sedentary Assessment',
+        kicker: 'Physical Activity',
+        title: 'Physical Activity Level',
+        backUrl: 'index.html',
+        sub: [name, age ? 'Age ' + age : '', gender].filter(Boolean).join(' - '),
+        chip: title,
+        chipColor: color,
+        frac: frac,
+        scoreText: String(result.totalMET),
+        scoreUnit: 'MET-min',
+        cap: 'Weekly Activity',
+        categories: [
+            { text: 'Inactive', color: 'red' },
+            { text: 'Moderately Active', color: 'amber' },
+            { text: 'Highly Active', color: 'green' }
+        ],
+        reco: reco,
+        pdf: {
+            title: 'Sedentary Assessment',
+            text: 'Name: ' + name + '\nAge: ' + age + '\nCategory: ' + result.category + '\nTotal MET-min/week: ' + result.totalMET + '\nVigorous MET: ' + result.vigorousMET + '\nModerate MET: ' + result.moderateMET + '\nWalking MET: ' + result.walkingMET
         }
-
-        function closeScoreCard() {
+    });
+}
+function closeScoreCard() {
             document.getElementById('scoreOverlay').classList.remove('active');
         }
 
@@ -786,7 +751,9 @@ if (logo) {
     });
 }
 </script>
+<script src="report-card.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 function downloadPDF(title, resultText) {
     const { jsPDF } = window.jspdf;

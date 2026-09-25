@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bank Model - DrMudhiwalla</title>
+    <title>The Gym Model - DrMudhiwalla</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://drmudhiwalla.com/bank-model.html">
-    <meta property="og:title" content="The Bank Model - DrMudhiwalla HealthTech">
-    <meta property="og:description" content="Learn how DrMudhiwalla sets up health screening kiosks inside bank branches — no separate real estate, no new hires. 8,000+ customers screened in 6 months.">
+    <meta property="og:url" content="https://drmudhiwalla.com/gym-model.html">
+    <meta property="og:title" content="The Gym Model - DrMudhiwalla HealthTech">
+    <meta property="og:description" content="Preventive health screening for gym members on their own phone — Blood Pressure, BMI, Sleep and Stress, classified Green/Yellow/Red with consent-first privacy.">
     <meta property="og:image" content="https://drmudhiwalla.com/222.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -17,8 +17,8 @@
     <meta property="og:locale" content="en_IN">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Bank Model - DrMudhiwalla HealthTech">
-    <meta name="twitter:description" content="Learn how DrMudhiwalla sets up health screening kiosks inside bank branches — no separate real estate, no new hires. 8,000+ customers screened in 6 months.">
+    <meta name="twitter:title" content="The Gym Model - DrMudhiwalla HealthTech">
+    <meta name="twitter:description" content="Preventive health screening for gym members on their own phone — Blood Pressure, BMI, Sleep and Stress, classified Green/Yellow/Red with consent-first privacy.">
     <meta name="twitter:image" content="https://drmudhiwalla.com/222.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -117,6 +117,13 @@
             box-shadow: 0 18px 44px rgba(100, 120, 160, 0.22);
         }
 
+        .hi-sub {
+            display: block;
+            margin-top: 6px;
+            color: #94a3b8;
+            font-size: 0.88em;
+        }
+
         /* Step Flow */
         .flow {
             display: flex;
@@ -172,39 +179,6 @@
             line-height: 1;
         }
 
-        /* Stats */
-        .stats {
-            display: flex;
-            gap: 16px;
-            margin-top: 28px;
-            text-align: center;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            flex: 1;
-            min-width: 140px;
-            padding: 20px 12px;
-            border-radius: 16px;
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-        }
-
-        .stat-num {
-            font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800;
-            color: #0284c7;
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: #334155;
-            margin-top: 6px;
-        }
-
         /* 3-icon row */
         .pillars {
             display: flex;
@@ -222,6 +196,8 @@
             border: 1px solid #e2e8f0;
             border-radius: 16px;
         }
+
+        .pillars-4 .pillar { min-width: 140px; }
 
         .pillar-icon {
             font-size: 30px;
@@ -242,11 +218,11 @@
         }
 
         /* Inner card hover */
-        .step, .stat, .pillar {
+        .step, .pillar {
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        .step:hover, .stat:hover, .pillar:hover {
+        .step:hover, .pillar:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 26px rgba(100, 120, 160, 0.16);
             border-color: #35AEF4;
@@ -254,6 +230,11 @@
 
         /* CTA */
         .cta-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
             text-align: center;
             margin: clamp(8px, 2vw, 20px) 0 clamp(28px, 4vw, 48px);
         }
@@ -267,7 +248,7 @@
             padding: 14px 40px;
             border-radius: 50px;
             text-decoration: none;
-            border: none;
+            border: 1px solid transparent;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
             box-shadow: 0 4px 16px rgba(53, 174, 244, 0.35);
@@ -279,46 +260,31 @@
             box-shadow: 0 8px 24px rgba(53, 174, 244, 0.45);
         }
 
-        /* Bar Chart */
-        .chart {
-            display: flex;
-            align-items: flex-end;
-            gap: clamp(10px, 2vw, 20px);
-            margin-top: 32px;
-            height: 200px;
-            padding: 0 6px;
+        .cta-btn-ghost {
+            background: #fff;
+            color: #35AEF4;
+            border: 1px solid #bae6fd;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
         }
 
-        .chart-col {
-            flex: 1;
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            height: 100%;
+        .cta-btn-ghost:hover {
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
         }
 
-        .chart-val {
-            font-size: clamp(10px, 1.4vw, 13px);
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 6px;
-        }
-
-        .bar {
-            width: 100%;
-            max-width: 46px;
-            border-radius: 6px 6px 0 0;
-            background: linear-gradient(to top, #0ea5e9, #35AEF4);
-            transition: height 0.4s;
-        }
-
-        .chart-label {
-            font-size: 11px;
+        .cta-note {
+            text-align: center;
+            font-size: 13px;
             color: #94a3b8;
-            margin-top: 8px;
+            margin: -14px 0 clamp(28px, 4vw, 48px);
         }
+
+        .cta-note a {
+            color: #35AEF4;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .cta-note a:hover { text-decoration: underline; }
 
         /* Modal */
         .modal-overlay {
@@ -447,18 +413,10 @@
             .step { min-width: 0; }
             .flow-arrow { transform: rotate(90deg); align-self: center; }
 
-            .chart { height: 150px; margin-top: 24px; gap: 10px; }
-            .chart-val { font-size: 10px; }
-            .chart-label { font-size: 10px; }
-
-            .stats { gap: 12px; }
-            .stat { min-width: 0; flex-basis: calc(33.333% - 8px); padding: 16px 8px; }
-            .stat-num { font-size: 30px; }
-            .stat-label { font-size: 12px; }
-
             .pillars { flex-direction: column; gap: 12px; }
             .pillar { min-width: 0; }
 
+            .cta-row { flex-direction: column; align-items: center; }
             .cta-btn { width: 100%; max-width: 360px; }
 
             .modal-card { padding: 32px 24px; }
@@ -482,16 +440,10 @@
             .flow { gap: 8px; }
             .step { padding: 16px 14px; }
 
-            .chart { height: 120px; gap: 8px; }
-            .bar { max-width: 30px; }
-
-            .stats { flex-direction: column; gap: 10px; }
-            .stat { flex-basis: auto; }
-            .stat-num { font-size: 26px; }
-
             .pillar { padding: 16px 12px; }
             .pillar-icon { font-size: 26px; }
 
+            .cta-row { width: 100%; }
             .cta-btn { width: 100%; max-width: none; padding: 14px 24px; font-size: 15px; }
 
             .modal-card { padding: 28px 20px; border-radius: 18px; }
@@ -512,8 +464,8 @@
                 transition: none;
             }
             .card.reveal.visible:hover { transform: none; }
-            .step, .stat, .pillar { transition: none; }
-            .step:hover, .stat:hover, .pillar:hover { transform: none; }
+            .step, .pillar { transition: none; }
+            .step:hover, .pillar:hover { transform: none; }
         }
     </style>
 </head>
@@ -528,82 +480,61 @@
 
             <!-- Hero -->
             <section class="card reveal">
-                <h1>The Bank Model</h1>
-                <p>We set up a screening kiosk inside your existing branch — no separate real estate, no new hires required.</p>
+                <h1>The Gym Model</h1>
+                <p>A preventive health screening to assess your overall health category — on your own phone, at your gym.
+                    <span class="hi-sub" lang="hi">जिम स्वास्थ्य जांच — आपके समग्र स्वास्थ्य श्रेणी का आकलन करने के लिए एक निवारक स्वास्थ्य जांच।</span>
+                </p>
             </section>
 
-            <!-- Routine Visit Flow -->
+            <!-- Member Routine Flow -->
             <section class="card reveal">
-                <h2>Fits Into a Routine Visit</h2>
-                <p>Customer visits branch for banking &rarr; gets screened while waiting (5 mins) &rarr; leaves with a report.</p>
+                <h2>Fits Into a Workout</h2>
+                <p>Member arrives for a workout &rarr; records BP, BMI and lifestyle details in minutes &rarr; gets a Green/Yellow/Red report on WhatsApp.</p>
                 <div class="flow">
                     <div class="step">
                         <div class="step-num">1</div>
-                        <h3>Customer visits branch</h3>
-                        <p>Arrives for their regular banking need.</p>
+                        <h3>Sign up &amp; consent</h3>
+                        <p>Name, age and consent on their phone — the WhatsApp number is their ID.</p>
                     </div>
                     <div class="flow-arrow">&rarr;</div>
                     <div class="step">
                         <div class="step-num">2</div>
-                        <h3>Gets screened</h3>
-                        <p>A quick 5-minute screening while they wait.</p>
+                        <h3>Quick measurements</h3>
+                        <p>Blood pressure at the gym, height &amp; weight for BMI. Sleep, stress &amp; medical history continue via a WhatsApp link.</p>
                     </div>
                     <div class="flow-arrow">&rarr;</div>
                     <div class="step">
                         <div class="step-num">3</div>
-                        <h3>Leaves with a report</h3>
-                        <p>Instant, easy-to-read health report in hand.</p>
+                        <h3>Report in hand</h3>
+                        <p>Instant Green/Yellow/Red report, saved under a Screening ID for later.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Proven in the Field -->
+            <!-- What We Measure -->
             <section class="card reveal">
-                <h2>Proven in the Field</h2>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-num">3</div>
-                        <div class="stat-label">Branches</div>
+                <h2>What We Measure</h2>
+                <p>6 parameters: Green/Yellow/Red classification with final risk assessment.</p>
+                <div class="pillars pillars-4">
+                    <div class="pillar">
+                        <div class="pillar-icon">&#x2764;&#xFE0F;</div>
+                        <h3>Blood Pressure</h3>
+                        <p>Systolic &amp; diastolic readings — measured right at the gym.</p>
                     </div>
-                    <div class="stat">
-                        <div class="stat-num">6</div>
-                        <div class="stat-label">Months</div>
+                    <div class="pillar">
+                        <div class="pillar-icon">&#x1F4D0;</div>
+                        <h3>BMI</h3>
+                        <p>Height and weight turned into a Body Mass Index.</p>
                     </div>
-                    <div class="stat">
-                        <div class="stat-num">8,000+</div>
-                        <div class="stat-label">Customers Screened</div>
+                    <div class="pillar">
+                        <div class="pillar-icon">&#x1F634;</div>
+                        <h3>Sleep Quality</h3>
+                        <p>A short sleep-quality assessment on their phone.</p>
                     </div>
-                </div>
-                <div class="chart">
-                    <div class="chart-col">
-                        <div class="chart-val">1.2K</div>
-                        <div class="bar" style="height: 15%"></div>
-                        <div class="chart-label">M1</div>
-                    </div>
-                    <div class="chart-col">
-                        <div class="chart-val">2.5K</div>
-                        <div class="bar" style="height: 31%"></div>
-                        <div class="chart-label">M2</div>
-                    </div>
-                    <div class="chart-col">
-                        <div class="chart-val">3.9K</div>
-                        <div class="bar" style="height: 49%"></div>
-                        <div class="chart-label">M3</div>
-                    </div>
-                    <div class="chart-col">
-                        <div class="chart-val">5.2K</div>
-                        <div class="bar" style="height: 65%"></div>
-                        <div class="chart-label">M4</div>
-                    </div>
-                    <div class="chart-col">
-                        <div class="chart-val">6.6K</div>
-                        <div class="bar" style="height: 83%"></div>
-                        <div class="chart-label">M5</div>
-                    </div>
-                    <div class="chart-col">
-                        <div class="chart-val">8K+</div>
-                        <div class="bar" style="height: 100%"></div>
-                        <div class="chart-label">M6</div>
+                    <div class="pillar">
+                        <div class="pillar-icon">&#x1F9D8;</div>
+                        <h3>Stress Level</h3>
+                        <p>A brief stress questionnaire with a scored result.</p>
                     </div>
                 </div>
             </section>
@@ -611,35 +542,39 @@
             <!-- Data Privacy -->
             <section class="card reveal">
                 <h2>Your Data Stays Yours</h2>
-                <p>Fully data-privacy compliant. No PII shared with the bank.</p>
+                <p>Consent-first and confidential. Only your final Green/Yellow/Red category may be shared with gym management — your detailed health information remains private.</p>
+                <p>Your WhatsApp number is your identifier for your report. It is never shared with any third party.</p>
+                <p>This screening is for health awareness only and does not replace medical diagnosis or consultation.</p>
             </section>
 
-            <!-- Why Banks Partner -->
+            <!-- Why Gyms Partner -->
             <section class="card reveal">
-                <h2>Why Banks Partner With Us</h2>
+                <h2>Why Gyms Partner With Us</h2>
                 <div class="pillars">
                     <div class="pillar">
-                        <div class="pillar-icon">&#x1F4AC;</div>
-                        <h3>Customer Engagement</h3>
-                        <p>Deeper, more frequent touchpoints with customers.</p>
+                        <div class="pillar-icon">&#x1F91D;</div>
+                        <h3>Member Engagement</h3>
+                        <p>A health-first touchpoint that keeps members coming back.</p>
                     </div>
                     <div class="pillar">
                         <div class="pillar-icon">&#x2728;</div>
-                        <h3>Customer Experience</h3>
-                        <p>A value-add visit that feels effortless and premium.</p>
+                        <h3>Member Experience</h3>
+                        <p>A premium value-add that feels effortless and modern.</p>
                     </div>
                     <div class="pillar">
                         <div class="pillar-icon">&#x1F9E0;</div>
                         <h3>Differentiation</h3>
-                        <p>Stand out from other banks on the high street.</p>
+                        <p>Stand out from every other gym in the neighbourhood.</p>
                     </div>
                 </div>
             </section>
 
             <!-- CTA -->
             <div class="cta-row">
-                <button type="button" class="cta-btn" onclick="openModal()">Connect With Us &rarr;</button>
+                <a href="https://screening.drmudhiwalla.com" target="_blank" rel="noopener" class="cta-btn">Start Screening &rarr;</a>
+                <button type="button" class="cta-btn cta-btn-ghost" onclick="openModal()">Connect With Us &rarr;</button>
             </div>
+            <p class="cta-note">Live at <a href="https://screening.drmudhiwalla.com" target="_blank" rel="noopener">screening.drmudhiwalla.com</a></p>
 
         </div>
     </div>
