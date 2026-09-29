@@ -1,44 +1,312 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Corporate information for DrMudhiwalla Healthtech Private Limited - CIN, GSTIN, DPIIT recognition, MSME Udyam registration, financial statements and annual report.">
     <title>Corporate Information - DrMudhiwalla HealthTech</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .error-section { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 40px 20px; text-align: center; }
-        .error-content { max-width: 600px; }
-        .error-emoji { font-size: clamp(60px, 10vw, 100px); margin-bottom: 16px; }
-        .error-label { font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; color: #35AEF4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .error-heading { font-size: clamp(24px, 3vw, 44px); font-weight: 600; color: #0f172a; line-height: 1.1; margin-bottom: 16px; }
-        .error-sub { font-size: clamp(14px, 1.25vw, 18px); font-weight: 400; color: #687386; margin-bottom: 32px; line-height: 1.6; }
-        .error-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .error-btn { display: inline-block; background: #35AEF4; color: #fff; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background 0.2s, transform 0.2s; }
-        .error-btn:hover { background: #0284c7; transform: translateY(-1px); }
-        .error-btn-outline { display: inline-block; background: transparent; color: #35AEF4; font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; padding: 14px 32px; border-radius: 50px; text-decoration: none; border: 2px solid #35AEF4; font-family: 'Poppins', sans-serif; transition: background 0.2s, color 0.2s; }
-        .error-btn-outline:hover { background: #35AEF4; color: #fff; }
+        .policy-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+        .policy-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 32px;
+        }
+        .policy-updated {
+            font-size: 0.85rem;
+            color: #687386;
+            margin: -20px 0 40px;
+        }
+        .policy-intro {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 44px;
+        }
+        .doc-section-title {
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 20px;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-bottom: 48px;
+        }
+        .detail-item {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px 18px;
+        }
+        .detail-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #687386;
+            margin-bottom: 6px;
+        }
+        .detail-value {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0f172a;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .doc-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .doc-card:hover {
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            transform: translateY(-2px);
+        }
+        .doc-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(53, 174, 244, 0.12);
+            color: #35AEF4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .doc-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        .doc-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 8px;
+        }
+        .doc-card p {
+            font-size: 0.875rem;
+            color: #687386;
+            line-height: 1.65;
+            margin: 0 0 14px;
+        }
+        .doc-tag {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #0284c7;
+            background: rgba(53, 174, 244, 0.12);
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-bottom: 18px;
+        }
+        .doc-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+        .doc-btn,
+        .doc-btn-outline {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .doc-btn {
+            background: #35AEF4;
+            color: #fff;
+        }
+        .doc-btn:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+        }
+        .doc-btn-outline {
+            background: transparent;
+            color: #35AEF4;
+            border: 2px solid #35AEF4;
+        }
+        .doc-btn-outline:hover {
+            background: #35AEF4;
+            color: #fff;
+        }
+        .back-home-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: inline-block;
+            background: #35AEF4;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            z-index: 100;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home-btn:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+        }
+        .note-block {
+            margin-top: 48px;
+            background: #f9fafb;
+            border-left: 3px solid #35AEF4;
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            font-size: 0.875rem;
+            color: #374151;
+            line-height: 1.7;
+        }
+        .note-block a {
+            color: #0284c7;
+        }
+        @media (max-width: 480px) {
+            .policy-section {
+                padding: 90px 20px 50px;
+            }
+            .back-home-btn {
+                top: auto;
+                bottom: 20px;
+                right: 16px;
+                padding: 9px 18px;
+                font-size: 0.78rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn">&larr; Back to Home</a>
     <a href="index.html" class="text-logo fade-in-down" style="text-decoration: none;">
         <div class="logo-title">DrMudhiwalla</div>
         <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
     </a>
-    <section class="error-section">
-        <div class="error-content fade-in-up">
-            <div class="error-emoji">&#x1F3E2;</div>
-            <p class="error-label">LOADING</p>
-            <h1 class="error-heading">Corporate Information</h1>
-            <p class="error-sub">Our CIN, GSTIN, and other corporate acronyms are currently being alphabetized by our intern. Yes, we know they're already numbers. The intern is... enthusiastic.</p>
-            <div class="error-links">
-                <a href="index.html" class="error-btn">Go Home &rarr;</a>
-                <a href="bank-model.html" class="error-btn-outline">See Our Bank Model</a>
+
+    <section class="policy-section">
+        <h1 class="policy-title">Corporate Information</h1>
+        <p class="policy-updated">Last Updated: 29 September 2026</p>
+
+        <p class="policy-intro">DrMudhiwalla Healthtech Private Limited is a company incorporated in India. This page brings together our statutory registration details and the public corporate filings and certificates that relate to the Company.</p>
+
+        <h2 class="doc-section-title">Company Details</h2>
+        <div class="detail-grid">
+            <div class="detail-item">
+                <span class="detail-label">Legal Name</span>
+                <span class="detail-value">DrMudhiwalla Healthtech Private Limited</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">CIN</span>
+                <span class="detail-value">U86201DL2025PTC451980</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">GSTIN</span>
+                <span class="detail-value">07AALCD8789M1ZL</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Registered Office</span>
+                <span class="detail-value">B-180, Majlis Park, Delhi 110033</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Company Type</span>
+                <span class="detail-value">Private Limited Company</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Incorporation</span>
+                <span class="detail-value">India (Delhi)</span>
             </div>
         </div>
+
+        <h2 class="doc-section-title">Certificates &amp; Filings</h2>
+        <div class="doc-grid">
+
+            <article class="doc-card">
+                <div class="doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+                </div>
+                <h3>DPIIT Recognition Certificate</h3>
+                <p>Certificate of recognition as a startup by the Department for Promotion of Industry and Internal Trade, Ministry of Commerce &amp; Industry, Government of India.</p>
+                <span class="doc-tag">Certificate &middot; PDF</span>
+                <div class="doc-actions">
+                    <a href="dpiit-certificate.html" class="doc-btn">View Document</a>
+                    <a href="DrMudhiwalla_DPIIT.pdf" class="doc-btn-outline" target="_blank" rel="noopener">Download PDF</a>
+                </div>
+            </article>
+
+            <article class="doc-card">
+                <div class="doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>
+                </div>
+                <h3>MSME Udyam Registration</h3>
+                <p>Udyam registration certificate classifying the Company as a Micro, Small or Medium Enterprise under the Ministry of Micro, Small &amp; Medium Enterprises.</p>
+                <span class="doc-tag">Certificate &middot; PDF</span>
+                <div class="doc-actions">
+                    <a href="udyam-certificate.html" class="doc-btn">View Document</a>
+                    <a href="UdyamCertificate_DrMudhiwallaPvtLtd.pdf" class="doc-btn-outline" target="_blank" rel="noopener">Download PDF</a>
+                </div>
+            </article>
+
+            <article class="doc-card">
+                <div class="doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                </div>
+                <h3>Financial Statements FY 2025&ndash;26</h3>
+                <p>Statutory financial statements of DrMudhiwalla Healthtech Private Limited for the financial year 2025&ndash;26, prepared in accordance with applicable requirements.</p>
+                <span class="doc-tag">Financials &middot; PDF</span>
+                <div class="doc-actions">
+                    <a href="financial-statements.html" class="doc-btn">View Document</a>
+                    <a href="FY25-26%20Financial%20Statements%20.pdf" class="doc-btn-outline" target="_blank" rel="noopener">Download PDF</a>
+                </div>
+            </article>
+
+            <article class="doc-card">
+                <div class="doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <h3>Annual Report FY 2025&ndash;26</h3>
+                <p>Annual report of the Company for the financial year 2025&ndash;26, covering operations, performance and statutory disclosures for the year.</p>
+                <span class="doc-tag">Report &middot; PDF</span>
+                <div class="doc-actions">
+                    <a href="annual-report.html" class="doc-btn">View Document</a>
+                    <a href="FY25-26%20Annual%20Report%20.pdf" class="doc-btn-outline" target="_blank" rel="noopener">Download PDF</a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="note-block">
+            Documents are provided for informational purposes. If you need a copy of any filing or certificate for verification or due-diligence purposes, please write to <a href="mailto:support@drmudhiwalla.com">support@drmudhiwalla.com</a>.
+        </div>
     </section>
+
     <script>document.querySelectorAll('.fade-in-up, .fade-in-down').forEach(el => { el.addEventListener('animationend', () => { el.style.opacity = '1'; el.style.animation = 'none'; }); });</script>
+    <script src="site-footer.js"></script>
 </body>
 </html>
-

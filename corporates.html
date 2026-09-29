@@ -28,7 +28,29 @@
         .cta-btn:hover { background: #0284c7; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(53,174,244,0.35); }
         .footer-bar { background: #35AEF4; color: #fff; padding: 16px 24px; text-align: center; font-size: 12px; margin: 0 8vw 40px; border-radius: 12px; }
         .footer-bar a { color: #fff; text-decoration: none; }
-        @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } .corp-hero { padding: 100px 20px 40px; min-height: 50vh; } .from-to-box { padding: 28px 20px; } .text-logo { top: 12px; left: 12px; } .logo-title { font-size: 1.2rem; } .logo-subtitle { font-size: 0.65rem; } }
+        .back-link {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #64748b;
+            text-decoration: none;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 8px 16px;
+            box-shadow: 0 4px 16px rgba(100, 120, 160, 0.1);
+            transition: color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .back-link:hover { color: #35AEF4; border-color: #35AEF4; transform: translateY(-1px); }
+        @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } .corp-hero { padding: 100px 20px 40px; min-height: 50vh; } .from-to-box { padding: 28px 20px; } .text-logo { top: 12px; left: 12px; } .logo-title { font-size: 1.2rem; } .logo-subtitle { font-size: 0.65rem; } .back-link { top: 22px; right: 16px; padding: 7px 12px; font-size: 13px; min-height: 44px; } }
     </style>
 </head>
 <body>
@@ -36,6 +58,7 @@
         <div class="logo-title">DrMudhiwalla</div>
         <div class="logo-subtitle">HealthTech <span class="pvt-ltd">Pvt Ltd</span></div>
     </a>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
 
     <section class="corp-hero">
         <div class="corp-hero-content fade-in-up">
@@ -93,6 +116,7 @@
             });
         });
     </script>
+    <script src="site-footer.js"></script>
 </body>
 </html>
 
