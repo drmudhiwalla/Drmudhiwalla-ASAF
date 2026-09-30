@@ -782,6 +782,12 @@ body.landing {
     position: relative;
     z-index: 10;
     border-radius: 20px 20px 0 0;
+    /* Some pages use `body { display:flex; flex-direction:column;
+       align-items:center }` (the PDF viewer pages). There the footer is a flex
+       item and shrink-to-fits its content instead of filling the row, coming
+       out ~675px wide and centred. align-self is ignored in block layout, so
+       this is inert everywhere else. */
+    align-self: stretch;
 }
 
 .footer-container {
@@ -794,6 +800,19 @@ body.landing {
     justify-content: center;
     margin-top: -30px;
     margin-bottom: 1rem;
+    cursor: pointer;
+    background: none;
+    border: 0;
+}
+
+.footer-arrow svg {
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.footer-arrow:hover svg,
+.footer-arrow:focus-visible svg {
+    opacity: 0.75;
+    transform: translateY(-3px);
 }
 
 .footer-main {
@@ -1659,6 +1678,28 @@ body.landing {
 .menu-contact-btn.whatsapp { background: #25D366; }
 .menu-contact-btn.email { background: #35AEF4; }
 .menu-contact-btn.linkedin { background: #0077B5; }
+
+/* Between the mobile breakpoint and the width at which 4 columns can actually
+   sit beside the brand, lay the link columns out 2x2. Without this,
+   .footer-main's flex-wrap drops the columns underneath the logo, leaving the
+   footer ~45% taller with a large empty gap beside it. The 4 columns are a
+   fixed 727px, so they can never fit next to a 360px brand below ~1180px. */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .footer-main {
+        gap: 2rem;
+    }
+
+    .footer-brand-area {
+        max-width: 300px;
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.6rem 2rem;
+        flex: 1 1 320px;
+        min-width: 0;
+    }
+}
 
 .contact-modal {
     display: none;

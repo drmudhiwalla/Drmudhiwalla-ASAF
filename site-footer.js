@@ -7,8 +7,8 @@
 
   var FOOTER_HTML = [
     '<footer class="site-footer">',
-    '    <div class="footer-arrow">',
-    '        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">',
+    '    <div class="footer-arrow" role="button" tabindex="0" aria-label="Back to top">',
+    '        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">',
     '            <path d="M7 13l5 5 5-5"/>',
     '        </svg>',
     '    </div>',
@@ -28,7 +28,7 @@
     '                <div class="footer-col reveal">',
     '                    <h3 class="footer-heading" onclick="toggleFooterCol(this)">Products<span class="footer-plus">+</span></h3>',
     '                    <ul class="footer-links">',
-    '                        <li><a href="index.html">Health Infrastructure</a></li>',
+    '                        <li><a href="bank-model.html">Health Infrastructure</a></li>',
     '                        <li><a href="assessments.html">Health Tools</a></li>',
     '                        <li><a href="health-insights.html">Health Insights</a></li>',
     '                    </ul>',
@@ -128,10 +128,26 @@
       });
     }
 
-    // make sure the footer is actually reachable: the arrow scrolls to top,
-    // and the whole site needs styles.css for .site-footer to look right
-    document.querySelectorAll('footer.site-footer a').forEach(function (a) {
-      if (a.getAttribute('href') === '#') a.setAttribute('href', '#');
+    wireArrow();
+  }
+
+  // The arrow chevron was purely decorative (no handler, cursor: auto), so it
+  // read as a button and did nothing. Make it a real control.
+  function wireArrow() {
+    var arrow = document.querySelector('footer.site-footer .footer-arrow');
+    if (!arrow || arrow.dataset.wired === '1') return;
+    arrow.dataset.wired = '1';
+
+    var toTop = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    arrow.addEventListener('click', toTop);
+    arrow.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        toTop();
+      }
     });
   }
 
